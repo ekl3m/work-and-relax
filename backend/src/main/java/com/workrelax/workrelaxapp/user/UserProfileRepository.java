@@ -9,9 +9,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserProfileRepository extends JpaRepository<UserProfile, Long> {
 
-    //@Query("SELECT s FROM UserProfile u WHERE u.Email = ?1")
+    @Query("SELECT u FROM UserProfile u WHERE u.Email = :Email")
     Optional<UserProfile> findUserByEmail(String Email);
 
-    //@Query("SELECT s FROM UserProfile u WHERE u.UserplanID = ?1")
+    @Query("SELECT u FROM UserProfile u WHERE u.UserplanID = :UserplanID")
     Optional<UserProfile> findUserByUserplan(Long UserplanID);
 }

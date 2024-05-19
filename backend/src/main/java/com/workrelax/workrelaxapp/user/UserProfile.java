@@ -2,6 +2,7 @@ package com.workrelax.workrelaxapp.user;
 
 import java.util.List;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,6 +19,7 @@ public class UserProfile {
     private Long ID;
     private String Name;
     private String Surname;
+    @Column(unique = true, nullable = false)
     private String Email;
     private String Password;
     private List<Long> FriendlistIDs;
