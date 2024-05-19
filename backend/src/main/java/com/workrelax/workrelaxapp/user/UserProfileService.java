@@ -22,9 +22,17 @@ public class UserProfileService {
     public void addNewUser(UserProfile user) {
         Optional<UserProfile> userOptional = userProfileRepository.findUserByEmail(user.getEmail());
         if(userOptional.isPresent()) {
-            throw new IllegalStateException("Email uzytkownika istnieje w bazie danych");
+            throw new IllegalStateException("User with email " + user.getEmail() + " already exists!");
         }
         
         userProfileRepository.save(user);
+    }
+
+    public void deleteUser(Long userId) {
+        boolean userExists = userProfileRepository.existsById(userId);
+        if (!userExists) {
+            throw new IllegalStateException("User with ID " + userId + " does not exist!");
+        }
+        userProfileRepository.deleteById(userId);
     }
 }
