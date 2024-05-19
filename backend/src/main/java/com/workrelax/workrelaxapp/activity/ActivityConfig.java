@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
 public class ActivityConfig {
 
     @Bean
-    CommandLineRunner commandLineRunner(ActivityRepository repository) {
+    CommandLineRunner activityCommandLineRunner(ActivityRepository repository) {
         return args -> {
             Activity activity0 = new Activity(
                 "Analiza matematyczna",
@@ -23,10 +23,10 @@ public class ActivityConfig {
                 LocalDateTime.of(LocalDate.of(2024, Month.MAY, 30), LocalTime.of(10, 0, 0))
             );
             Activity activity1 = new Activity(
-                    "Fryzjer",
-                    "",
-                    "",
-                    LocalDateTime.of(LocalDate.of(2024, Month.MAY, 30), LocalTime.of(15, 30, 0))
+                "Fryzjer",
+                "",
+                "",
+                LocalDateTime.of(LocalDate.of(2024, Month.MAY, 30), LocalTime.of(15, 30, 0))
             );
 
             repository.saveAll(

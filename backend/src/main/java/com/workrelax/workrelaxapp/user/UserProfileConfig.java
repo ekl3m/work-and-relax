@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 public class UserProfileConfig {
 
     @Bean
-    CommandLineRunner commandLineRunner(UserProfileRepository repository) {
+    CommandLineRunner userCommandLineRunner(UserProfileRepository repository) {
         return args -> {
             UserProfile MariuszWyrwidab = new UserProfile(
                 "Mariusz",

@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
 public class EventConfig {
 
     @Bean
-    CommandLineRunner commandLineRunner(EventRepository repository) {
+    CommandLineRunner eventCommandLineRunner(EventRepository repository) {
         return args -> {
             Event event0 = new Event(
                 "Festiwal piwa",

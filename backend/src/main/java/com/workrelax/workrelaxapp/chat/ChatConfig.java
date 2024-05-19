@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 public class ChatConfig {
 
     @Bean
-    CommandLineRunner commandLineRunner(ChatRepository repository) {
+    CommandLineRunner chatCommandLineRunner(ChatRepository repository) {
         return args -> {
             Chat chat0 = new Chat(
                 1L,

@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 public class PlanConfig {
 
     @Bean
-    CommandLineRunner commandLineRunner(PlanRepository repository) {
+    CommandLineRunner planCommandLineRunner(PlanRepository repository) {
         return args -> {
             Plan plan0 = new Plan(
                 true,

@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 public class AnnouncementConfig {
 
     @Bean
-    CommandLineRunner commandLineRunner(AnnouncementRepository repository) {
+    CommandLineRunner announcementCommandLineRunner(AnnouncementRepository repository) {
         return args -> {
             Announcement announcement0 = new Announcement(
                 "Sprzedam mieszkanie",
