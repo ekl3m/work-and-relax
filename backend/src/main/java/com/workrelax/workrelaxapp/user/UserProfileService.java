@@ -25,7 +25,7 @@ public class UserProfileService {
     public void addNewUser(UserProfile user) {
         Optional<UserProfile> userOptional = userProfileRepository.findUserByEmail(user.getEmail());
         if(userOptional.isPresent()) {
-            throw new IllegalStateException("User with email \"" + user.getEmail() + "\" already exists!");
+            throw new IllegalStateException("User with email " + user.getEmail() + " already exists!");
         }
         
         userProfileRepository.save(user);
@@ -34,7 +34,7 @@ public class UserProfileService {
     public void deleteUser(Long userId) {
         boolean userExists = userProfileRepository.existsById(userId);
         if (!userExists) {
-            throw new IllegalStateException("User with ID \"" + userId + "\" does not exist!");
+            throw new IllegalStateException("User with ID " + userId + " does not exist!");
         }
         userProfileRepository.deleteById(userId);
     }
@@ -57,7 +57,7 @@ public class UserProfileService {
         if (email != null && email.length() > 0 && !Objects.equals(user.getEmail(), email)) {
             Optional<UserProfile> userOptional = userProfileRepository.findUserByEmail(email);
             if (userOptional.isPresent()) {
-                throw new IllegalStateException("User with email \"" + email + "\" already exists!");
+                throw new IllegalStateException("User with email " + email + " already exists!");
             }
             user.setEmail(email);
         }
@@ -65,7 +65,7 @@ public class UserProfileService {
         // Changing password + adjusting minimal password length
         if (password != null && password.length() > 0 && !Objects.equals(user.getPassword(), password)) {
             if (password.length() < 6) {
-                throw new IllegalStateException("Password \"" + password + "\" is too short! Minimum is 6 characters.");
+                throw new IllegalStateException("Password " + password + " is too short! Minimum is 6 characters.");
             }
             user.setPassword(password);
         }
@@ -79,7 +79,7 @@ public class UserProfileService {
         if (userplanId >= 0 && !Objects.equals(user.getUserplan(), userplanId)) {
             Optional<UserProfile> userOptional = userProfileRepository.findUserByUserplan(userplanId);
             if (userOptional.isPresent()) {
-                throw new IllegalStateException("There is an existing user with plan ID \"" + userplanId + "\"!");
+                throw new IllegalStateException("There is an existing user with plan ID " + userplanId + "!");
             }
             user.setUserplan(userplanId);
         }
