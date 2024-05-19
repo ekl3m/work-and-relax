@@ -19,7 +19,6 @@ public class UserProfile {
     private Long ID;
     private String Name;
     private String Surname;
-    @Column(unique = true, nullable = false)
     private String Email;
     private String Password;
     private List<Long> FriendlistIDs;
