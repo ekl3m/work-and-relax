@@ -2,7 +2,6 @@ package com.workrelax.workrelaxapp.user;
 
 import java.util.List;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -31,8 +30,7 @@ public class UserProfile {
 
     // Everything constructor:
 
-    public UserProfile(Long ID, String Name, String Surname, String Email, String Password, List<Long> FriendlistIDs,
-            Long UserplanID) {
+    public UserProfile(Long ID, String Name, String Surname, String Email, String Password, List<Long> FriendlistIDs, Long UserplanID) {
         this.ID = ID;
         this.Name = Name;
         this.Surname = Surname;
@@ -44,8 +42,7 @@ public class UserProfile {
 
     // No ID constructor, database can generate IDs:
 
-    public UserProfile(String Name, String Surname, String Email, String Password, List<Long> FriendlistIDs,
-            Long UserplanID) {
+    public UserProfile(String Name, String Surname, String Email, String Password, List<Long> FriendlistIDs, Long UserplanID) {
         this.Name = Name;
         this.Surname = Surname;
         this.Email = Email;
