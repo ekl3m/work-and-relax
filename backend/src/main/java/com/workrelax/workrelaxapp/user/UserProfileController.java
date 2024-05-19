@@ -40,13 +40,13 @@ public class UserProfileController {
     }
 
     @PutMapping(path = "{userProfileId}")
-    public void updateUser(@PathVariable("userProfileId") Long id, 
+    public void updateUser(@PathVariable("userProfileId") Long userId, 
         @RequestParam(required = false) String name, 
         @RequestParam(required = false) String surname,
         @RequestParam(required = false) String email,
         @RequestParam(required = false) String password,
         @RequestParam(required = false) List<Long> friendlistIds,
         @RequestParam(required = false) Long userplanId) {
-        userService.updateUser(id, name, surname, email, password, friendlistIds, userplanId);
+        userService.updateUser(userId, name, surname, email, password, friendlistIds, userplanId);
     }
 }
