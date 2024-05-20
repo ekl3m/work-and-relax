@@ -39,6 +39,7 @@ public class UserProfileService {
         if (!apiTools.isKeyValid(key)) {
             throw new IllegalStateException("Provided API key is incorrect!");
         }
+
         Optional<UserProfile> userOptional = userProfileRepository.findUserByEmail(user.getEmail());
         if(userOptional.isPresent()) {
             throw new IllegalStateException("User with email " + user.getEmail() + " already exists!");
@@ -47,7 +48,14 @@ public class UserProfileService {
         userProfileRepository.save(user);
     }
 
-    public void deleteUser(Long userId) {
+    public void deleteUser(String key, Long userId) {
+        if (key.isEmpty()) {
+            throw new IllegalStateException("API key was not provided!");
+        }
+        if (!apiTools.isKeyValid(key)) {
+            throw new IllegalStateException("Provided API key is incorrect!");
+        }
+
         boolean userExists = userProfileRepository.existsById(userId);
         if (!userExists) {
             throw new IllegalStateException("User with ID " + userId + " does not exist!");
@@ -56,7 +64,14 @@ public class UserProfileService {
     }
 
     @Transactional
-    public void updateUser(Long userId, String name, String surname, String email, String password, List<Long> friendlistIds, Long userplanId) {
+    public void updateUser(String key, Long userId, String name, String surname, String email, String password, List<Long> friendlistIds, Long userplanId) {
+        if (key.isEmpty()) {
+            throw new IllegalStateException("API key was not provided!");
+        }
+        if (!apiTools.isKeyValid(key)) {
+            throw new IllegalStateException("Provided API key is incorrect!");
+        }
+
         UserProfile user = userProfileRepository.findById(userId).orElseThrow(() -> new IllegalStateException("User with ID " + userId + " does not exist!"));
 
         // Changing name

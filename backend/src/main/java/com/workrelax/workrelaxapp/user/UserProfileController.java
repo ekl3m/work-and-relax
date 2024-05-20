@@ -24,29 +24,30 @@ public class UserProfileController {
         this.userService = userService;
     }
 
-    @GetMapping("/all")
+    @GetMapping(path = "/all")
     public List<UserProfile> getUsers(@RequestParam(name = "key", defaultValue = "") String key) {
         return userService.getUsers(key);
     }
 
-    @PostMapping("/new")
+    @PostMapping(path = "/new")
     public void registerUser(@RequestParam(name = "key", defaultValue = "") String key, @RequestBody UserProfile user) {
         userService.addNewUser(key, user);
     }
 
-    @DeleteMapping(path = "{userProfileId}")
-    public void deleteUser(@PathVariable("userProfileId") Long userId) {
-        userService.deleteUser(userId);
+    @DeleteMapping(path = "/account/{userProfileId}")
+    public void deleteUser(@PathVariable("userProfileId") Long userId, @RequestParam(name = "key", defaultValue = "") String key) {
+        userService.deleteUser(key, userId);
     }
 
-    @PutMapping(path = "{userProfileId}")
-    public void updateUser(@PathVariable("userProfileId") Long userId, 
+    @PutMapping(path = "/edit/{userProfileId}")
+    public void updateUser(@PathVariable("userProfileId") Long userId,
+        @RequestParam(name = "key", defaultValue = "", required = true) String key, 
         @RequestParam(required = false) String name, 
         @RequestParam(required = false) String surname,
         @RequestParam(required = false) String email,
         @RequestParam(required = false) String password,
         @RequestParam(required = false) List<Long> friendlistIds,
-        @RequestParam(required = false) Long userplanId) {
-        userService.updateUser(userId, name, surname, email, password, friendlistIds, userplanId);
+        @RequestParam(required = false, defaultValue = "-1") Long userplanId) {
+        userService.updateUser(key, userId, name, surname, email, password, friendlistIds, userplanId);
     }
 }
