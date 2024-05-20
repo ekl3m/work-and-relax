@@ -3,6 +3,10 @@ package com.workrelax.workrelaxapp.user;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.RestController;
+
+import com.workrelax.workrelaxapp.tools.Exceptions.ApiKeyNotProvided;
+import com.workrelax.workrelaxapp.tools.Exceptions.InvalidApiKey;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,29 +29,31 @@ public class UserProfileController {
     }
 
     @GetMapping(path = "/all")
-    public List<UserProfile> getUsers(@RequestParam(name = "key", defaultValue = "") String key) {
+    public List<UserProfile> getUsers(@RequestParam(name = "key", defaultValue = "") String key) throws InvalidApiKey, ApiKeyNotProvided {
         return userService.getUsers(key);
     }
 
     @PostMapping(path = "/new")
-    public void registerUser(@RequestParam(name = "key", defaultValue = "") String key, @RequestBody UserProfile user) {
+    public void registerUser(@RequestParam(name = "key", defaultValue = "") String key, @RequestBody UserProfile user) throws InvalidApiKey, ApiKeyNotProvided {
         userService.addNewUser(key, user);
     }
 
     @DeleteMapping(path = "/account/{userProfileId}")
-    public void deleteUser(@PathVariable("userProfileId") Long userId, @RequestParam(name = "key", defaultValue = "") String key) {
+    public void deleteUser(@PathVariable("userProfileId") Long userId, @RequestParam(name = "key", defaultValue = "") String key) 
+    throws InvalidApiKey, ApiKeyNotProvided {
         userService.deleteUser(key, userId);
     }
 
     @PutMapping(path = "/edit/{userProfileId}")
     public void updateUser(@PathVariable("userProfileId") Long userId,
-        @RequestParam(name = "key", defaultValue = "", required = true) String key, 
-        @RequestParam(required = false) String name, 
-        @RequestParam(required = false) String surname,
-        @RequestParam(required = false) String email,
-        @RequestParam(required = false) String password,
-        @RequestParam(required = false) List<Long> friendlistIds,
-        @RequestParam(required = false, defaultValue = "-1") Long userplanId) {
+    @RequestParam(name = "key", defaultValue = "", required = true) String key, 
+    @RequestParam(required = false) String name, 
+    @RequestParam(required = false) String surname,
+    @RequestParam(required = false) String email,
+    @RequestParam(required = false) String password,
+    @RequestParam(required = false) List<Long> friendlistIds,
+    @RequestParam(required = false, defaultValue = "-1") Long userplanId) 
+    throws InvalidApiKey, ApiKeyNotProvided {
         userService.updateUser(key, userId, name, surname, email, password, friendlistIds, userplanId);
     }
 }

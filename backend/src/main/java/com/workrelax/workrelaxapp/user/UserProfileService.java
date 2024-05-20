@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import jakarta.transaction.Transactional;
 
 import com.workrelax.workrelaxapp.tools.ApiTools;
+import com.workrelax.workrelaxapp.tools.Exceptions.*;
 
 @Service
 public class UserProfileService {
@@ -22,22 +23,22 @@ public class UserProfileService {
     }
 
     // get all users method + api key validation
-    public List<UserProfile> getUsers(String key) {
+    public List<UserProfile> getUsers(String key) throws InvalidApiKey, ApiKeyNotProvided {
         if (key.isEmpty()) {
-            throw new IllegalStateException("API key was not provided!");
+            throw new ApiKeyNotProvided("API key was not provided!");
         }
         if (!apiTools.isKeyValid(key)) {
-            throw new IllegalStateException("Provided API key is incorrect!");
+            throw new InvalidApiKey("Provided API key is incorrect!");
         }
         return userProfileRepository.findAll();
     }
 
-    public void addNewUser(String key, UserProfile user) {
+    public void addNewUser(String key, UserProfile user) throws InvalidApiKey, ApiKeyNotProvided {
         if (key.isEmpty()) {
-            throw new IllegalStateException("API key was not provided!");
+            throw new ApiKeyNotProvided("API key was not provided!");
         }
         if (!apiTools.isKeyValid(key)) {
-            throw new IllegalStateException("Provided API key is incorrect!");
+            throw new InvalidApiKey("Provided API key is incorrect!");
         }
 
         Optional<UserProfile> userOptional = userProfileRepository.findUserByEmail(user.getEmail());
@@ -48,12 +49,12 @@ public class UserProfileService {
         userProfileRepository.save(user);
     }
 
-    public void deleteUser(String key, Long userId) {
+    public void deleteUser(String key, Long userId) throws InvalidApiKey, ApiKeyNotProvided {
         if (key.isEmpty()) {
-            throw new IllegalStateException("API key was not provided!");
+            throw new ApiKeyNotProvided("API key was not provided!");
         }
         if (!apiTools.isKeyValid(key)) {
-            throw new IllegalStateException("Provided API key is incorrect!");
+            throw new InvalidApiKey("Provided API key is incorrect!");
         }
 
         boolean userExists = userProfileRepository.existsById(userId);
@@ -64,12 +65,13 @@ public class UserProfileService {
     }
 
     @Transactional
-    public void updateUser(String key, Long userId, String name, String surname, String email, String password, List<Long> friendlistIds, Long userplanId) {
+    public void updateUser(String key, Long userId, String name, String surname, String email, String password, List<Long> friendlistIds, Long userplanId) 
+    throws InvalidApiKey, ApiKeyNotProvided {
         if (key.isEmpty()) {
-            throw new IllegalStateException("API key was not provided!");
+            throw new ApiKeyNotProvided("API key was not provided!");
         }
         if (!apiTools.isKeyValid(key)) {
-            throw new IllegalStateException("Provided API key is incorrect!");
+            throw new InvalidApiKey("Provided API key is incorrect!");
         }
 
         UserProfile user = userProfileRepository.findById(userId).orElseThrow(() -> new IllegalStateException("User with ID " + userId + " does not exist!"));
