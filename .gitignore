@@ -34,3 +34,6 @@ backend/target/
 
 # Debugging requests file
 backend/requests.http
+
+# VS Code setting folder
+.vscode/
