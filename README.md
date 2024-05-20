@@ -98,6 +98,6 @@ ekl3m:
 - GitHub: [ekl3m](https://github.com/ekl3m)
 
 JakubMagdziak:
-- Email: [NOT PROVIDED]
+- Email: jakubmagdziak10@gmail.com
 - GitHub: [JakubMagdziak](https://github.com/JakubMagdziak)
 
