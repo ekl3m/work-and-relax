@@ -24,14 +24,14 @@ public class UserProfileController {
         this.userService = userService;
     }
 
-    @GetMapping
-    public List<UserProfile> getUsers() {
-        return userService.getUsers();
+    @GetMapping("/all")
+    public List<UserProfile> getUsers(@RequestParam(name = "key", defaultValue = "") String key) {
+        return userService.getUsers(key);
     }
 
-    @PostMapping
-    public void registerUser(@RequestBody UserProfile user) {
-        userService.addNewUser(user);
+    @PostMapping("/new")
+    public void registerUser(@RequestParam(name = "key", defaultValue = "") String key, @RequestBody UserProfile user) {
+        userService.addNewUser(key, user);
     }
 
     @DeleteMapping(path = "{userProfileId}")

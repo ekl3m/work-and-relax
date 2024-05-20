@@ -9,20 +9,36 @@ import org.springframework.stereotype.Service;
 
 import jakarta.transaction.Transactional;
 
+import com.workrelax.workrelaxapp.tools.ApiTools;
+
 @Service
 public class UserProfileService {
     private final UserProfileRepository userProfileRepository;
+    private final ApiTools apiTools = new ApiTools();
 
     @Autowired
     public UserProfileService(UserProfileRepository userProfileRepository) {
         this.userProfileRepository = userProfileRepository;
     }
 
-    public List<UserProfile> getUsers() {
+    // get all users method + api key validation
+    public List<UserProfile> getUsers(String key) {
+        if (key.isEmpty()) {
+            throw new IllegalStateException("API key was not provided!");
+        }
+        if (!apiTools.isKeyValid(key)) {
+            throw new IllegalStateException("Provided API key is incorrect!");
+        }
         return userProfileRepository.findAll();
     }
 
-    public void addNewUser(UserProfile user) {
+    public void addNewUser(String key, UserProfile user) {
+        if (key.isEmpty()) {
+            throw new IllegalStateException("API key was not provided!");
+        }
+        if (!apiTools.isKeyValid(key)) {
+            throw new IllegalStateException("Provided API key is incorrect!");
+        }
         Optional<UserProfile> userOptional = userProfileRepository.findUserByEmail(user.getEmail());
         if(userOptional.isPresent()) {
             throw new IllegalStateException("User with email " + user.getEmail() + " already exists!");
