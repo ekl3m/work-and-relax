@@ -32,7 +32,7 @@ To install and set up this project, follow these steps:
 
 1. Navigate to the iOS application directory:
     ```sh
-    cd ../frontend
+    cd ../frontend/WorkAndRelax
     ```
 
 2. Open the Xcode project:
