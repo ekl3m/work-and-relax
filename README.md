@@ -1,6 +1,6 @@
 # Work & Relax
 
-iOS application based on a Spring backend with a JPA-managed PostgresSQL database made for college students to manage their free time. This is not an official application, it is a college project for class.
+iOS application written in Swift based on a Spring backend with a JPA-managed PostgresSQL database made for college students to manage their free time. This is not an official application, it is a college project for class.
 
 ## Installation
 
