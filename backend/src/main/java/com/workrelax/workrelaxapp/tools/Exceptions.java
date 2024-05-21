@@ -31,4 +31,16 @@ public class Exceptions {
             super(message);
         }
     }
+
+    public static class PlanNotFound extends Exception {
+        public PlanNotFound(String message) {
+            super(message);
+        }
+    }
+
+    public static class PlanAlreadyExists extends Exception {
+        public PlanAlreadyExists(String message) {
+            super(message);
+        }
+    }
 }
