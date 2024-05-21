@@ -22,7 +22,7 @@ public class PlanService {
         this.planRepository = planRepository;
     }
 
-    // get all users method + api key validation
+    // get all events method + api key validation
     public List<Plan> getPlans(String key) throws InvalidApiKey, ApiKeyNotProvided {
         if (key.isEmpty()) {
             throw new ApiKeyNotProvided("API key was not provided!");

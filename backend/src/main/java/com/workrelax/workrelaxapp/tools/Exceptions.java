@@ -43,4 +43,22 @@ public class Exceptions {
             super(message);
         }
     }
+
+    public static class EventAlreadyExists extends Exception {
+        public EventAlreadyExists(String message) {
+            super(message);
+        }
+    }
+
+    public static class EventNotFound extends Exception {
+        public EventNotFound(String message) {
+            super(message);
+        }
+    }
+
+    public static class DateInThePast extends Exception {
+        public DateInThePast(String message) {
+            super(message);
+        }
+    }
 }
