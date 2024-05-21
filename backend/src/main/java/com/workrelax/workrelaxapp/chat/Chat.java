@@ -22,6 +22,7 @@ public class Chat {
         strategy = GenerationType.SEQUENCE,
         generator = "chat_sequence"
     )
+    private Long ID;
     private Long OwnerID;
     private Long CoownerID;
     private List<String> Messages;
@@ -33,20 +34,26 @@ public class Chat {
 
     // Everything constructor:
 
+    public Chat(Long ID, Long OwnerID, Long CoownerID, List<String> Messages) {
+        this.ID = ID;
+        this.OwnerID = OwnerID;
+        this.CoownerID = CoownerID;
+        this.Messages = Messages;
+    }
+
+    // No ID construcotr, database can generate IDs:
+
     public Chat(Long OwnerID, Long CoownerID, List<String> Messages) {
         this.OwnerID = OwnerID;
         this.CoownerID = CoownerID;
         this.Messages = Messages;
     }
 
-    // No messages constructor:
-
-    public Chat(Long OwnerID, Long CoownerID) {
-        this.OwnerID = OwnerID;
-        this.CoownerID = CoownerID;
-    }
-
     // Getters:
+
+    public Long getID() {
+        return ID;
+    }
 
     public Long getOwnerID() {
         return OwnerID;
@@ -62,11 +69,15 @@ public class Chat {
 
     // Setters:
 
-    public void setOwner(Long OwnerID) {
+    public void setID(Long ID) {
+        this.ID = ID;
+    }
+
+    public void setOwnerID(Long OwnerID) {
         this.OwnerID = OwnerID;
     }
 
-    public void setCoowner(Long CoownerID) {
+    public void setCoownerID(Long CoownerID) {
         this.CoownerID = CoownerID;
     }
 
@@ -78,6 +89,6 @@ public class Chat {
 
     @Override
     public String toString() {
-        return "Chat [OwnerID=" + OwnerID + ", CoownerID=" + CoownerID + ", Messages=" + Messages + "]";
+        return "Chat [ID=" + ID + ", OwnerID=" + OwnerID + ", CoownerID=" + CoownerID + ", Messages=" + Messages + "]";
     }
 }

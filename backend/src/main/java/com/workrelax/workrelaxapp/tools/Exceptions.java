@@ -61,4 +61,16 @@ public class Exceptions {
             super(message);
         }
     }
+
+    public static class ChatAlreadyExists extends Exception {
+        public ChatAlreadyExists(String message) {
+            super(message);
+        }
+    }
+
+    public static class ChatNotFound extends Exception {
+        public ChatNotFound(String message) {
+            super(message);
+        }
+    }
 }
