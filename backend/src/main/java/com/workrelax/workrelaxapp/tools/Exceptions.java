@@ -13,4 +13,22 @@ public class Exceptions {
             super(message);
         }
     }
+
+    public static class UserProfileAlreadyExists extends Exception {
+        public UserProfileAlreadyExists(String message) {
+            super(message);
+        }
+    }
+
+    public static class UserProfileNotFound extends Exception {
+        public UserProfileNotFound(String message) {
+            super(message);
+        }
+    }
+
+    public static class PasswordTooShort extends Exception {
+        public PasswordTooShort(String message) {
+            super(message);
+        }
+    }
 }

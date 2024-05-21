@@ -33,7 +33,7 @@ public class UserProfileService {
         return userProfileRepository.findAll();
     }
 
-    public void addNewUser(String key, UserProfile user) throws InvalidApiKey, ApiKeyNotProvided {
+    public void addNewUser(String key, UserProfile user) throws InvalidApiKey, ApiKeyNotProvided, UserProfileAlreadyExists {
         if (key.isEmpty()) {
             throw new ApiKeyNotProvided("API key was not provided!");
         }
@@ -43,13 +43,13 @@ public class UserProfileService {
 
         Optional<UserProfile> userOptional = userProfileRepository.findUserByEmail(user.getEmail());
         if(userOptional.isPresent()) {
-            throw new IllegalStateException("User with email " + user.getEmail() + " already exists!");
+            throw new UserProfileAlreadyExists("User with email " + user.getEmail() + " already exists!");
         }
         
         userProfileRepository.save(user);
     }
 
-    public void deleteUser(String key, Long userId) throws InvalidApiKey, ApiKeyNotProvided {
+    public void deleteUser(String key, Long userId) throws InvalidApiKey, ApiKeyNotProvided, UserProfileNotFound {
         if (key.isEmpty()) {
             throw new ApiKeyNotProvided("API key was not provided!");
         }
@@ -59,14 +59,14 @@ public class UserProfileService {
 
         boolean userExists = userProfileRepository.existsById(userId);
         if (!userExists) {
-            throw new IllegalStateException("User with ID " + userId + " does not exist!");
+            throw new UserProfileNotFound("User with ID " + userId + " does not exist!");
         }
         userProfileRepository.deleteById(userId);
     }
 
     @Transactional
     public void updateUser(String key, Long userId, String name, String surname, String email, String password, List<Long> friendlistIds, Long userplanId) 
-    throws InvalidApiKey, ApiKeyNotProvided {
+    throws InvalidApiKey, ApiKeyNotProvided, UserProfileAlreadyExists, UserProfileNotFound, PasswordTooShort {
         if (key.isEmpty()) {
             throw new ApiKeyNotProvided("API key was not provided!");
         }
@@ -74,7 +74,7 @@ public class UserProfileService {
             throw new InvalidApiKey("Provided API key is incorrect!");
         }
 
-        UserProfile user = userProfileRepository.findById(userId).orElseThrow(() -> new IllegalStateException("User with ID " + userId + " does not exist!"));
+        UserProfile user = userProfileRepository.findById(userId).orElseThrow(() -> new UserProfileNotFound("User with ID " + userId + " does not exist!"));
 
         // Changing name
         if(name != null && name.length() > 0 && !Objects.equals(user.getName(), name)) {
@@ -90,7 +90,7 @@ public class UserProfileService {
         if (email != null && email.length() > 0 && !Objects.equals(user.getEmail(), email)) {
             Optional<UserProfile> userOptional = userProfileRepository.findUserByEmail(email);
             if (userOptional.isPresent()) {
-                throw new IllegalStateException("User with email " + email + " already exists!");
+                throw new UserProfileAlreadyExists("User with email " + email + " already exists!");
             }
             user.setEmail(email);
         }
@@ -98,7 +98,7 @@ public class UserProfileService {
         // Changing password + adjusting minimal password length
         if (password != null && password.length() > 0 && !Objects.equals(user.getPassword(), password)) {
             if (password.length() < 6) {
-                throw new IllegalStateException("Password " + password + " is too short! Minimum is 6 characters.");
+                throw new PasswordTooShort("Password " + password + " is too short! Minimum is 6 characters.");
             }
             user.setPassword(password);
         }
@@ -112,7 +112,7 @@ public class UserProfileService {
         if (userplanId >= 0 && !Objects.equals(user.getUserplan(), userplanId)) {
             Optional<UserProfile> userOptional = userProfileRepository.findUserByUserplan(userplanId);
             if (userOptional.isPresent()) {
-                throw new IllegalStateException("There is an existing user with plan ID " + userplanId + "!");
+                throw new UserProfileAlreadyExists("There is an existing user with plan ID " + userplanId + "!");
             }
             user.setUserplan(userplanId);
         }
