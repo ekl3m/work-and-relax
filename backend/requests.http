@@ -1,0 +1,218 @@
+###                                 DEBUGGING REQUEST LIST:
+
+############ USERS:
+
+### 
+
+# Create a new user (id: 3)
+
+POST http://localhost:8080/api/v1/userprofile/new?key=yK9v2TA1GZkq3dTbdfR_1v1NCxE_H9oK4i5H0QKslHg
+Content-Type: application/json
+
+{
+    "name" : "Anna",
+    "surname" : "Kowal",
+    "email" : "ak69@gmail.com",
+    "password" : "ankowal",
+    "friendlist" : null,
+    "userplan" : 3
+}
+
+###
+
+# Get all users
+
+GET http://localhost:8080/api/v1/userprofile/all?key=yK9v2TA1GZkq3dTbdfR_1v1NCxE_H9oK4i5H0QKslHg
+
+###
+
+# Delete account from 1st POST request (id: 3)
+
+DELETE http://localhost:8080/api/v1/userprofile/account/3?key=yK9v2TA1GZkq3dTbdfR_1v1NCxE_H9oK4i5H0QKslHg
+
+###
+
+# Change user's (id: 3) name to Justyna
+
+PUT http://localhost:8080/api/v1/userprofile/edit/3?key=yK9v2TA1GZkq3dTbdfR_1v1NCxE_H9oK4i5H0QKslHg&name=Justyna
+
+###
+
+############ PLANS:
+
+###
+
+# Create a new plan (id: 3)
+
+POST http://localhost:8080/api/v1/plan/new?key=yK9v2TA1GZkq3dTbdfR_1v1NCxE_H9oK4i5H0QKslHg
+Content-Type: application/json
+
+{
+    "ownerID" : 3,
+    "null" : true,
+    "listOfActivitiesIDs" : null
+}
+
+###
+
+# Get all plans
+
+GET http://localhost:8080/api/v1/plan/all?key=yK9v2TA1GZkq3dTbdfR_1v1NCxE_H9oK4i5H0QKslHg
+
+###
+
+# Delete plan from 2nd POST request (id: 3)
+
+DELETE http://localhost:8080/api/v1/plan/3?key=yK9v2TA1GZkq3dTbdfR_1v1NCxE_H9oK4i5H0QKslHg
+
+###
+
+# Change plan's (id: 3) ownerID to 5
+
+PUT http://localhost:8080/api/v1/plan/edit/3?key=yK9v2TA1GZkq3dTbdfR_1v1NCxE_H9oK4i5H0QKslHg&ownerId=5
+
+###
+
+############ EVENTS:
+
+###
+
+# Create a new event (id: 3)
+
+POST http://localhost:8080/api/v1/event/new?key=yK9v2TA1GZkq3dTbdfR_1v1NCxE_H9oK4i5H0QKslHg
+Content-Type: application/json
+
+{
+    "title" : "Event z requesta",
+    "description" : "Testowy opis eventu z requesta",
+    "photo" : "Bez linku",
+    "eventDate" : "2024-07-15T15:00:00"
+}
+
+###
+
+# Get all events
+
+GET http://localhost:8080/api/v1/event/all?key=yK9v2TA1GZkq3dTbdfR_1v1NCxE_H9oK4i5H0QKslHg
+
+###
+
+# Delete event from 3rd POST request (id: 3)
+
+DELETE http://localhost:8080/api/v1/event/3?key=yK9v2TA1GZkq3dTbdfR_1v1NCxE_H9oK4i5H0QKslHg
+
+###
+
+# Change event's (id: 3) title to "Event z requesta ver. 2"
+
+PUT http://localhost:8080/api/v1/event/edit/3?key=yK9v2TA1GZkq3dTbdfR_1v1NCxE_H9oK4i5H0QKslHg&title=Event+z+requesta+ver.+2
+
+###
+
+############ CHATS:
+
+###
+
+# Create a new chat
+
+POST http://localhost:8080/api/v1/chat/new?key=yK9v2TA1GZkq3dTbdfR_1v1NCxE_H9oK4i5H0QKslHg
+Content-Type: application/json
+
+{
+    "ownerID" : 3,
+    "coownerID" : 2,
+    "messages" : null
+}
+
+###
+
+# Get all chats
+
+GET http://localhost:8080/api/v1/chat/all?key=yK9v2TA1GZkq3dTbdfR_1v1NCxE_H9oK4i5H0QKslHg
+
+###
+
+# Delete chat from 4th POST request (id: 2)
+
+DELETE http://localhost:8080/api/v1/chat/2?key=yK9v2TA1GZkq3dTbdfR_1v1NCxE_H9oK4i5H0QKslHg
+
+###
+
+# Change chat's (ownerid: 2) coownerid to 5
+
+PUT http://localhost:8080/api/v1/chat/edit/1?key=yK9v2TA1GZkq3dTbdfR_1v1NCxE_H9oK4i5H0QKslHg&coownerId=5
+
+###
+
+############ ANNOUNCEMENTS:
+
+###
+
+# Create a new announcement (with id: 3)
+
+POST http://localhost:8080/api/v1/announcement/new?key=yK9v2TA1GZkq3dTbdfR_1v1NCxE_H9oK4i5H0QKslHg
+Content-Type: application/json
+
+{
+    "title" : "Announcement z requesta",
+    "description" : "Opis testowy",
+    "photo" : "bez zdjecia"
+}
+
+###
+
+# Get all announcements
+
+GET http://localhost:8080/api/v1/announcement/all?key=yK9v2TA1GZkq3dTbdfR_1v1NCxE_H9oK4i5H0QKslHg
+
+###
+
+# Delete announcement from 5th POST request (id: 3)
+
+DELETE http://localhost:8080/api/v1/announcement/3?key=yK9v2TA1GZkq3dTbdfR_1v1NCxE_H9oK4i5H0QKslHg
+
+###
+
+# Change announcement's (id: 3) title to "Announcement z requesta ver. 2"
+
+PUT http://localhost:8080/api/v1/announcement/edit/3?key=yK9v2TA1GZkq3dTbdfR_1v1NCxE_H9oK4i5H0QKslHg&title=Announcement+z+requesta+ver.+2
+
+###
+
+############ ACTIVITIES:
+
+###
+
+# Create a new activity (with id: 3)
+
+POST http://localhost:8080/api/v1/activity/new?key=yK9v2TA1GZkq3dTbdfR_1v1NCxE_H9oK4i5H0QKslHg
+Content-Type: application/json
+
+{
+    "title" : "Activity z requesta",
+    "description" : "Opis testowy",
+    "photo" : "bez zdjecia",
+    "activityDate" : "2024-07-15T15:00:00"
+}
+
+###
+
+# Get all activities
+
+GET http://localhost:8080/api/v1/activity/all?key=yK9v2TA1GZkq3dTbdfR_1v1NCxE_H9oK4i5H0QKslHg
+
+###
+
+# Delete activities from 5th POST request (id: 3)
+
+DELETE http://localhost:8080/api/v1/activity/3?key=yK9v2TA1GZkq3dTbdfR_1v1NCxE_H9oK4i5H0QKslHg
+
+###
+
+# Change activity's (id: 3) title to "Activity z requesta ver. 2"
+
+PUT http://localhost:8080/api/v1/activity/edit/3?key=yK9v2TA1GZkq3dTbdfR_1v1NCxE_H9oK4i5H0QKslHg&title=Activity+z+requesta+ver.+2
+
+###
+
+############
