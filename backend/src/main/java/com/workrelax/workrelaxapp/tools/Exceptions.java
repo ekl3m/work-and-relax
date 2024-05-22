@@ -85,4 +85,16 @@ public class Exceptions {
             super(message);
         }
     }
+
+    public static class ActivityAlreadyExists extends Exception {
+        public ActivityAlreadyExists(String message) {
+            super(message);
+        }
+    }
+
+    public static class ActivityNotFound extends Exception {
+        public ActivityNotFound(String message) {
+            super(message);
+        }
+    }
 }

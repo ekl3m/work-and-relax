@@ -22,7 +22,7 @@ public class AnnouncementService {
         this.announcementRepository = announcementRepository;
     }
 
-    // get all events method + api key validation
+    // get all announcements method + api key validation
     public List<Announcement> getAnnouncements(String key) throws InvalidApiKey, ApiKeyNotProvided {
         if (key.isEmpty()) {
             throw new ApiKeyNotProvided("API key was not provided!");
