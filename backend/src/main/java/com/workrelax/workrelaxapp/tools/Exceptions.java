@@ -73,4 +73,16 @@ public class Exceptions {
             super(message);
         }
     }
+
+    public static class AnnouncementAlreadyExists extends Exception {
+        public AnnouncementAlreadyExists(String message) {
+            super(message);
+        }
+    }
+
+    public static class AnnouncementNotFound extends Exception {
+        public AnnouncementNotFound(String message) {
+            super(message);
+        }
+    }
 }
