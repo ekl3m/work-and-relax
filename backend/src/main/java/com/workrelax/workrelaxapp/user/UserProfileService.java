@@ -33,6 +33,23 @@ public class UserProfileService {
         return userProfileRepository.findAll();
     }
 
+    public UserProfile getUserByEmail(String key, String email)
+            throws InvalidApiKey, ApiKeyNotProvided, UserProfileNotFound {
+        if (key == null || key.isEmpty()) {
+            throw new ApiKeyNotProvided("API key was not provided!");
+        }
+        if (!apiTools.isKeyValid(key)) {
+            throw new InvalidApiKey("Provided API key is incorrect!");
+        }
+
+        Optional<UserProfile> userOptional = userProfileRepository.findUserByEmail(email);
+        if (!userOptional.isPresent()) {
+            throw new UserProfileNotFound("User with email " + email + " not found!");
+        }
+
+        return userOptional.get();
+    }
+
     public void addNewUser(String key, UserProfile user) throws InvalidApiKey, ApiKeyNotProvided, UserProfileAlreadyExists {
         if (key.isEmpty()) {
             throw new ApiKeyNotProvided("API key was not provided!");

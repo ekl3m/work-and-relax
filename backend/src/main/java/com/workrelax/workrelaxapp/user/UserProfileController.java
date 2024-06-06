@@ -36,6 +36,13 @@ public class UserProfileController {
         return userService.getUsers(key);
     }
 
+    @GetMapping(path = "/byEmail")
+    public UserProfile getUserByEmail(@RequestParam(name = "key", defaultValue = "") String key,
+    @RequestParam(required = true) String email)
+    throws InvalidApiKey, ApiKeyNotProvided, UserProfileNotFound {
+        return userService.getUserByEmail(key, email);
+    }
+
     @PostMapping(path = "/new")
     public void registerUser(@RequestParam(name = "key", defaultValue = "") String key, @RequestBody UserProfile user)
     throws InvalidApiKey, ApiKeyNotProvided, UserProfileAlreadyExists {
