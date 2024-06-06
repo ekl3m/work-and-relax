@@ -20,8 +20,9 @@
 		E41111042C04D1BF00809647 /* LeagueGothic-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E41111032C04D1BF00809647 /* LeagueGothic-Regular.ttf */; };
 		E41111072C04D37A00809647 /* SVGKit in Frameworks */ = {isa = PBXBuildFile; productRef = E41111062C04D37A00809647 /* SVGKit */; };
 		E41111092C04D37A00809647 /* SVGKitSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E41111082C04D37A00809647 /* SVGKitSwift */; };
-		E411110C2C04D46300809647 /* FontAwesome in Frameworks */ = {isa = PBXBuildFile; productRef = E411110B2C04D46300809647 /* FontAwesome */; };
 		E458A6B82C0DBA880089BC1D /* TestAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458A6B72C0DBA880089BC1D /* TestAnimation.swift */; };
+		E45D25332C124267001C345F /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45D25322C124267001C345F /* NavBar.swift */; };
+		E45D25352C124320001C345F /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45D25342C124320001C345F /* HomeScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,8 @@
 		E41111012C04AB1D00809647 /* user-group-solid.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "user-group-solid.svg"; sourceTree = "<group>"; };
 		E41111032C04D1BF00809647 /* LeagueGothic-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-Regular.ttf"; sourceTree = "<group>"; };
 		E458A6B72C0DBA880089BC1D /* TestAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAnimation.swift; sourceTree = "<group>"; };
+		E45D25322C124267001C345F /* NavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavBar.swift; sourceTree = "<group>"; };
+		E45D25342C124320001C345F /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +51,6 @@
 			files = (
 				E41111092C04D37A00809647 /* SVGKitSwift in Frameworks */,
 				E41111072C04D37A00809647 /* SVGKit in Frameworks */,
-				E411110C2C04D46300809647 /* FontAwesome in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +105,8 @@
 				E41110F92C0281D500809647 /* LoadingScreen.swift */,
 				E41110FE2C03BB5F00809647 /* Login-Register-Screen.swift */,
 				E458A6B72C0DBA880089BC1D /* TestAnimation.swift */,
+				E45D25322C124267001C345F /* NavBar.swift */,
+				E45D25342C124320001C345F /* HomeScreen.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -134,7 +138,6 @@
 			packageProductDependencies = (
 				E41111062C04D37A00809647 /* SVGKit */,
 				E41111082C04D37A00809647 /* SVGKitSwift */,
-				E411110B2C04D46300809647 /* FontAwesome */,
 			);
 			productName = "Work And Relax";
 			productReference = E41110E22C02815900809647 /* Work And Relax.app */;
@@ -166,7 +169,6 @@
 			mainGroup = E41110D92C02815900809647;
 			packageReferences = (
 				E41111052C04D37A00809647 /* XCRemoteSwiftPackageReference "SVGKit" */,
-				E411110A2C04D46300809647 /* XCRemoteSwiftPackageReference "FontAwesome" */,
 			);
 			productRefGroup = E41110E32C02815900809647 /* Products */;
 			projectDirPath = "";
@@ -199,8 +201,10 @@
 			files = (
 				E458A6B82C0DBA880089BC1D /* TestAnimation.swift in Sources */,
 				E41110FA2C0281D500809647 /* LoadingScreen.swift in Sources */,
+				E45D25332C124267001C345F /* NavBar.swift in Sources */,
 				E41110EF2C02815B00809647 /* Persistence.swift in Sources */,
 				E41110FF2C03BB5F00809647 /* Login-Register-Screen.swift in Sources */,
+				E45D25352C124320001C345F /* HomeScreen.swift in Sources */,
 				E41110E82C02815900809647 /* ContentView.swift in Sources */,
 				E41110E62C02815900809647 /* Work_And_RelaxApp.swift in Sources */,
 				E41110F22C02815B00809647 /* Work_And_Relax.xcdatamodeld in Sources */,
@@ -419,14 +423,6 @@
 				minimumVersion = 3.0.0;
 			};
 		};
-		E411110A2C04D46300809647 /* XCRemoteSwiftPackageReference "FontAwesome" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/thii/FontAwesome.swift";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.9.1;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -439,11 +435,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E41111052C04D37A00809647 /* XCRemoteSwiftPackageReference "SVGKit" */;
 			productName = SVGKitSwift;
-		};
-		E411110B2C04D46300809647 /* FontAwesome */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E411110A2C04D46300809647 /* XCRemoteSwiftPackageReference "FontAwesome" */;
-			productName = FontAwesome;
 		};
 /* End XCSwiftPackageProductDependency section */
 
