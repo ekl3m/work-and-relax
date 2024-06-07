@@ -16,19 +16,19 @@ struct NavBar: View {
                     
                     Spacer()
                     
-                    NavItem(icon: "message.fill", label: "Czat", color: .white, destination: AnyView(LoadingScreen()))
+                    NavItem(icon: "message.fill", label: "Czat", color: .white, destination: AnyView(Login_Register_Screen()))
                     
                     Spacer()
                     
-                    NavItem(icon: "calendar", label: "Plan", color: .white, destination: AnyView(LoadingScreen()))
+                    NavItem(icon: "calendar", label: "Plan", color: .white, destination: AnyView(Login_Register_Screen()))
                     
                     Spacer()
                     
-                    NavItem(icon: "map.fill", label: "Mapa", color: .white, destination: AnyView(LoadingScreen()))
+                    NavItem(icon: "map.fill", label: "Mapa", color: .white, destination: AnyView(Login_Register_Screen()))
                     
                     Spacer()
                     
-                    NavItem(icon: "slider.horizontal.3", label: "Menu", color: .white, destination: AnyView(LoadingScreen()))
+                    NavItem(icon: "slider.horizontal.3", label: "Menu", color: .white, destination: AnyView(Login_Register_Screen()))
                     
                     Spacer(minLength: 12)
                 }

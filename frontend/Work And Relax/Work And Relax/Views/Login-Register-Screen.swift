@@ -1,12 +1,14 @@
 import SwiftUI
 
 struct Login_Register_Screen: View {
-    @State private var animate = false
-    @State private var username: String = ""
+    @State private var email: String = ""
     @State private var password: String = ""
+    @State private var loginMessage: String = ""
+    @State private var isAuthenticated: Bool = false
+    @State private var showError: Bool = false
     
     var body: some View {
-        ZStack {
+        NavigationView {
             VStack {
                 VStack(spacing: 20) {
                     Spacer()
@@ -27,10 +29,14 @@ struct Login_Register_Screen: View {
                     VStack(spacing: 30) {
                         HStack {
                             Image(systemName: "envelope.fill")
-                                .foregroundColor(Color(red: 54/255, green: 85/255, blue: 143/255))
+                                .foregroundColor(showError ? Color.red : Color(red: 54/255, green: 85/255, blue: 143/255))
                                 .padding(.leading, 15)
-                            TextField("email", text: $username)
+                            TextField("email", text: $email)
                                 .padding(.leading, 12)
+                                .foregroundColor(showError ? Color.red : Color.black)
+                                .onTapGesture {
+                                    showError = false
+                                }
                         }
                         .frame(height: 50)
                         .frame(width: UIScreen.main.bounds.width * 1 / 2 + 105)
@@ -41,10 +47,14 @@ struct Login_Register_Screen: View {
 
                         HStack {
                             Image(systemName: "lock.fill")
-                                .foregroundColor(Color(red: 54/255, green: 85/255, blue: 143/255))
+                                .foregroundColor(showError ? Color.red : Color(red: 54/255, green: 85/255, blue: 143/255))
                                 .padding(.leading, 17)
                             SecureField("hasło", text: $password)
                                 .padding()
+                                .foregroundColor(showError ? Color.red : Color.black)
+                                .onTapGesture {
+                                    showError = false
+                                }
                         }
                         .frame(height: 50)
                         .frame(width: UIScreen.main.bounds.width * 1 / 2 + 105)
@@ -58,7 +68,14 @@ struct Login_Register_Screen: View {
                     
                     VStack(spacing: 30) {
                         Button(action: {
-                            // Handle login action
+                            login(email: self.email, password: self.password) { success, message in
+                                if success {
+                                    self.isAuthenticated = true
+                                } else {
+                                    self.showError = true
+                                    //self.loginMessage = message ?? "Invalid username or password"
+                                }
+                            }
                         }) {
                             Text("Zaloguj się")
                                 .font(.headline)
@@ -121,22 +138,15 @@ struct Login_Register_Screen: View {
                 .cornerRadius(20)
                 .padding(.horizontal, 16)
             }
-            .zIndex(0)
-            .edgesIgnoringSafeArea(.all)
-            .navigationBarBackButtonHidden(true)
-            
-            Ellipse()
-                .fill(Color(red: 54/255, green: 85/255, blue: 143/255))
-                .frame(
-                    width: animate ? UIScreen.main.bounds.width * 3 : UIScreen.main.bounds.width * 3.5,
-                    height: animate ? UIScreen.main.bounds.height * 3 : UIScreen.main.bounds.height / 2 + 2000
-                )
-                .padding(.bottom, animate ? 18000 : 1000)
-                .animation(Animation.easeInOut(duration: 2).delay(0), value: animate)
-        }
-        .onAppear {
-            withAnimation {
-                self.animate = true
+            .alert(isPresented: Binding<Bool>(
+                get: { !loginMessage.isEmpty },
+                set: { _ in loginMessage = "" }
+            )) {
+                Alert(title: Text("Login"), message: Text(loginMessage), dismissButton: .default(Text("OK")))
+            }
+            .fullScreenCover(isPresented: $isAuthenticated) {
+                // Navigate to your main screen on successful login
+                NavBar() // Replace with your main screen
             }
         }
     }

@@ -30,14 +30,14 @@ struct LoadingScreen: View {
                         .padding(.bottom, 10)
                         .padding(.top, 250)
                         .offset(y: animate ? -UIScreen.main.bounds.height : 0)
-                        .animation(Animation.easeInOut(duration: 1.7).delay(1), value: animate)
+                        .animation(Animation.easeInOut(duration: 1.5).delay(0.5), value: animate)
                     Text("RELAX")
                         .font(.custom("Lalezar-Regular", size: 80))
                         .foregroundColor(.white)
                         .padding(.top, -60)
                         .padding(.bottom, 90)
                         .offset(y: animate ? -UIScreen.main.bounds.height : 0)
-                        .animation(Animation.easeInOut(duration: 1.75).delay(1), value: animate)
+                        .animation(Animation.easeInOut(duration: 1.5).delay(0.5), value: animate)
                     Spacer()
                 }
                 .zIndex(2)
@@ -50,7 +50,7 @@ struct LoadingScreen: View {
                             height: animate ? UIScreen.main.bounds.height * 3 : UIScreen.main.bounds.height / 2 + 350
                         )
                         .padding(.bottom, animate ? 0 : -780)
-                        .animation(Animation.easeInOut(duration: 2).delay(1), value: animate)
+                        .animation(Animation.easeInOut(duration: 1.5).delay(0.5), value: animate)
                 }
                 .zIndex(1)
                 .edgesIgnoringSafeArea(.all)
@@ -74,3 +74,4 @@ struct LoadingScreen_Previews: PreviewProvider {
         LoadingScreen()
     }
 }
+

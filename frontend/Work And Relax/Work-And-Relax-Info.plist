@@ -2,19 +2,34 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIApplicationSceneManifest</key>
-	<dict>
-		<key>UIApplicationSupportsMultipleScenes</key>
-		<true/>
-		<key>UIApplicationSupportsTabbedSceneCollection</key>
-		<false/>
-		<key>UISceneConfigurations</key>
-		<dict/>
-	</dict>
     <key>UIAppFonts</key>
-        <array>
-            <string>Lalezar-Regular.ttf</string>
-            <string>LeagueGothic-Regular.ttf</string>
-        </array>
+    <array>
+        <string>Lalezar-Regular.ttf</string>
+        <string>LeagueGothic-Regular.ttf</string>
+    </array>
+    <key>UIApplicationSceneManifest</key>
+    <dict>
+        <key>UIApplicationSupportsMultipleScenes</key>
+        <true/>
+        <key>UIApplicationSupportsTabbedSceneCollection</key>
+        <false/>
+        <key>UISceneConfigurations</key>
+        <dict/>
+    </dict>
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSExceptionDomains</key>
+        <dict>
+            <key>20.107.170.217</key>
+            <dict>
+                <key>NSIncludesSubdomains</key>
+                <true/>
+                <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+                <true/>
+                <key>NSTemporaryExceptionMinimumTLSVersion</key>
+                <string>TLSv1.0</string>
+            </dict>
+        </dict>
+    </dict>
 </dict>
 </plist>
