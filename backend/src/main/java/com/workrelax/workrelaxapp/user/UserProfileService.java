@@ -8,14 +8,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import jakarta.transaction.Transactional;
-
 import com.workrelax.workrelaxapp.tools.ApiTools;
+import com.workrelax.workrelaxapp.tools.EmailSender;
 import com.workrelax.workrelaxapp.tools.Exceptions.*;
 
 @Service
 public class UserProfileService {
     private final UserProfileRepository userProfileRepository;
     private final ApiTools apiTools = new ApiTools();
+    private final EmailSender emailSender = new EmailSender();
 
     @Autowired
     public UserProfileService(UserProfileRepository userProfileRepository) {
@@ -62,6 +63,9 @@ public class UserProfileService {
         if(userOptional.isPresent()) {
             throw new UserProfileAlreadyExists("User with email " + user.getEmail() + " already exists!");
         }
+
+        Integer verificationCode = emailSender.sendVerificationMail(user.getEmail());
+        user.setVerificationCode(verificationCode);
         
         userProfileRepository.save(user);
     }
@@ -82,7 +86,7 @@ public class UserProfileService {
     }
 
     @Transactional
-    public void updateUser(String key, Long userId, String name, String surname, String email, String password, List<Long> friendlistIds, Long userplanId) 
+    public void updateUser(String key, Long userId, String name, String surname, String email, String password, List<Long> friendlistIds, Long userplanId, Boolean isVerified, Boolean isBanned, Boolean isAdmin, Integer verificationCode) 
     throws InvalidApiKey, ApiKeyNotProvided, UserProfileAlreadyExists, UserProfileNotFound, PasswordTooShort {
         if (key.isEmpty()) {
             throw new ApiKeyNotProvided("API key was not provided!");
@@ -132,6 +136,26 @@ public class UserProfileService {
                 throw new UserProfileAlreadyExists("There is an existing user with plan ID " + userplanId + "!");
             }
             user.setUserplan(userplanId);
+        }
+
+        // Changing isVerified
+        if (!Objects.equals(user.isVerified(), isVerified)) {
+            user.setVerified(isVerified);
+        }
+
+        // Changing isBanned
+        if (!Objects.equals(user.isBanned(), isBanned)) {
+            user.setBanned(isBanned);
+        }
+
+        // Changing isAdmin
+        if (!Objects.equals(user.isAdmin(), isAdmin)) {
+            user.setAdmin(isAdmin);
+        }
+
+        // Changing verificationCode
+        if (verificationCode >= 0 && !Objects.equals(user.getVerificationCode(), verificationCode)) {
+            user.setVerificationCode(verificationCode);
         }
     }
 }

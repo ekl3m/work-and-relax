@@ -1,18 +1,22 @@
-//
-//  NavTitleBar.swift
-//  Work And Relax
-//
-//  Created by Eryk Klemencki on 07/06/2024.
-//
-
 import SwiftUI
 
 struct NavTitleBar: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+            HStack {
+                Text("Work & Relax")
+                    .font(.custom("WorkSans-ExtraBold", size: 34))
+                    .foregroundColor(.white)
+                Spacer()
+            }
+            .padding()
+            .padding(.top, 30)
+            .background(Color.clear)
+        }
 }
 
 #Preview {
     NavTitleBar()
+        .background {
+            Color.blue  // NIEBIESKI KOLOR JEST TYLKO NA POTRZEBY PODGLADU, TLO JEST PRZEZROCZYSTE
+        }
 }

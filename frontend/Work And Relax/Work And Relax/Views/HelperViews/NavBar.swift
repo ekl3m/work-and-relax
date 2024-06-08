@@ -59,7 +59,7 @@ struct NavBar: View {
             .frame(height: 92)
             .background(Color(red: 0.21, green: 0.33, blue: 0.56))
             .shadow(radius: 5)
-            .safeAreaInset(edge: .bottom) { Color.clear.frame(height: 20) } // Dodajemy bezpieczny obszar dolny
+            .safeAreaInset(edge: .bottom) { Color.clear.frame(height: 10) } // Dodajemy bezpieczny obszar dolny
         }
         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         .edgesIgnoringSafeArea(.bottom)
@@ -104,6 +104,7 @@ struct NavItem: View {
             }
             .frame(width: 74, height: 58)
             .padding(.bottom, 20)
+            .padding(.top)
         }
     }
 }

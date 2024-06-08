@@ -12,10 +12,14 @@ Content-Type: application/json
 {
     "name" : "Anna",
     "surname" : "Kowal",
-    "email" : "ak69@gmail.com",
+    "email" : "eryk.klem03@gmail.com",
     "password" : "ankowal",
     "friendlist" : null,
-    "userplan" : 3
+    "userplan" : 3,
+    "verified" : false,
+    "banned" : false,
+    "admin" : false,
+    "verificationCode" : -1
 }
 
 ###

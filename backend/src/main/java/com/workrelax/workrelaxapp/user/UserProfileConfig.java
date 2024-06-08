@@ -15,10 +15,14 @@ public class UserProfileConfig {
             UserProfile MariuszWyrwidab = new UserProfile(
                 "Mariusz",
                 "Wyrwidab",
-                "m.wyrwidab@gmail.com",
-                "DabWyrwi223",
+                "Admin",
+                "admin",
                 null,
-                1L
+                1L,
+                true,
+                false,
+                true,
+                100000
             );
             UserProfile AdamMickiewicz = new UserProfile(
                 "Adam",
@@ -26,7 +30,11 @@ public class UserProfileConfig {
                 "a.mic@wp.pl",
                 "PanTadeuszDziady@2",
                 null,
-                2L
+                2L,
+                false,
+                false,
+                true,
+                100001
             );
 
             repository.saveAll(
