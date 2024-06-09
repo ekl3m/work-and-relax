@@ -45,6 +45,8 @@
 		E45D25682C13657B001C345F /* WorkSans-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E45D25532C13657A001C345F /* WorkSans-ThinItalic.ttf */; };
 		E45D256A2C13693B001C345F /* ColorMatching.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45D25692C13693B001C345F /* ColorMatching.swift */; };
 		E45D256C2C1376FA001C345F /* DateConvert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45D256B2C1376FA001C345F /* DateConvert.swift */; };
+		E48CBEA62C162F7600C9B5E2 /* ChatScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48CBEA52C162F7600C9B5E2 /* ChatScreen.swift */; };
+		E48CBEA82C162F9E00C9B5E2 /* ChatFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48CBEA72C162F9E00C9B5E2 /* ChatFunctions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +90,8 @@
 		E45D25532C13657A001C345F /* WorkSans-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-ThinItalic.ttf"; sourceTree = "<group>"; };
 		E45D25692C13693B001C345F /* ColorMatching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorMatching.swift; sourceTree = "<group>"; };
 		E45D256B2C1376FA001C345F /* DateConvert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConvert.swift; sourceTree = "<group>"; };
+		E48CBEA52C162F7600C9B5E2 /* ChatScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatScreen.swift; sourceTree = "<group>"; };
+		E48CBEA72C162F9E00C9B5E2 /* ChatFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +154,7 @@
 				E41110F92C0281D500809647 /* LoadingScreen.swift */,
 				E41110FE2C03BB5F00809647 /* Login-Register-Screen.swift */,
 				E45D25342C124320001C345F /* HomeScreen.swift */,
+				E48CBEA52C162F7600C9B5E2 /* ChatScreen.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -169,6 +174,7 @@
 				E45D253C2C13505F001C345F /* FetchEvents.swift */,
 				E45D25692C13693B001C345F /* ColorMatching.swift */,
 				E45D256B2C1376FA001C345F /* DateConvert.swift */,
+				E48CBEA72C162F9E00C9B5E2 /* ChatFunctions.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -307,6 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E458A6B82C0DBA880089BC1D /* TestAnimation.swift in Sources */,
+				E48CBEA82C162F9E00C9B5E2 /* ChatFunctions.swift in Sources */,
 				E45D253B2C134EDE001C345F /* Event.swift in Sources */,
 				E45D25382C128CCF001C345F /* Login.swift in Sources */,
 				E41110FA2C0281D500809647 /* LoadingScreen.swift in Sources */,
@@ -317,6 +324,7 @@
 				E41110FF2C03BB5F00809647 /* Login-Register-Screen.swift in Sources */,
 				E45D256A2C13693B001C345F /* ColorMatching.swift in Sources */,
 				E45D253D2C13505F001C345F /* FetchEvents.swift in Sources */,
+				E48CBEA62C162F7600C9B5E2 /* ChatScreen.swift in Sources */,
 				E45D25352C124320001C345F /* HomeScreen.swift in Sources */,
 				E41110E82C02815900809647 /* ContentView.swift in Sources */,
 				E41110E62C02815900809647 /* Work_And_RelaxApp.swift in Sources */,

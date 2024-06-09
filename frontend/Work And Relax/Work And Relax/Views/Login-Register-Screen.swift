@@ -43,7 +43,7 @@ struct Login_Register_Screen: View {
                         .frame(width: UIScreen.main.bounds.width * 1 / 2 + 105)
                         .background(Color.white)
                         .cornerRadius(25)
-                        .shadow(radius: 5)
+                        .shadow(radius: 3, x: 2, y: 2)
                         .padding(.horizontal, 30)
 
                         HStack {
@@ -61,7 +61,7 @@ struct Login_Register_Screen: View {
                         .frame(width: UIScreen.main.bounds.width * 1 / 2 + 105)
                         .background(Color.white)
                         .cornerRadius(25)
-                        .shadow(radius: 5)
+                        .shadow(radius: 3, x: 2, y: 2)
                         .padding(.horizontal, 30)
                     }
                     .padding(.horizontal, 20)
@@ -86,7 +86,7 @@ struct Login_Register_Screen: View {
                                 .padding()
                                 .background(Color(red: 54/255, green: 85/255, blue: 143/255))
                                 .cornerRadius(25)
-                                .shadow(radius: 5)
+                                .shadow(radius: 3, x: 2, y: 2)
                         }
                         
                         Button(action: {
@@ -99,7 +99,7 @@ struct Login_Register_Screen: View {
                                 .padding()
                                 .background(Color(red: 54/255, green: 85/255, blue: 143/255))
                                 .cornerRadius(25)
-                                .shadow(radius: 5)
+                                .shadow(radius: 3, x: 2, y: 2)
                         }
                         
                         Rectangle()
@@ -122,9 +122,9 @@ struct Login_Register_Screen: View {
                                         .frame(maxWidth: UIScreen.main.bounds.width * 1 / 2 + 110)
                                         .background(.clear)
                                         .foregroundColor(Color(red: 54/255, green: 85/255, blue: 143/255))
-                                        .shadow(radius: 5)
+                                        .shadow(radius: 2, x: 2, y: 2)
                                 )
-                                .shadow(radius: 5)
+                                .shadow(radius: 2, x: 2, y: 2)
                         }
                         .padding(.bottom, 20)
                     }

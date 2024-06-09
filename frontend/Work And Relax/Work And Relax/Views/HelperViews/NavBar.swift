@@ -13,7 +13,7 @@ struct NavBar: View {
                 if selectedView == "Start" {
                     HomeScreen()
                 } else if selectedView == "Czat" {
-                    TestAnimation()
+                    ChatView()
                 } else if selectedView == "Plan" {
                     TestAnimation()
                 } else if selectedView == "Mapa" {
