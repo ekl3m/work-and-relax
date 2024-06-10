@@ -15,15 +15,39 @@
 		E41110EF2C02815B00809647 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41110EE2C02815B00809647 /* Persistence.swift */; };
 		E41110F22C02815B00809647 /* Work_And_Relax.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E41110F02C02815B00809647 /* Work_And_Relax.xcdatamodeld */; };
 		E41110FA2C0281D500809647 /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41110F92C0281D500809647 /* LoadingScreen.swift */; };
-		E41110FC2C02838600809647 /* Lalezar-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E41110FB2C02838600809647 /* Lalezar-Regular.ttf */; };
 		E41110FF2C03BB5F00809647 /* Login-Register-Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41110FE2C03BB5F00809647 /* Login-Register-Screen.swift */; };
 		E41111022C04AB1D00809647 /* user-group-solid.svg in Resources */ = {isa = PBXBuildFile; fileRef = E41111012C04AB1D00809647 /* user-group-solid.svg */; };
-		E41111042C04D1BF00809647 /* LeagueGothic-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E41111032C04D1BF00809647 /* LeagueGothic-Regular.ttf */; };
-		E41111072C04D37A00809647 /* SVGKit in Frameworks */ = {isa = PBXBuildFile; productRef = E41111062C04D37A00809647 /* SVGKit */; };
-		E41111092C04D37A00809647 /* SVGKitSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E41111082C04D37A00809647 /* SVGKitSwift */; };
 		E458A6B82C0DBA880089BC1D /* TestAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458A6B72C0DBA880089BC1D /* TestAnimation.swift */; };
 		E45D25332C124267001C345F /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45D25322C124267001C345F /* NavBar.swift */; };
 		E45D25352C124320001C345F /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45D25342C124320001C345F /* HomeScreen.swift */; };
+		E45D25382C128CCF001C345F /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45D25372C128CCF001C345F /* Login.swift */; };
+		E45D253B2C134EDE001C345F /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45D253A2C134EDE001C345F /* Event.swift */; };
+		E45D253D2C13505F001C345F /* FetchEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45D253C2C13505F001C345F /* FetchEvents.swift */; };
+		E45D253F2C1360EB001C345F /* NavTitleBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45D253E2C1360EB001C345F /* NavTitleBar.swift */; };
+		E45D25552C13657B001C345F /* Lalezar-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E45D25402C13657A001C345F /* Lalezar-Regular.ttf */; };
+		E45D25562C13657B001C345F /* LeagueGothic-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E45D25412C13657A001C345F /* LeagueGothic-Regular.ttf */; };
+		E45D25572C13657B001C345F /* WorkSans-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E45D25422C13657A001C345F /* WorkSans-Black.ttf */; };
+		E45D25582C13657B001C345F /* WorkSans-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E45D25432C13657A001C345F /* WorkSans-BlackItalic.ttf */; };
+		E45D25592C13657B001C345F /* WorkSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E45D25442C13657A001C345F /* WorkSans-Bold.ttf */; };
+		E45D255A2C13657B001C345F /* WorkSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E45D25452C13657A001C345F /* WorkSans-BoldItalic.ttf */; };
+		E45D255B2C13657B001C345F /* WorkSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E45D25462C13657A001C345F /* WorkSans-ExtraBold.ttf */; };
+		E45D255C2C13657B001C345F /* WorkSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E45D25472C13657A001C345F /* WorkSans-ExtraBoldItalic.ttf */; };
+		E45D255D2C13657B001C345F /* WorkSans-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E45D25482C13657A001C345F /* WorkSans-ExtraLight.ttf */; };
+		E45D255E2C13657B001C345F /* WorkSans-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E45D25492C13657A001C345F /* WorkSans-ExtraLightItalic.ttf */; };
+		E45D255F2C13657B001C345F /* WorkSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E45D254A2C13657A001C345F /* WorkSans-Italic.ttf */; };
+		E45D25602C13657B001C345F /* WorkSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E45D254B2C13657A001C345F /* WorkSans-Light.ttf */; };
+		E45D25612C13657B001C345F /* WorkSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E45D254C2C13657A001C345F /* WorkSans-LightItalic.ttf */; };
+		E45D25622C13657B001C345F /* WorkSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E45D254D2C13657A001C345F /* WorkSans-Medium.ttf */; };
+		E45D25632C13657B001C345F /* WorkSans-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E45D254E2C13657A001C345F /* WorkSans-MediumItalic.ttf */; };
+		E45D25642C13657B001C345F /* WorkSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E45D254F2C13657A001C345F /* WorkSans-Regular.ttf */; };
+		E45D25652C13657B001C345F /* WorkSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E45D25502C13657A001C345F /* WorkSans-SemiBold.ttf */; };
+		E45D25662C13657B001C345F /* WorkSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E45D25512C13657A001C345F /* WorkSans-SemiBoldItalic.ttf */; };
+		E45D25672C13657B001C345F /* WorkSans-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E45D25522C13657A001C345F /* WorkSans-Thin.ttf */; };
+		E45D25682C13657B001C345F /* WorkSans-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E45D25532C13657A001C345F /* WorkSans-ThinItalic.ttf */; };
+		E45D256A2C13693B001C345F /* ColorMatching.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45D25692C13693B001C345F /* ColorMatching.swift */; };
+		E45D256C2C1376FA001C345F /* DateConvert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45D256B2C1376FA001C345F /* DateConvert.swift */; };
+		E48CBEA62C162F7600C9B5E2 /* ChatScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48CBEA52C162F7600C9B5E2 /* ChatScreen.swift */; };
+		E48CBEA82C162F9E00C9B5E2 /* ChatFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48CBEA72C162F9E00C9B5E2 /* ChatFunctions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,14 +60,40 @@
 		E41110EE2C02815B00809647 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		E41110F12C02815B00809647 /* Work_And_Relax.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Work_And_Relax.xcdatamodel; sourceTree = "<group>"; };
 		E41110F92C0281D500809647 /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
-		E41110FB2C02838600809647 /* Lalezar-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lalezar-Regular.ttf"; sourceTree = "<group>"; };
 		E41110FD2C02848700809647 /* Work-And-Relax-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Work-And-Relax-Info.plist"; sourceTree = SOURCE_ROOT; };
 		E41110FE2C03BB5F00809647 /* Login-Register-Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Login-Register-Screen.swift"; sourceTree = "<group>"; };
 		E41111012C04AB1D00809647 /* user-group-solid.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "user-group-solid.svg"; sourceTree = "<group>"; };
-		E41111032C04D1BF00809647 /* LeagueGothic-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-Regular.ttf"; sourceTree = "<group>"; };
 		E458A6B72C0DBA880089BC1D /* TestAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAnimation.swift; sourceTree = "<group>"; };
 		E45D25322C124267001C345F /* NavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavBar.swift; sourceTree = "<group>"; };
 		E45D25342C124320001C345F /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		E45D25372C128CCF001C345F /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		E45D253A2C134EDE001C345F /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		E45D253C2C13505F001C345F /* FetchEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchEvents.swift; sourceTree = "<group>"; };
+		E45D253E2C1360EB001C345F /* NavTitleBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavTitleBar.swift; sourceTree = "<group>"; };
+		E45D25402C13657A001C345F /* Lalezar-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lalezar-Regular.ttf"; sourceTree = "<group>"; };
+		E45D25412C13657A001C345F /* LeagueGothic-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-Regular.ttf"; sourceTree = "<group>"; };
+		E45D25422C13657A001C345F /* WorkSans-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Black.ttf"; sourceTree = "<group>"; };
+		E45D25432C13657A001C345F /* WorkSans-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-BlackItalic.ttf"; sourceTree = "<group>"; };
+		E45D25442C13657A001C345F /* WorkSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Bold.ttf"; sourceTree = "<group>"; };
+		E45D25452C13657A001C345F /* WorkSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		E45D25462C13657A001C345F /* WorkSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		E45D25472C13657A001C345F /* WorkSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		E45D25482C13657A001C345F /* WorkSans-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-ExtraLight.ttf"; sourceTree = "<group>"; };
+		E45D25492C13657A001C345F /* WorkSans-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		E45D254A2C13657A001C345F /* WorkSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Italic.ttf"; sourceTree = "<group>"; };
+		E45D254B2C13657A001C345F /* WorkSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Light.ttf"; sourceTree = "<group>"; };
+		E45D254C2C13657A001C345F /* WorkSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		E45D254D2C13657A001C345F /* WorkSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Medium.ttf"; sourceTree = "<group>"; };
+		E45D254E2C13657A001C345F /* WorkSans-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-MediumItalic.ttf"; sourceTree = "<group>"; };
+		E45D254F2C13657A001C345F /* WorkSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Regular.ttf"; sourceTree = "<group>"; };
+		E45D25502C13657A001C345F /* WorkSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		E45D25512C13657A001C345F /* WorkSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		E45D25522C13657A001C345F /* WorkSans-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Thin.ttf"; sourceTree = "<group>"; };
+		E45D25532C13657A001C345F /* WorkSans-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-ThinItalic.ttf"; sourceTree = "<group>"; };
+		E45D25692C13693B001C345F /* ColorMatching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorMatching.swift; sourceTree = "<group>"; };
+		E45D256B2C1376FA001C345F /* DateConvert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConvert.swift; sourceTree = "<group>"; };
+		E48CBEA52C162F7600C9B5E2 /* ChatScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatScreen.swift; sourceTree = "<group>"; };
+		E48CBEA72C162F9E00C9B5E2 /* ChatFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +101,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E41111092C04D37A00809647 /* SVGKitSwift in Frameworks */,
-				E41111072C04D37A00809647 /* SVGKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,8 +110,6 @@
 		E41110D92C02815900809647 = {
 			isa = PBXGroup;
 			children = (
-				E41111032C04D1BF00809647 /* LeagueGothic-Regular.ttf */,
-				E41110FB2C02838600809647 /* Lalezar-Regular.ttf */,
 				E41110E42C02815900809647 /* Work And Relax */,
 				E41110E32C02815900809647 /* Products */,
 			);
@@ -81,7 +127,9 @@
 			isa = PBXGroup;
 			children = (
 				E41110FD2C02848700809647 /* Work-And-Relax-Info.plist */,
+				E45D25542C13657A001C345F /* Fonts */,
 				E41111002C03BF1400809647 /* Images */,
+				E45D25362C128C8B001C345F /* Functions */,
 				E41110F82C0281BD00809647 /* Views */,
 				E41110E52C02815900809647 /* Work_And_RelaxApp.swift */,
 				E41110E72C02815900809647 /* ContentView.swift */,
@@ -105,11 +153,11 @@
 		E41110F82C0281BD00809647 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E45D25392C134EBD001C345F /* HelperViews */,
 				E41110F92C0281D500809647 /* LoadingScreen.swift */,
 				E41110FE2C03BB5F00809647 /* Login-Register-Screen.swift */,
-				E458A6B72C0DBA880089BC1D /* TestAnimation.swift */,
-				E45D25322C124267001C345F /* NavBar.swift */,
 				E45D25342C124320001C345F /* HomeScreen.swift */,
+				E48CBEA52C162F7600C9B5E2 /* ChatScreen.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -121,6 +169,56 @@
 			);
 			path = Images;
 			sourceTree = "<group>";
+		};
+		E45D25362C128C8B001C345F /* Functions */ = {
+			isa = PBXGroup;
+			children = (
+				E45D25372C128CCF001C345F /* Login.swift */,
+				E45D253C2C13505F001C345F /* FetchEvents.swift */,
+				E45D25692C13693B001C345F /* ColorMatching.swift */,
+				E45D256B2C1376FA001C345F /* DateConvert.swift */,
+				E48CBEA72C162F9E00C9B5E2 /* ChatFunctions.swift */,
+			);
+			path = Functions;
+			sourceTree = "<group>";
+		};
+		E45D25392C134EBD001C345F /* HelperViews */ = {
+			isa = PBXGroup;
+			children = (
+				E45D25322C124267001C345F /* NavBar.swift */,
+				E458A6B72C0DBA880089BC1D /* TestAnimation.swift */,
+				E45D253A2C134EDE001C345F /* Event.swift */,
+				E45D253E2C1360EB001C345F /* NavTitleBar.swift */,
+			);
+			path = HelperViews;
+			sourceTree = "<group>";
+		};
+		E45D25542C13657A001C345F /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E45D25402C13657A001C345F /* Lalezar-Regular.ttf */,
+				E45D25412C13657A001C345F /* LeagueGothic-Regular.ttf */,
+				E45D25422C13657A001C345F /* WorkSans-Black.ttf */,
+				E45D25432C13657A001C345F /* WorkSans-BlackItalic.ttf */,
+				E45D25442C13657A001C345F /* WorkSans-Bold.ttf */,
+				E45D25452C13657A001C345F /* WorkSans-BoldItalic.ttf */,
+				E45D25462C13657A001C345F /* WorkSans-ExtraBold.ttf */,
+				E45D25472C13657A001C345F /* WorkSans-ExtraBoldItalic.ttf */,
+				E45D25482C13657A001C345F /* WorkSans-ExtraLight.ttf */,
+				E45D25492C13657A001C345F /* WorkSans-ExtraLightItalic.ttf */,
+				E45D254A2C13657A001C345F /* WorkSans-Italic.ttf */,
+				E45D254B2C13657A001C345F /* WorkSans-Light.ttf */,
+				E45D254C2C13657A001C345F /* WorkSans-LightItalic.ttf */,
+				E45D254D2C13657A001C345F /* WorkSans-Medium.ttf */,
+				E45D254E2C13657A001C345F /* WorkSans-MediumItalic.ttf */,
+				E45D254F2C13657A001C345F /* WorkSans-Regular.ttf */,
+				E45D25502C13657A001C345F /* WorkSans-SemiBold.ttf */,
+				E45D25512C13657A001C345F /* WorkSans-SemiBoldItalic.ttf */,
+				E45D25522C13657A001C345F /* WorkSans-Thin.ttf */,
+				E45D25532C13657A001C345F /* WorkSans-ThinItalic.ttf */,
+			);
+			path = Fonts;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -139,8 +237,6 @@
 			);
 			name = "Work And Relax";
 			packageProductDependencies = (
-				E41111062C04D37A00809647 /* SVGKit */,
-				E41111082C04D37A00809647 /* SVGKitSwift */,
 			);
 			productName = "Work And Relax";
 			productReference = E41110E22C02815900809647 /* Work And Relax.app */;
@@ -171,7 +267,6 @@
 			);
 			mainGroup = E41110D92C02815900809647;
 			packageReferences = (
-				E41111052C04D37A00809647 /* XCRemoteSwiftPackageReference "SVGKit" */,
 			);
 			productRefGroup = E41110E32C02815900809647 /* Products */;
 			projectDirPath = "";
@@ -187,11 +282,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E41111042C04D1BF00809647 /* LeagueGothic-Regular.ttf in Resources */,
-				E41110FC2C02838600809647 /* Lalezar-Regular.ttf in Resources */,
+				E45D25642C13657B001C345F /* WorkSans-Regular.ttf in Resources */,
+				E45D25572C13657B001C345F /* WorkSans-Black.ttf in Resources */,
+				E45D25632C13657B001C345F /* WorkSans-MediumItalic.ttf in Resources */,
+				E45D255C2C13657B001C345F /* WorkSans-ExtraBoldItalic.ttf in Resources */,
+				E45D255A2C13657B001C345F /* WorkSans-BoldItalic.ttf in Resources */,
+				E45D25672C13657B001C345F /* WorkSans-Thin.ttf in Resources */,
+				E45D25652C13657B001C345F /* WorkSans-SemiBold.ttf in Resources */,
+				E45D25562C13657B001C345F /* LeagueGothic-Regular.ttf in Resources */,
+				E45D25602C13657B001C345F /* WorkSans-Light.ttf in Resources */,
+				E45D255F2C13657B001C345F /* WorkSans-Italic.ttf in Resources */,
+				E45D255D2C13657B001C345F /* WorkSans-ExtraLight.ttf in Resources */,
+				E45D25612C13657B001C345F /* WorkSans-LightItalic.ttf in Resources */,
+				E45D25682C13657B001C345F /* WorkSans-ThinItalic.ttf in Resources */,
 				E41110ED2C02815B00809647 /* Preview Assets.xcassets in Resources */,
+				E45D25592C13657B001C345F /* WorkSans-Bold.ttf in Resources */,
+				E45D25552C13657B001C345F /* Lalezar-Regular.ttf in Resources */,
 				E41110EA2C02815B00809647 /* Assets.xcassets in Resources */,
+				E45D255E2C13657B001C345F /* WorkSans-ExtraLightItalic.ttf in Resources */,
+				E45D25662C13657B001C345F /* WorkSans-SemiBoldItalic.ttf in Resources */,
 				E41111022C04AB1D00809647 /* user-group-solid.svg in Resources */,
+				E45D25622C13657B001C345F /* WorkSans-Medium.ttf in Resources */,
+				E45D255B2C13657B001C345F /* WorkSans-ExtraBold.ttf in Resources */,
+				E45D25582C13657B001C345F /* WorkSans-BlackItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,11 +316,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				E458A6B82C0DBA880089BC1D /* TestAnimation.swift in Sources */,
+				E48CBEA82C162F9E00C9B5E2 /* ChatFunctions.swift in Sources */,
+				E45D253B2C134EDE001C345F /* Event.swift in Sources */,
+				E45D25382C128CCF001C345F /* Login.swift in Sources */,
 				E41110FA2C0281D500809647 /* LoadingScreen.swift in Sources */,
+				E45D253F2C1360EB001C345F /* NavTitleBar.swift in Sources */,
+				E45D256C2C1376FA001C345F /* DateConvert.swift in Sources */,
 				E45D25332C124267001C345F /* NavBar.swift in Sources */,
 				3B22D6562C12815E0023E377 /* Functions.swift in Sources */,
 				E41110EF2C02815B00809647 /* Persistence.swift in Sources */,
 				E41110FF2C03BB5F00809647 /* Login-Register-Screen.swift in Sources */,
+				E45D256A2C13693B001C345F /* ColorMatching.swift in Sources */,
+				E45D253D2C13505F001C345F /* FetchEvents.swift in Sources */,
+				E48CBEA62C162F7600C9B5E2 /* ChatScreen.swift in Sources */,
 				E45D25352C124320001C345F /* HomeScreen.swift in Sources */,
 				E41110E82C02815900809647 /* ContentView.swift in Sources */,
 				E41110E62C02815900809647 /* Work_And_RelaxApp.swift in Sources */,
@@ -349,10 +470,11 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Work-And-Relax-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -360,9 +482,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "war.Work-And-Relax";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -378,10 +504,11 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Work-And-Relax-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -389,9 +516,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "war.Work-And-Relax";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -417,30 +548,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		E41111052C04D37A00809647 /* XCRemoteSwiftPackageReference "SVGKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SVGKit/SVGKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		E41111062C04D37A00809647 /* SVGKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E41111052C04D37A00809647 /* XCRemoteSwiftPackageReference "SVGKit" */;
-			productName = SVGKit;
-		};
-		E41111082C04D37A00809647 /* SVGKitSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E41111052C04D37A00809647 /* XCRemoteSwiftPackageReference "SVGKit" */;
-			productName = SVGKitSwift;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		E41110F02C02815B00809647 /* Work_And_Relax.xcdatamodeld */ = {

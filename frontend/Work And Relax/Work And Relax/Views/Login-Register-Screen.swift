@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct Login_Register_Screen: View {
+    @State private var animate = false
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var loginMessage: String = ""
@@ -8,7 +9,7 @@ struct Login_Register_Screen: View {
     @State private var showError: Bool = false
     
     var body: some View {
-        NavigationView {
+        ZStack {
             VStack {
                 VStack(spacing: 20) {
                     Spacer()
@@ -42,7 +43,7 @@ struct Login_Register_Screen: View {
                         .frame(width: UIScreen.main.bounds.width * 1 / 2 + 105)
                         .background(Color.white)
                         .cornerRadius(25)
-                        .shadow(radius: 5)
+                        .shadow(radius: 3, x: 2, y: 2)
                         .padding(.horizontal, 30)
 
                         HStack {
@@ -60,7 +61,7 @@ struct Login_Register_Screen: View {
                         .frame(width: UIScreen.main.bounds.width * 1 / 2 + 105)
                         .background(Color.white)
                         .cornerRadius(25)
-                        .shadow(radius: 5)
+                        .shadow(radius: 3, x: 2, y: 2)
                         .padding(.horizontal, 30)
                     }
                     .padding(.horizontal, 20)
@@ -68,6 +69,7 @@ struct Login_Register_Screen: View {
                     
                     VStack(spacing: 30) {
                         Button(action: {
+                            // Handle login action
                             login(email: self.email, password: self.password) { success, message in
                                 if success {
                                     self.isAuthenticated = true
@@ -84,7 +86,7 @@ struct Login_Register_Screen: View {
                                 .padding()
                                 .background(Color(red: 54/255, green: 85/255, blue: 143/255))
                                 .cornerRadius(25)
-                                .shadow(radius: 5)
+                                .shadow(radius: 3, x: 2, y: 2)
                         }
                         
                         Button(action: {
@@ -97,7 +99,7 @@ struct Login_Register_Screen: View {
                                 .padding()
                                 .background(Color(red: 54/255, green: 85/255, blue: 143/255))
                                 .cornerRadius(25)
-                                .shadow(radius: 5)
+                                .shadow(radius: 3, x: 2, y: 2)
                         }
                         
                         Rectangle()
@@ -111,12 +113,18 @@ struct Login_Register_Screen: View {
                         }) {
                             Text("Zarejestruj się")
                                 .font(.headline)
-                                .foregroundColor(.white)
+                                .foregroundColor(Color(red: 54/255, green: 85/255, blue: 143/255))
                                 .frame(maxWidth: UIScreen.main.bounds.width * 1 / 2 + 80)
                                 .padding()
-                                .background(Color(red: 54/255, green: 85/255, blue: 143/255))
-                                .cornerRadius(25)
-                                .shadow(radius: 5)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 25)
+                                        .stroke(lineWidth: 3)
+                                        .frame(maxWidth: UIScreen.main.bounds.width * 1 / 2 + 110)
+                                        .background(.clear)
+                                        .foregroundColor(Color(red: 54/255, green: 85/255, blue: 143/255))
+                                        .shadow(radius: 2, x: 2, y: 2)
+                                )
+                                .shadow(radius: 2, x: 2, y: 2)
                         }
                         .padding(.bottom, 20)
                     }
@@ -138,16 +146,33 @@ struct Login_Register_Screen: View {
                 .cornerRadius(20)
                 .padding(.horizontal, 16)
             }
-            .alert(isPresented: Binding<Bool>(
-                get: { !loginMessage.isEmpty },
-                set: { _ in loginMessage = "" }
-            )) {
-                Alert(title: Text("Login"), message: Text(loginMessage), dismissButton: .default(Text("OK")))
+            .zIndex(0)
+            .edgesIgnoringSafeArea(.all)
+            .navigationBarBackButtonHidden(true)
+            
+            Ellipse()
+                .fill(Color(red: 54/255, green: 85/255, blue: 143/255))
+                .frame(
+                    width: animate ? UIScreen.main.bounds.width * 3 : UIScreen.main.bounds.width * 3.5,
+                    height: animate ? UIScreen.main.bounds.height * 3 : UIScreen.main.bounds.height / 2 + 2000
+                )
+                .padding(.bottom, animate ? 18000 : 1000)
+                .animation(Animation.easeInOut(duration: 2).delay(0), value: animate)
+        }
+        .onAppear {
+            withAnimation {
+                self.animate = true
             }
-            .fullScreenCover(isPresented: $isAuthenticated) {
-                // Navigate to your main screen on successful login
-                NavBar() // Replace with your main screen
-            }
+        }
+        .alert(isPresented: Binding<Bool>(
+            get: { !loginMessage.isEmpty },
+            set: { _ in loginMessage = "" }
+        )) {
+            Alert(title: Text("Login"), message: Text(loginMessage), dismissButton: .default(Text("OK")))
+        }
+        .fullScreenCover(isPresented: $isAuthenticated) {
+            // Navigate to your main screen on successful login
+            NavBar() // Replace with your main screen
         }
     }
 }

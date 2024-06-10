@@ -36,6 +36,13 @@ public class UserProfileController {
         return userService.getUsers(key);
     }
 
+    @GetMapping(path = "/byEmail")
+    public UserProfile getUserByEmail(@RequestParam(name = "key", defaultValue = "") String key,
+    @RequestParam(required = true) String email)
+    throws InvalidApiKey, ApiKeyNotProvided, UserProfileNotFound {
+        return userService.getUserByEmail(key, email);
+    }
+
     @PostMapping(path = "/new")
     public void registerUser(@RequestParam(name = "key", defaultValue = "") String key, @RequestBody UserProfile user)
     throws InvalidApiKey, ApiKeyNotProvided, UserProfileAlreadyExists {
@@ -56,8 +63,12 @@ public class UserProfileController {
     @RequestParam(required = false) String email,
     @RequestParam(required = false) String password,
     @RequestParam(required = false) List<Long> friendlistIds,
-    @RequestParam(required = false, defaultValue = "-1") Long userplanId) 
+    @RequestParam(required = false, defaultValue = "-1") Long userplanId,
+    @RequestParam(required = false) Boolean isVerified,
+    @RequestParam(required = false) Boolean isBanned,
+    @RequestParam(required = false) Boolean isAdmin,
+    @RequestParam(required = false, defaultValue = "-1") Integer verificationCode)
     throws InvalidApiKey, ApiKeyNotProvided, UserProfileAlreadyExists, UserProfileNotFound, PasswordTooShort {
-        userService.updateUser(key, userId, name, surname, email, password, friendlistIds, userplanId);
+        userService.updateUser(key, userId, name, surname, email, password, friendlistIds, userplanId, isVerified, isBanned, isAdmin, verificationCode);
     }
 }

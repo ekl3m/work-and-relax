@@ -22,6 +22,10 @@ public class UserProfile {
     private String Password;
     private List<Long> FriendlistIDs;
     private Long UserplanID;
+    private Boolean isVerified;
+    private Boolean isBanned;
+    private Boolean isAdmin;
+    private Integer verificationCode; // Bound to user object till regenerated
 
     // Null constructor:
 
@@ -30,7 +34,7 @@ public class UserProfile {
 
     // Everything constructor:
 
-    public UserProfile(Long ID, String Name, String Surname, String Email, String Password, List<Long> FriendlistIDs, Long UserplanID) {
+    public UserProfile(Long ID, String Name, String Surname, String Email, String Password, List<Long> FriendlistIDs, Long UserplanID, Boolean isAdmin, Boolean isBanned, Boolean isVerified, Integer verificationCode) {
         this.ID = ID;
         this.Name = Name;
         this.Surname = Surname;
@@ -38,17 +42,25 @@ public class UserProfile {
         this.Password = Password;
         this.FriendlistIDs = FriendlistIDs;
         this.UserplanID = UserplanID;
+        this.isAdmin = isAdmin;
+        this.isBanned = isBanned;
+        this.isVerified = isVerified;
+        this.verificationCode = verificationCode;
     }
 
     // No ID constructor, database can generate IDs:
 
-    public UserProfile(String Name, String Surname, String Email, String Password, List<Long> FriendlistIDs, Long UserplanID) {
+    public UserProfile(String Name, String Surname, String Email, String Password, List<Long> FriendlistIDs, Long UserplanID, Boolean isAdmin, Boolean isBanned, Boolean isVerified, Integer verificationCode) {
         this.Name = Name;
         this.Surname = Surname;
         this.Email = Email;
         this.Password = Password;
         this.FriendlistIDs = FriendlistIDs;
         this.UserplanID = UserplanID;
+        this.isAdmin = isAdmin;
+        this.isBanned = isBanned;
+        this.isVerified = isVerified;
+        this.verificationCode = verificationCode;
     }
 
     // Getters:
@@ -81,6 +93,22 @@ public class UserProfile {
         return UserplanID;
     }
 
+    public Boolean isVerified() {
+        return isVerified;
+    }
+
+    public Boolean isBanned() {
+        return isBanned;
+    }
+
+    public Boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public Integer getVerificationCode() {
+        return verificationCode;
+    }
+
     // Setters:
 
     public void setID(Long ID) {
@@ -111,11 +139,29 @@ public class UserProfile {
         this.UserplanID = UserplanID;
     }
 
+    public void setVerified(Boolean isVerified) {
+        this.isVerified = isVerified;
+    }
+
+    public void setBanned(Boolean isBanned) {
+        this.isBanned = isBanned;
+    }
+
+    public void setAdmin(Boolean isAdmin) {
+        this.isAdmin = isAdmin;
+    }
+
+    public void setVerificationCode(Integer verificationCode) {
+        this.verificationCode = verificationCode;
+    }
+
     // toString:
 
     @Override
     public String toString() {
-        return "User [ID=" + ID + ", Name=" + Name + ", Surname=" + Surname + ", Email=" + Email + ", Password="
-                + Password + ", FriendlistIDs=" + FriendlistIDs + ", UserplanID=" + UserplanID + "]";
+        return "UserProfile [ID=" + ID + ", Name=" + Name + ", Surname=" + Surname + ", Email=" + Email + ", Password="
+                + Password + ", FriendlistIDs=" + FriendlistIDs + ", UserplanID=" + UserplanID + ", isVerified="
+                + isVerified + ", isBanned=" + isBanned + ", isAdmin=" + isAdmin + ", verificationCode="
+                + verificationCode + "]";
     }
 }
