@@ -19,13 +19,13 @@ public class EventConfig {
             Event event0 = new Event(
                 "Festiwal piwa",
                 "Wypij jak najwiecej piwa",
-                "https://imgur.com/gallery/im-just-gonna-leave-this-here-t5B2kTQ",
+                "https://i.imgur.com/t5B2kTQ.png",
                 LocalDateTime.of(LocalDate.of(2024, Month.JULY, 15), LocalTime.of(15, 0, 0))
             );
             Event event1 = new Event(
                 "Comicon",
                 "Przebierz sie za ulubione postacie z komiksow",
-                "https://imgur.com/gallery/new-york-comicon-day-3-KupL0Er",
+                "https://i.imgur.com/XGInjbt.jpeg",
                 LocalDateTime.of(LocalDate.of(2024, Month.AUGUST, 1), LocalTime.of(14, 0, 0))
             );
 
