@@ -49,7 +49,7 @@
 		E48CBEA82C162F9E00C9B5E2 /* ChatFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48CBEA72C162F9E00C9B5E2 /* ChatFunctions.swift */; };
 		E4E108142C17354900DBDA19 /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E108132C17354900DBDA19 /* Announcement.swift */; };
 		E4E108162C17366100DBDA19 /* FetchAnnouncements.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E108152C17366100DBDA19 /* FetchAnnouncements.swift */; };
-		E4E108332C1751CC00DBDA19 /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = E4E108322C1751CC00DBDA19 /* SwiftUIIntrospect */; };
+		E4E108362C18E56800DBDA19 /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = E4E108352C18E56800DBDA19 /* SwiftUIIntrospect */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,7 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4E108332C1751CC00DBDA19 /* SwiftUIIntrospect in Frameworks */,
+				E4E108362C18E56800DBDA19 /* SwiftUIIntrospect in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,7 +242,7 @@
 			);
 			name = "Work And Relax";
 			packageProductDependencies = (
-				E4E108322C1751CC00DBDA19 /* SwiftUIIntrospect */,
+				E4E108352C18E56800DBDA19 /* SwiftUIIntrospect */,
 			);
 			productName = "Work And Relax";
 			productReference = E41110E22C02815900809647 /* Work And Relax.app */;
@@ -273,7 +273,7 @@
 			);
 			mainGroup = E41110D92C02815900809647;
 			packageReferences = (
-				E4E108312C1751CC00DBDA19 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
+				E4E108342C18E56800DBDA19 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 			);
 			productRefGroup = E41110E32C02815900809647 /* Products */;
 			projectDirPath = "";
@@ -558,7 +558,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E4E108312C1751CC00DBDA19 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+		E4E108342C18E56800DBDA19 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect";
 			requirement = {
@@ -569,9 +569,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E4E108322C1751CC00DBDA19 /* SwiftUIIntrospect */ = {
+		E4E108352C18E56800DBDA19 /* SwiftUIIntrospect */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E4E108312C1751CC00DBDA19 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			package = E4E108342C18E56800DBDA19 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
 			productName = SwiftUIIntrospect;
 		};
 /* End XCSwiftPackageProductDependency section */
