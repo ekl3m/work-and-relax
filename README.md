@@ -87,14 +87,14 @@ To contribute:
 
 ## License
 
-This project is licensed to ekl3m and JakubMagdziak. Contact them about the license from contact details provided below.
+This project is licensed under Creative Commons BY-NC-ND license to ekl3m and JakubMagdziak. See the details under license tab.
 
 ## Contact
 
 For any inquiries or issues, please contact us at:
 
 ekl3m:
-- Email: sq.programs@gmail.com
+- Email: sq.programs@gmail.com 
 - GitHub: [ekl3m](https://github.com/ekl3m)
 
 JakubMagdziak:
