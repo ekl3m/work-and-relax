@@ -2,10 +2,22 @@ import SwiftUI
 
 struct TestAnimation: View {
     @State private var animate = false
+    @State private var isAnimating = false
 
     var body: some View {
         ZStack {
-            Text("IN PROGRESS...")
+            VStack{
+                Circle()
+                    .trim(from: 0.0, to: 0.8)
+                    .stroke(Color.black, lineWidth: 5)
+                    .frame(width: 30, height: 30)
+                    .rotationEffect(Angle(degrees: isAnimating ? 360 : 0))
+                    .animation(Animation.linear(duration: 1).repeatForever(autoreverses: false), value: isAnimating)
+                    .onAppear {
+                        self.isAnimating = true
+                    }
+                Text("IN PROGRESS...")
+            }
                 .font(.title.bold())
                 .zIndex(1)
             SpottedBlurredGradientView()

@@ -1,9 +1,12 @@
 import SwiftUI
+import SwiftUIIntrospect
 
 struct HomeScreen: View {
     @StateObject private var viewModel = EventViewModel()
+    @StateObject private var viewModel2 = AnnouncementViewModel()
     @State private var dominantColor: Color = .gray
     @State private var textColor: Color = .white
+    @State private var showingEvents = true
     
     var body: some View {
         ZStack {
@@ -23,27 +26,65 @@ struct HomeScreen: View {
                 
                 ScrollView {
                     VStack {
-                        Spacer().frame(height: 20)
-
-                        ForEach(viewModel.events, id: \.id) { event in
+                        HStack {
                             Button(action: {
-                                print("Selected event \(event.id)")
-                                viewModel.selectedEvent = event
+                                showingEvents = true
                             }) {
-                                EventView(event: event, onSelect: { dominantColor, textColor in
+                                Text("Wydarzenia")
+                                    .foregroundColor(showingEvents ? .black : .white)
+                                    .padding(.horizontal, 16)
+                                    .padding(.vertical, 8)
+                                    .background(showingEvents ? Color.white : Color(.systemGray).opacity(0.3))
+                                    .cornerRadius(20)
+                            }
+                            .frame(height: 40)
+                            
+                            Button(action: {
+                                showingEvents = false
+                            }) {
+                                Text("Ogłoszenia")
+                                    .foregroundColor(!showingEvents ? .black : .white)
+                                    .padding(.horizontal, 16)
+                                    .padding(.vertical, 8)
+                                    .background(!showingEvents ? Color.white : Color(.systemGray).opacity(0.3))
+                                    .cornerRadius(20)
+                            }
+                            .frame(height: 40)
+                        }
+                        .padding()
+
+                        if showingEvents {
+                            ForEach(viewModel.events, id: \.id) { event in
+                                Button(action: {
                                     print("Selected event \(event.id)")
                                     viewModel.selectedEvent = event
-                                    self.dominantColor = dominantColor
-                                    self.textColor = textColor
-                                })
-                                .buttonStyle(PlainButtonStyle())
-                                .background(Color.clear)  // Ensure each EventView has its own background to handle taps
-                                .contentShape(Rectangle())  // Ensure the entire button area is tappable
-                                .onAppear {
-                                    print("Event \(event.id) appeared in ScrollView")
+                                }) {
+                                    EventView(event: event, onSelect: { dominantColor, textColor in
+                                        print("Selected event \(event.id)")
+                                        viewModel.selectedEvent = event
+                                        self.dominantColor = dominantColor
+                                        self.textColor = textColor
+                                    })
+                                    .buttonStyle(PlainButtonStyle())
+                                    .background(Color.clear)  // Ensure each EventView has its own background to handle taps
+                                    .contentShape(Rectangle())  // Ensure the entire button area is tappable
                                 }
-                                .onDisappear {
-                                    print("Event \(event.id) disappeared from ScrollView")
+                            }
+                        } else {
+                            ForEach(viewModel2.announcements, id: \.id) { announcement in
+                                Button(action: {
+                                    print("Selected event \(announcement.id)")
+                                    viewModel2.selectedAnnouncement = announcement
+                                }) {
+                                    AnnouncementView(announcement: announcement, onSelect: { dominantColor, textColor in
+                                        print("Selected announcement \(announcement.id)")
+                                        viewModel2.selectedAnnouncement = announcement
+                                        self.dominantColor = dominantColor
+                                        self.textColor = textColor
+                                    })
+                                    .buttonStyle(PlainButtonStyle())
+                                    .background(Color.clear)  // Ensure each EventView has its own background to handle taps
+                                    .contentShape(Rectangle())  // Ensure the entire button area is tappable
                                 }
                             }
                         }
@@ -53,9 +94,16 @@ struct HomeScreen: View {
                 }
                 .onAppear {
                     viewModel.fetchEvents()
-                    print("Fetching events in HomeScreen")
+                    viewModel2.fetchAnnouncements()
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .refreshable {
+                    viewModel.fetchEvents()
+                    viewModel2.fetchAnnouncements()
+                }
+                .introspect(.scrollView, on: .iOS(.v17, .v16, .v15)) { scrollView in
+                    scrollView.refreshControl?.tintColor = .white
+                }
             }
             .edgesIgnoringSafeArea(.top)
             
@@ -65,7 +113,16 @@ struct HomeScreen: View {
                         viewModel.selectedEvent = nil
                     }
                 })
-                .transition(.move(edge: .trailing))
+                .transition(.opacity)
+                .zIndex(1)  // Ensure it appears above the HomeScreen content
+            }
+            if let selectedAnnouncement = viewModel2.selectedAnnouncement {
+                AnnouncementDetailView(announcement: selectedAnnouncement, dominantColor: dominantColor, textColor: textColor, goBack: {
+                    withAnimation {
+                        viewModel2.selectedAnnouncement = nil
+                    }
+                })
+                .transition(.opacity)
                 .zIndex(1)  // Ensure it appears above the HomeScreen content
             }
         }
