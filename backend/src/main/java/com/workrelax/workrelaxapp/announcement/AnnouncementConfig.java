@@ -15,12 +15,12 @@ public class AnnouncementConfig {
             Announcement announcement0 = new Announcement(
                 "Sprzedam mieszkanie",
                 "Superowy kwadrat, kupuj",
-                "https://imgur.com/gallery/face-after-jokes-i-share-fall-flat-xv0Q6Z2"
+                "https://i.imgur.com/XGnp1VJ.jpeg"
             );
             Announcement announcement1 = new Announcement(
                 "Erasmus",
                 "Przyjezdzaja studenci z Afryki",
-                "https://imgur.com/gallery/miao-miao-nibba-pcpXb8U"
+                "https://i.imgur.com/6Bk6UFr.jpeg"
             );
 
             repository.saveAll(
