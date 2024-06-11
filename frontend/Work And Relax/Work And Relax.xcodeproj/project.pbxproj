@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B22D6562C12815E0023E377 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B22D6552C12815E0023E377 /* Functions.swift */; };
 		E41110E62C02815900809647 /* Work_And_RelaxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41110E52C02815900809647 /* Work_And_RelaxApp.swift */; };
 		E41110E82C02815900809647 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41110E72C02815900809647 /* ContentView.swift */; };
 		E41110EA2C02815B00809647 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E41110E92C02815B00809647 /* Assets.xcassets */; };
@@ -51,7 +50,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3B22D6552C12815E0023E377 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		E41110E22C02815900809647 /* Work And Relax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Work And Relax.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E41110E52C02815900809647 /* Work_And_RelaxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Work_And_RelaxApp.swift; sourceTree = "<group>"; };
 		E41110E72C02815900809647 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -137,7 +135,6 @@
 				E41110EE2C02815B00809647 /* Persistence.swift */,
 				E41110F02C02815B00809647 /* Work_And_Relax.xcdatamodeld */,
 				E41110EB2C02815B00809647 /* Preview Content */,
-				3B22D6552C12815E0023E377 /* Functions.swift */,
 			);
 			path = "Work And Relax";
 			sourceTree = "<group>";
@@ -323,7 +320,6 @@
 				E45D253F2C1360EB001C345F /* NavTitleBar.swift in Sources */,
 				E45D256C2C1376FA001C345F /* DateConvert.swift in Sources */,
 				E45D25332C124267001C345F /* NavBar.swift in Sources */,
-				3B22D6562C12815E0023E377 /* Functions.swift in Sources */,
 				E41110EF2C02815B00809647 /* Persistence.swift in Sources */,
 				E41110FF2C03BB5F00809647 /* Login-Register-Screen.swift in Sources */,
 				E45D256A2C13693B001C345F /* ColorMatching.swift in Sources */,
