@@ -67,8 +67,9 @@ public class UserProfileController {
     @RequestParam(required = false) Boolean isVerified,
     @RequestParam(required = false) Boolean isBanned,
     @RequestParam(required = false) Boolean isAdmin,
-    @RequestParam(required = false, defaultValue = "-1") Integer verificationCode)
+    @RequestParam(required = false, defaultValue = "-1") Integer verificationCode,
+    @RequestParam(required = false) String photo)
     throws InvalidApiKey, ApiKeyNotProvided, UserProfileAlreadyExists, UserProfileNotFound, PasswordTooShort {
-        userService.updateUser(key, userId, name, surname, email, password, friendlistIds, userplanId, isVerified, isBanned, isAdmin, verificationCode);
+        userService.updateUser(key, userId, name, surname, email, password, friendlistIds, userplanId, isVerified, isBanned, isAdmin, verificationCode, photo);
     }
 }

@@ -26,6 +26,7 @@ public class UserProfile {
     private Boolean isBanned;
     private Boolean isAdmin;
     private Integer verificationCode; // Bound to user object till regenerated
+    private String Photo;
 
     // Null constructor:
 
@@ -34,7 +35,7 @@ public class UserProfile {
 
     // Everything constructor:
 
-    public UserProfile(Long ID, String Name, String Surname, String Email, String Password, List<Long> FriendlistIDs, Long UserplanID, Boolean isAdmin, Boolean isBanned, Boolean isVerified, Integer verificationCode) {
+    public UserProfile(Long ID, String Name, String Surname, String Email, String Password, List<Long> FriendlistIDs, Long UserplanID, Boolean isAdmin, Boolean isBanned, Boolean isVerified, Integer verificationCode, String Photo) {
         this.ID = ID;
         this.Name = Name;
         this.Surname = Surname;
@@ -46,11 +47,12 @@ public class UserProfile {
         this.isBanned = isBanned;
         this.isVerified = isVerified;
         this.verificationCode = verificationCode;
+        this.Photo = Photo;
     }
 
     // No ID constructor, database can generate IDs:
 
-    public UserProfile(String Name, String Surname, String Email, String Password, List<Long> FriendlistIDs, Long UserplanID, Boolean isAdmin, Boolean isBanned, Boolean isVerified, Integer verificationCode) {
+    public UserProfile(String Name, String Surname, String Email, String Password, List<Long> FriendlistIDs, Long UserplanID, Boolean isAdmin, Boolean isBanned, Boolean isVerified, Integer verificationCode, String Photo) {
         this.Name = Name;
         this.Surname = Surname;
         this.Email = Email;
@@ -61,6 +63,7 @@ public class UserProfile {
         this.isBanned = isBanned;
         this.isVerified = isVerified;
         this.verificationCode = verificationCode;
+        this.Photo = Photo;
     }
 
     // Getters:
@@ -109,6 +112,10 @@ public class UserProfile {
         return verificationCode;
     }
 
+    public String getPhoto() {
+        return Photo;
+    }
+
     // Setters:
 
     public void setID(Long ID) {
@@ -155,6 +162,10 @@ public class UserProfile {
         this.verificationCode = verificationCode;
     }
 
+    public void setPhoto(String Photo) {
+        this.Photo = Photo;
+    }
+
     // toString:
 
     @Override
@@ -162,6 +173,6 @@ public class UserProfile {
         return "UserProfile [ID=" + ID + ", Name=" + Name + ", Surname=" + Surname + ", Email=" + Email + ", Password="
                 + Password + ", FriendlistIDs=" + FriendlistIDs + ", UserplanID=" + UserplanID + ", isVerified="
                 + isVerified + ", isBanned=" + isBanned + ", isAdmin=" + isAdmin + ", verificationCode="
-                + verificationCode + "]";
+                + verificationCode + ", Photo=" + Photo + "]";
     }
 }

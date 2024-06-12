@@ -86,7 +86,7 @@ public class UserProfileService {
     }
 
     @Transactional
-    public void updateUser(String key, Long userId, String name, String surname, String email, String password, List<Long> friendlistIds, Long userplanId, Boolean isVerified, Boolean isBanned, Boolean isAdmin, Integer verificationCode) 
+    public void updateUser(String key, Long userId, String name, String surname, String email, String password, List<Long> friendlistIds, Long userplanId, Boolean isVerified, Boolean isBanned, Boolean isAdmin, Integer verificationCode, String photo) 
     throws InvalidApiKey, ApiKeyNotProvided, UserProfileAlreadyExists, UserProfileNotFound, PasswordTooShort {
         if (key.isEmpty()) {
             throw new ApiKeyNotProvided("API key was not provided!");
@@ -156,6 +156,11 @@ public class UserProfileService {
         // Changing verificationCode
         if (verificationCode >= 0 && !Objects.equals(user.getVerificationCode(), verificationCode)) {
             user.setVerificationCode(verificationCode);
+        }
+
+        // Changing photo
+        if (photo != null && photo.length() > 0 && !Objects.equals(user.getPhoto(), photo)) {
+            user.setPhoto(photo);
         }
     }
 }
