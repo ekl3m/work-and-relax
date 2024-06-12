@@ -17,7 +17,7 @@ struct NavBar: View {
                 } else if selectedView == "Plan" {
                     TestAnimation()
                 } else if selectedView == "Mapa" {
-                    TestAnimation()
+                    HomeView()
                 } else if selectedView == "Menu" {
                     TestAnimation()
                 } else if selectedView == "Test" {
