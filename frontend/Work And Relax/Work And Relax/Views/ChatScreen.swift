@@ -49,6 +49,7 @@ struct ChatView: View {
                 .padding(.top, 20)
                 
                 List(viewModel.users) { user in
+                    ChatList_Tile(user: user)
                 }
             }
             .navigationBarHidden(true)
@@ -73,6 +74,9 @@ struct ChatView: View {
                         .padding(.bottom, -140)
                 }
             )
+        }
+        .onAppear {
+                viewModel.fetchUsers()
         }
     }
 }

@@ -5,7 +5,7 @@ struct UserProfile: Codable, Identifiable {
     let surname: String
     let email: String
     let password: String
-    let verificationCode: String
+    let verificationCode: Int
     let id: Int
     let userplan: Int
     let friendlist: String?

@@ -10,7 +10,10 @@ class ChatViewModel: ObservableObject {
     }
     
     func fetchUsers() {
-        guard let url = URL(string: "http://20.107.170.217:8080/api/v1/userprofile/all?key=yK9v2TA1GZkq3dTbdfR_1v1NCxE_H9oK4i5H0QKslHg") else { return }
+        guard let url = URL(string: "http://20.107.170.217:8080/api/v1/userProfile/all?key=yK9v2TA1GZkq3dTbdfR_1v1NCxE_H9oK4i5H0QKslHg") else {
+            print("Invalid URL")
+            return
+        }
         
         URLSession.shared.dataTaskPublisher(for: url)
             .map(\.data)

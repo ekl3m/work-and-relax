@@ -1,10 +1,3 @@
-//
-//  ChatList Tile.swift
-//  Work And Relax
-//
-//  Created by Eryk Klemencki on 12/06/2024.
-//
-
 import SwiftUI
 
 struct ChatList_Tile: View {
@@ -12,11 +5,50 @@ struct ChatList_Tile: View {
     
     var body: some View {
         HStack {
-            Image(user.photo)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 50, height: 50)
-                .clipShape(Circle())
+            if let url = URL(string: user.photo) {
+                AsyncImage(url: url) { phase in
+                    switch phase {
+                    case .empty:
+                        Color.gray
+                            .frame(height: 200)
+                            .overlay(
+                                ProgressView()
+                                    .progressViewStyle(CircularProgressViewStyle())
+                            )
+                    case .success(let image):
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 70, height: 70)
+                            .clipShape(Circle())
+                    case .failure:
+                        Color.red
+                            .frame(width: 70, height: 70)
+                            .clipShape(Circle())
+                            .overlay(
+                                VStack {
+                                    Image(systemName: "exclamationmark.triangle")
+                                        .frame(width: 70, height: 70)
+                                        .foregroundColor(.white)
+                                        .font(.largeTitle)
+                                }
+                            )
+                    @unknown default:
+                        EmptyView()
+                    }
+                }
+            } else {
+                Text("Nieprawidłowy URL: \(user.photo)")
+                    .font(.caption)
+                    .foregroundColor(.red)
+                Color.red
+                    .frame(height: 200)
+                    .overlay(
+                        Image(systemName: "exclamationmark.triangle")
+                            .foregroundColor(.white)
+                            .font(.largeTitle)
+                    )
+            }
             
             VStack(alignment: .leading) {
                 HStack {
@@ -49,7 +81,7 @@ struct ChatList_Tile: View {
 
 struct ChatList_Tile_Previews: PreviewProvider {
     static var previews: some View {
-        ChatList_Tile(user: UserProfile(name: "Adam", surname: "Mickiewicz", email: "adam@example.com", password: "password", verificationCode: "100123", id: 20, userplan: 20, friendlist: nil, verified: true, admin: true, banned: false, photo: "profile1"))
+        ChatList_Tile(user: UserProfile(name: "Adam", surname: "Mickiewicz", email: "adam@example.com", password: "password", verificationCode: 100123, id: 20, userplan: 20, friendlist: nil, verified: true, admin: true, banned: false, photo: "https://i.imgur.com/1GEOCbp.png"))
             .previewLayout(.sizeThatFits)
     }
 }
