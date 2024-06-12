@@ -22,7 +22,8 @@ public class UserProfileConfig {
                 true,
                 false,
                 true,
-                100000
+                100000,
+                "https://as2.ftcdn.net/v2/jpg/02/42/00/07/1000_F_242000725_qiAf9SxzWQLLTRlk3yW6MCVs0iZWjaUP.jpg"
             );
             UserProfile AdamMickiewicz = new UserProfile(
                 "Adam",
@@ -34,7 +35,8 @@ public class UserProfileConfig {
                 false,
                 false,
                 true,
-                100001
+                100001,
+                "https://gryiksiazki.pl/storage/media/91c79b27-e056-4886-b6e4-abcf2dcd17a0/thumbnail/6axCDZZUrhDVi3wq5CABwPywpSB0KF/8a7395b05faac16c0095d81b59c81305.webp"
             );
 
             repository.saveAll(
