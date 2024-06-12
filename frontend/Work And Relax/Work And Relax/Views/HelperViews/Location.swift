@@ -22,8 +22,8 @@ struct LocationView: View {
                     case .success(let image):
                         image
                             .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(height: 200)
+                            .scaledToFill() // Ensure the image fits within the bounds
+                            .frame(maxWidth: .infinity, maxHeight: 200)
                             .clipped()
                             .shadow(radius: 5)
                             .onAppear {
@@ -81,7 +81,7 @@ struct LocationView: View {
                     .background(Color.white.opacity(0.3))
                     .cornerRadius(20)
                 }
-                .padding(.top,10)
+                .padding(.top, 10)
             }
         }
         .padding()

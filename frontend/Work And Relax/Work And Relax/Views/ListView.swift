@@ -73,7 +73,6 @@ struct LocationListView: View {
                     Spacer(minLength: 70)
                 }
                 .padding()
-            
                 
                 SearchBar(searchText: $searchText)
                     .padding(.horizontal)
@@ -83,6 +82,7 @@ struct LocationListView: View {
                         ForEach(filteredLocations) { location in
                             LocationView(location: location, onSelect: { _, _ in })
                                 .padding(.horizontal)
+                                
                         }
                     }
                 }
