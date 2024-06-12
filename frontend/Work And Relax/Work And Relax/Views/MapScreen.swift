@@ -7,10 +7,12 @@ struct HomeView: View {
         center: CLLocationCoordinate2D(latitude: 51.752799, longitude: 19.453228),
         span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
     )
-    @State private var restaurants: [Restaurant] = []
     @State private var showList = false
-    
+    @State private var selectedLocation: Location? = nil
+    @State private var showRestaurants = true
+
     @StateObject private var locationManager = LocationManager()
+    @StateObject private var locationViewModel = LocationViewModel()
 
     var body: some View {
         ZStack {
@@ -27,24 +29,33 @@ struct HomeView: View {
             .edgesIgnoringSafeArea(.all)
 
             VStack {
-                SearchBar(searchText: $searchText)
-                    .padding(.top, 50)
-                    .padding(.horizontal)
-
                 ZStack {
-                    Map(coordinateRegion: $region, showsUserLocation: true)
-                        .edgesIgnoringSafeArea(.all)
-                        .onAppear {
-                            if let userLocation = locationManager.userLocation {
-                                region.center = userLocation
+                    Map(coordinateRegion: $region, showsUserLocation: false, annotationItems: locationViewModel.locations.filter { _ in region.span.latitudeDelta < 0.02 }) { location in
+                        MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: location.location_X, longitude: location.location_Y)) {
+                            Button(action: {
+                                selectLocation(location)
+                            }) {
+                                Image(systemName:"pin.fill") // Use your custom pin image name
+                                    .resizable()
+                                    .frame(width: 25, height: 25)
+                                    .clipShape(Circle())
+                                    .foregroundColor(Color(red: 0.41, green: 0.53, blue: 0.76))
                             }
                         }
+                    }
+                    .edgesIgnoringSafeArea(.all)
+                    .onAppear{
+                        locationViewModel.fetchLocations()
+                        if let userLocation = locationManager.userLocation {
+                            region.center = userLocation
+                        }
+                    }
 
                     VStack {
                         Spacer()
                         HStack {
                             Spacer()
-                            
+
                             VStack(spacing: 10) {
                                 // Show User Location Button
                                 Button(action: {
@@ -56,10 +67,10 @@ struct HomeView: View {
                                         .clipShape(Circle())
                                         .shadow(radius: 10)
                                 }
-                                
+
                                 // Show Nearby Restaurants Button
                                 Button(action: {
-                                    fetchNearbyRestaurants()
+                                    showList = true
                                 }) {
                                     Image(systemName: "list.bullet")
                                         .padding()
@@ -73,14 +84,12 @@ struct HomeView: View {
                         }
                     }
                 }
-                
                 .padding(.top, 20)
-
-                //Spacer()
             }
 
             if showList {
-                RestaurantListView(restaurants: $restaurants, showList: $showList)
+                LocationListView(showList: $showList, searchText: $searchText, showRestaurants: $showRestaurants)
+                    .transition(.move(edge: .bottom))
             }
         }
     }
@@ -91,101 +100,16 @@ struct HomeView: View {
         }
     }
 
-    func fetchNearbyRestaurants() {
-        let baseLocation = CLLocationCoordinate2D(latitude: 51.752799, longitude: 19.453228)
-        let nearbyRestaurants = [
-            Restaurant(name: "Restaurant A", latitude: baseLocation.latitude + 0.001, longitude: baseLocation.longitude + 0.001),
-            Restaurant(name: "Restaurant B", latitude: baseLocation.latitude - 0.001, longitude: baseLocation.longitude - 0.001),
-            Restaurant(name: "Restaurant C", latitude: baseLocation.latitude + 0.002, longitude: baseLocation.longitude + 0.002),
-            Restaurant(name: "Restaurant D", latitude: baseLocation.latitude - 0.002, longitude: baseLocation.longitude - 0.002),
-            Restaurant(name: "Restaurant E", latitude: baseLocation.latitude + 0.003, longitude: baseLocation.longitude + 0.003)
-        ]
-        self.restaurants = nearbyRestaurants
-        self.showList = true
-    }
-}
-
-struct SearchBar: View {
-    @Binding var searchText: String
-
-    var body: some View {
-        HStack {
-            TextField("Search...", text: $searchText)
-                .padding(7)
-                .padding(.horizontal, 25)
-                .background(Color(.white))
-                .cornerRadius(8)
-                .padding(.horizontal, 10)
-                .overlay(
-                    HStack {
-                        Image(systemName: "magnifyingglass")
-                            .foregroundColor(.gray)
-                            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                            .padding(.leading, 16)
-                    }
-                )
-        }
-        .padding(.top, 10)
-    }
-}
-
-struct Restaurant: Identifiable {
-    let id = UUID()
-    let name: String
-    let latitude: Double
-    let longitude: Double
-}
-
-struct RestaurantListView: View {
-    @Binding var restaurants: [Restaurant]
-    @Binding var showList: Bool
-
-    var body: some View {
-        VStack {
-            HStack {
-                Spacer()
-                Button(action: {
-                    self.showList = false
-                }) {
-                    Image(systemName: "xmark.circle")
-                        .resizable()
-                        .frame(width: 30, height: 30)
-                        .foregroundColor(.gray)
-                        .padding()
-                }
-            }
-            List(restaurants) { restaurant in
-                Text(restaurant.name)
-            }
-            .cornerRadius(10)
-            .padding()
-            .background(Color.white)
-            .shadow(radius: 10)
-        }
-        .background(Color.black.opacity(0.4).edgesIgnoringSafeArea(.all))
+    func selectLocation(_ location: Location) {
+        searchText = location.name
+        showList = true
+        showRestaurants = location.restaurant
+        selectedLocation = location
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
-    }
-}
-
-class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
-    private let locationManager = CLLocationManager()
-    @Published var userLocation: CLLocationCoordinate2D?
-
-    override init() {
-        super.init()
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
-    }
-
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.last else { return }
-        self.userLocation = location.coordinate
     }
 }

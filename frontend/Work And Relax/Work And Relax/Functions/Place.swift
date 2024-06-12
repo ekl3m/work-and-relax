@@ -1,14 +1,16 @@
 import Foundation
-import MapKit
 
-struct Place: Identifiable, Codable {
-   let id = UUID()
-   let name: String
-   let latitude: Double
-   let longitude: Double
-   let imageURL: String
-
-   var coordinate: CLLocationCoordinate2D {
-       CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-   }
+struct Location: Identifiable, Codable, Equatable {
+    var id: Int64
+    var name: String
+    var location_X: Double
+    var location_Y: Double
+    var photo: String
+    var restaurant: Bool
+    
+    enum CodingKeys: String, CodingKey {
+        case id, name, location_X, location_Y, photo, restaurant
+    }
+    
+    
 }
