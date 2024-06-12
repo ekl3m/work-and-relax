@@ -49,32 +49,6 @@ struct ChatView: View {
                 .padding(.top, 20)
                 
                 List(viewModel.users) { user in
-                    HStack {
-                        Image(user.imageName)
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 50, height: 50)
-                            .clipShape(Circle())
-                        VStack(alignment: .leading) {
-                            HStack {
-                                Text(user.name)
-                                    .fontWeight(.bold)
-                                if user.isAdmin {
-                                    Text("(Admin)")
-                                        .font(.subheadline)
-                                        .foregroundColor(.gray)
-                                }
-                            }
-                            Text(user.status)
-                                .font(.subheadline)
-                                .foregroundColor(.gray)
-                        }
-                        Spacer()
-                        Text(user.time)
-                            .font(.subheadline)
-                            .foregroundColor(.gray)
-                    }
-                    .padding(.vertical, 8)
                 }
             }
             .navigationBarHidden(true)

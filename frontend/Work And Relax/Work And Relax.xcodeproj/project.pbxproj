@@ -56,6 +56,7 @@
 		E4E108142C17354900DBDA19 /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E108132C17354900DBDA19 /* Announcement.swift */; };
 		E4E108162C17366100DBDA19 /* FetchAnnouncements.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E108152C17366100DBDA19 /* FetchAnnouncements.swift */; };
 		E4E108362C18E56800DBDA19 /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = E4E108352C18E56800DBDA19 /* SwiftUIIntrospect */; };
+		E4E47B092C19BF81000D9A7E /* ChatList Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E47B082C19BF81000D9A7E /* ChatList Tile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,6 +110,7 @@
 		E48CBEA72C162F9E00C9B5E2 /* ChatFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatFunctions.swift; sourceTree = "<group>"; };
 		E4E108132C17354900DBDA19 /* Announcement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Announcement.swift; sourceTree = "<group>"; };
 		E4E108152C17366100DBDA19 /* FetchAnnouncements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchAnnouncements.swift; sourceTree = "<group>"; };
+		E4E47B082C19BF81000D9A7E /* ChatList Tile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatList Tile.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +214,7 @@
 				E45D253A2C134EDE001C345F /* Event.swift */,
 				E45D253E2C1360EB001C345F /* NavTitleBar.swift */,
 				E4E108132C17354900DBDA19 /* Announcement.swift */,
+				E4E47B082C19BF81000D9A7E /* ChatList Tile.swift */,
 			);
 			path = HelperViews;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				E45D25332C124267001C345F /* NavBar.swift in Sources */,
 				E41110EF2C02815B00809647 /* Persistence.swift in Sources */,
 				E41110FF2C03BB5F00809647 /* Login-Register-Screen.swift in Sources */,
+				E4E47B092C19BF81000D9A7E /* ChatList Tile.swift in Sources */,
 				E45D256A2C13693B001C345F /* ColorMatching.swift in Sources */,
 				E45D253D2C13505F001C345F /* FetchEvents.swift in Sources */,
 				E4E108142C17354900DBDA19 /* Announcement.swift in Sources */,

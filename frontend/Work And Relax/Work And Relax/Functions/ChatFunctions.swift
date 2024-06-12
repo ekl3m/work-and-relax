@@ -1,17 +1,8 @@
 import SwiftUI
 import Combine
 
-struct User: Identifiable, Codable {
-    let id: UUID
-    let name: String
-    let status: String
-    let time: String
-    let imageName: String
-    let isAdmin: Bool
-}
-
 class ChatViewModel: ObservableObject {
-    @Published var users: [User] = []
+    @Published var users: [UserProfile] = []
     private var cancellables = Set<AnyCancellable>()
     
     init() {
@@ -23,7 +14,7 @@ class ChatViewModel: ObservableObject {
         
         URLSession.shared.dataTaskPublisher(for: url)
             .map(\.data)
-            .decode(type: [User].self, decoder: JSONDecoder())
+            .decode(type: [UserProfile].self, decoder: JSONDecoder())
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 switch completion {

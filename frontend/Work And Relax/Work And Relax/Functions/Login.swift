@@ -1,13 +1,18 @@
 import SwiftUI
 
-struct UserProfile: Codable {
-    let password: String
+struct UserProfile: Codable, Identifiable {
     let name: String
-    let id: Int
     let surname: String
     let email: String
+    let password: String
+    let verificationCode: String
+    let id: Int
     let userplan: Int
     let friendlist: String?
+    let verified: Bool
+    let admin: Bool
+    let banned: Bool
+    let photo: String
 }
 
 
