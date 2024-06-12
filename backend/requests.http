@@ -225,4 +225,41 @@ PUT http://localhost:8080/api/v1/activity/edit/3?key=yK9v2TA1GZkq3dTbdfR_1v1NCxE
 
 ###
 
-############
+############ LOCATIONS:
+
+###
+
+# Create a new location (with id: 3)
+
+POST http://localhost:8080/api/v1/location/new?key=yK9v2TA1GZkq3dTbdfR_1v1NCxE_H9oK4i5H0QKslHg
+Content-Type: application/json
+
+{
+    "name" : "Lokacja z requesta",
+    "photo" : "bez zdjecia",
+    "location_X" : 0,
+    "location_Y" : 0,
+    "restaurant" : false
+}
+
+###
+
+# Get all locations
+
+GET http://localhost:8080/api/v1/location/all?key=yK9v2TA1GZkq3dTbdfR_1v1NCxE_H9oK4i5H0QKslHg
+
+###
+
+# Delete location from 6th POST request (id: 4)
+
+DELETE http://localhost:8080/api/v1/location/4?key=yK9v2TA1GZkq3dTbdfR_1v1NCxE_H9oK4i5H0QKslHg
+
+###
+
+# Change location's (id: 3) title to "Lokacja z requesta ver. 2"
+
+PUT http://localhost:8080/api/v1/location/edit/3?key=yK9v2TA1GZkq3dTbdfR_1v1NCxE_H9oK4i5H0QKslHg&name=Lokacja+z+requesta+ver.+2
+
+###
+
+############ 

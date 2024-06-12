@@ -97,4 +97,16 @@ public class Exceptions {
             super(message);
         }
     }
+
+    public static class LocationAlreadyExists extends Exception {
+        public LocationAlreadyExists(String message) {
+            super(message);
+        }
+    }
+
+    public static class LocationNotFound extends Exception {
+        public LocationNotFound(String message) {
+            super(message);
+        }
+    }
 }
