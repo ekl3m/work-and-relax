@@ -1,30 +1,136 @@
 import SwiftUI
+import SwiftUIIntrospect
 
-struct ListView: View {
-    @State private var places: [Place] = []
-    var category: String
-
-    var body: some View {
-        List(places) { place in
-            NavigationLink(destination: MapDetailView(place: place)) {
-                Text(place.name)
-            }
+struct LocationListView: View {
+    @StateObject private var viewModel = LocationViewModel()
+    @Binding var showList: Bool
+    @Binding var searchText: String
+    @Binding var showRestaurants: Bool
+    
+    var filteredLocations: [Location] {
+        let filtered = viewModel.locations.filter { location in
+            (showRestaurants == location.restaurant) &&
+            (searchText.isEmpty || location.name.localizedCaseInsensitiveContains(searchText))
         }
-        .onAppear {
-            fetchPlaces()
-        }
+        print("Filtered locations: \(filtered)")
+        return filtered
     }
-
-    func fetchPlaces() {
-        // Fetch places from API based on category
-        APIClient.fetchPlaces(for: category) { places in
-            self.places = places
+    
+    var body: some View {
+        ZStack {
+            LinearGradient(
+                stops: [
+                    Gradient.Stop(color: Color(red: 0.21, green: 0.33, blue: 0.56), location: 0.00),
+                    Gradient.Stop(color: Color(red: 0.57, green: 0.65, blue: 1), location: 0.49),
+                    Gradient.Stop(color: .white, location: 1.00),
+                ],
+                startPoint: UnitPoint(x: 0.5, y: 0),
+                endPoint: UnitPoint(x: 0.5, y: 1)
+            )
+            .edgesIgnoringSafeArea(.all)
+            
+            VStack(spacing: 0) {
+                HStack {
+                    Button(action: {
+                        self.showList = false
+                    }) {
+                        Image(systemName: "arrow.left")
+                            .frame(width: 5, height: 5)
+                            .foregroundColor(.black)
+                            .padding()
+                            .background(Color.white)
+                            .cornerRadius(30)
+                            .padding(.leading, 10)
+                            .font(.system(size: 20))
+                            .fontWeight(.bold)
+                    }
+                    .padding(.leading,0)
+                    Spacer()
+                    Button(action: {
+                        showRestaurants = true
+                    }) {
+                        Text("Restauracje")
+                            .foregroundColor(showRestaurants ? .black : .white)
+                            .padding(.horizontal, 16)
+                            .padding(.vertical, 8)
+                            .background(showRestaurants ? Color.white : Color(.systemGray).opacity(0.3))
+                            .cornerRadius(20)
+                    }
+                    .frame(height: 40)
+                    
+                    Button(action: {
+                        showRestaurants = false
+                    }) {
+                        Text("Rozrywka")
+                            .foregroundColor(!showRestaurants ? .black : .white)
+                            .padding(.horizontal, 16)
+                            .padding(.vertical, 8)
+                            .background(!showRestaurants ? Color.white : Color(.systemGray).opacity(0.3))
+                            .cornerRadius(20)
+                        
+                    }
+                    .frame(height: 40)
+                    Spacer(minLength: 70)
+                }
+                .padding()
+            
+                
+                SearchBar(searchText: $searchText)
+                    .padding(.horizontal)
+                
+                ScrollView {
+                    VStack {
+                        ForEach(filteredLocations) { location in
+                            LocationView(location: location, onSelect: { _, _ in })
+                                .padding(.horizontal)
+                        }
+                    }
+                }
+                .onAppear {
+                    print("Fetching locations...")
+                    viewModel.fetchLocations()
+                }
+                .refreshable {
+                    print("Fetching locations...")
+                    viewModel.fetchLocations()
+                }
+                .introspect(.scrollView, on: .iOS(.v17, .v16, .v15)) { scrollView in
+                    scrollView.refreshControl?.tintColor = .white
+                }
+                .padding(.top)
+            }
+            .padding(.top, 40)
         }
     }
 }
 
-struct ListView_Previews: PreviewProvider {
+struct SearchBar: View {
+    @Binding var searchText: String
+
+    var body: some View {
+        HStack {
+            TextField("Search...", text: $searchText)
+                .padding(7)
+                .padding(.horizontal, 25)
+                .background(Color(.white))
+                .cornerRadius(8)
+                .padding(.horizontal, 10)
+                .frame(maxWidth: 380)
+                .overlay(
+                    HStack {
+                        Image(systemName: "magnifyingglass")
+                            .foregroundColor(.gray)
+                            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                            .padding(.leading, 16)
+                    }
+                )
+        }
+        .padding(.top, 10)
+    }
+}
+
+struct LocationListView_Previews: PreviewProvider {
     static var previews: some View {
-        ListView(category: "pubs")
+        LocationListView(showList: .constant(true), searchText: .constant(""), showRestaurants: .constant(true))
     }
 }
