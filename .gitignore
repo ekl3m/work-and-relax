@@ -34,3 +34,6 @@ backend/target/
 
 # VS Code setting folder
 .vscode/
+
+# xproj files
+frontend/Work And Relax/Work And Relax.xcodeproj
