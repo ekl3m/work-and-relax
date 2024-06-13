@@ -30,7 +30,7 @@ struct HomeView: View {
 
             VStack {
                 ZStack {
-                    Map(coordinateRegion: $region, showsUserLocation: false, annotationItems: locationViewModel.locations.filter { _ in region.span.latitudeDelta < 0.02 }) { location in
+                    Map(coordinateRegion: $region, showsUserLocation: true, annotationItems: locationViewModel.locations.filter { _ in region.span.latitudeDelta < 0.02 }) { location in
                         MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: location.location_X, longitude: location.location_Y)) {
                             Button(action: {
                                 selectLocation(location)
