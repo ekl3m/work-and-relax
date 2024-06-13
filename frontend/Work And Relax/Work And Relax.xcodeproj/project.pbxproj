@@ -56,8 +56,10 @@
 		E48CBEA82C162F9E00C9B5E2 /* ChatFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48CBEA72C162F9E00C9B5E2 /* ChatFunctions.swift */; };
 		E4E108142C17354900DBDA19 /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E108132C17354900DBDA19 /* Announcement.swift */; };
 		E4E108162C17366100DBDA19 /* FetchAnnouncements.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E108152C17366100DBDA19 /* FetchAnnouncements.swift */; };
-		E4E108362C18E56800DBDA19 /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = E4E108352C18E56800DBDA19 /* SwiftUIIntrospect */; };
 		E4E47B092C19BF81000D9A7E /* ChatList Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E47B082C19BF81000D9A7E /* ChatList Tile.swift */; };
+		E4E47B0F2C1A5761000D9A7E /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E47B0E2C1A5761000D9A7E /* RegistrationView.swift */; };
+		E4E47B112C1A672C000D9A7E /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E47B102C1A672C000D9A7E /* Register.swift */; };
+		E4E47B1A2C1A6BB0000D9A7E /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = E4E47B192C1A6BB0000D9A7E /* SwiftUIIntrospect */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,6 +115,8 @@
 		E4E108132C17354900DBDA19 /* Announcement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Announcement.swift; sourceTree = "<group>"; };
 		E4E108152C17366100DBDA19 /* FetchAnnouncements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchAnnouncements.swift; sourceTree = "<group>"; };
 		E4E47B082C19BF81000D9A7E /* ChatList Tile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatList Tile.swift"; sourceTree = "<group>"; };
+		E4E47B0E2C1A5761000D9A7E /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		E4E47B102C1A672C000D9A7E /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,7 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4E108362C18E56800DBDA19 /* SwiftUIIntrospect in Frameworks */,
+				E4E47B1A2C1A6BB0000D9A7E /* SwiftUIIntrospect in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,6 +183,9 @@
 				E48CBEA52C162F7600C9B5E2 /* ChatScreen.swift */,
 				3BBDC47A2C18ED050076D461 /* MapScreen.swift */,
 				3BBDC47C2C18F06F0076D461 /* ListView.swift */,
+				3BBDC47E2C18F0C60076D461 /* NavigationView.swift */,
+				E4E47B0E2C1A5761000D9A7E /* RegistrationView.swift */,
+
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -203,6 +210,7 @@
 				E48CBEA72C162F9E00C9B5E2 /* ChatFunctions.swift */,
 				E4E108152C17366100DBDA19 /* FetchAnnouncements.swift */,
 				3BBDC4842C1902840076D461 /* LocationManager.swift */,
+				E4E47B102C1A672C000D9A7E /* Register.swift */,
 				3B5DC4C72C1A233100146C46 /* FetchLocations.swift */,
 			);
 			path = Functions;
@@ -266,7 +274,7 @@
 			);
 			name = "Work And Relax";
 			packageProductDependencies = (
-				E4E108352C18E56800DBDA19 /* SwiftUIIntrospect */,
+				E4E47B192C1A6BB0000D9A7E /* SwiftUIIntrospect */,
 			);
 			productName = "Work And Relax";
 			productReference = E41110E22C02815900809647 /* Work And Relax.app */;
@@ -297,7 +305,7 @@
 			);
 			mainGroup = E41110D92C02815900809647;
 			packageReferences = (
-				E4E108342C18E56800DBDA19 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
+				E4E47B182C1A6BB0000D9A7E /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 			);
 			productRefGroup = E41110E32C02815900809647 /* Products */;
 			projectDirPath = "";
@@ -358,12 +366,14 @@
 				E41110FA2C0281D500809647 /* LoadingScreen.swift in Sources */,
 				E45D253F2C1360EB001C345F /* NavTitleBar.swift in Sources */,
 				E45D256C2C1376FA001C345F /* DateConvert.swift in Sources */,
+				E4E47B0F2C1A5761000D9A7E /* RegistrationView.swift in Sources */,
 				3BBDC4832C18F18F0076D461 /* APIClient.swift in Sources */,
 				3B5DC4C62C19F6A800146C46 /* Location.swift in Sources */,
 				E45D25332C124267001C345F /* NavBar.swift in Sources */,
 				E41110EF2C02815B00809647 /* Persistence.swift in Sources */,
 				E41110FF2C03BB5F00809647 /* Login-Register-Screen.swift in Sources */,
 				E4E47B092C19BF81000D9A7E /* ChatList Tile.swift in Sources */,
+				E4E47B112C1A672C000D9A7E /* Register.swift in Sources */,
 				E45D256A2C13693B001C345F /* ColorMatching.swift in Sources */,
 				E45D253D2C13505F001C345F /* FetchEvents.swift in Sources */,
 				E4E108142C17354900DBDA19 /* Announcement.swift in Sources */,
@@ -590,7 +600,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E4E108342C18E56800DBDA19 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+		E4E47B182C1A6BB0000D9A7E /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect";
 			requirement = {
@@ -601,9 +611,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E4E108352C18E56800DBDA19 /* SwiftUIIntrospect */ = {
+		E4E47B192C1A6BB0000D9A7E /* SwiftUIIntrospect */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E4E108342C18E56800DBDA19 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			package = E4E47B182C1A6BB0000D9A7E /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
 			productName = SwiftUIIntrospect;
 		};
 /* End XCSwiftPackageProductDependency section */

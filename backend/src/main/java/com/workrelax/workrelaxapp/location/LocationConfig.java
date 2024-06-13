@@ -24,7 +24,7 @@ public class LocationConfig {
                 "https://taniowmiescie.pl/wp-content/uploads/2023/05/twm_kino_helios_Bydgoszcz_4567-30-6493467.webp",
                 51.7489978,
                 19.4483357,
-                true
+                false
             );
             Location location2 = new Location(
                 "Zahir Kebab",

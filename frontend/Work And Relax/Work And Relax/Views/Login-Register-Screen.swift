@@ -7,6 +7,7 @@ struct Login_Register_Screen: View {
     @State private var loginMessage: String = ""
     @State private var isAuthenticated: Bool = false
     @State private var showError: Bool = false
+    @State private var showingRegistrationView = false
     
     var body: some View {
         ZStack {
@@ -110,6 +111,9 @@ struct Login_Register_Screen: View {
                         
                         Button(action: {
                             // Handle register action
+                            withAnimation {
+                                showingRegistrationView = true
+                            }
                         }) {
                             Text("Zarejestruj się")
                                 .font(.headline)
@@ -149,6 +153,12 @@ struct Login_Register_Screen: View {
             .zIndex(0)
             .edgesIgnoringSafeArea(.all)
             .navigationBarBackButtonHidden(true)
+            
+            if showingRegistrationView {
+                RegistrationView(showingRegistrationView: $showingRegistrationView)
+                    .transition(.opacity)
+
+            }
             
             Ellipse()
                 .fill(Color(red: 54/255, green: 85/255, blue: 143/255))
