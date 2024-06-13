@@ -52,6 +52,7 @@
 		E45D25682C13657B001C345F /* WorkSans-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E45D25532C13657A001C345F /* WorkSans-ThinItalic.ttf */; };
 		E45D256A2C13693B001C345F /* ColorMatching.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45D25692C13693B001C345F /* ColorMatching.swift */; };
 		E45D256C2C1376FA001C345F /* DateConvert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45D256B2C1376FA001C345F /* DateConvert.swift */; };
+		E482CF4A2C1B5EE5005CFED2 /* ConfirmEmailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E482CF492C1B5EE5005CFED2 /* ConfirmEmailScreen.swift */; };
 		E48CBEA62C162F7600C9B5E2 /* ChatScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48CBEA52C162F7600C9B5E2 /* ChatScreen.swift */; };
 		E48CBEA82C162F9E00C9B5E2 /* ChatFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48CBEA72C162F9E00C9B5E2 /* ChatFunctions.swift */; };
 		E4E108142C17354900DBDA19 /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E108132C17354900DBDA19 /* Announcement.swift */; };
@@ -59,7 +60,7 @@
 		E4E47B092C19BF81000D9A7E /* ChatList Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E47B082C19BF81000D9A7E /* ChatList Tile.swift */; };
 		E4E47B0F2C1A5761000D9A7E /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E47B0E2C1A5761000D9A7E /* RegistrationView.swift */; };
 		E4E47B112C1A672C000D9A7E /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E47B102C1A672C000D9A7E /* Register.swift */; };
-		E4E47B1A2C1A6BB0000D9A7E /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = E4E47B192C1A6BB0000D9A7E /* SwiftUIIntrospect */; };
+		E4E47B1D2C1B27B6000D9A7E /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = E4E47B1C2C1B27B6000D9A7E /* SwiftUIIntrospect */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +111,7 @@
 		E45D25532C13657A001C345F /* WorkSans-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-ThinItalic.ttf"; sourceTree = "<group>"; };
 		E45D25692C13693B001C345F /* ColorMatching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorMatching.swift; sourceTree = "<group>"; };
 		E45D256B2C1376FA001C345F /* DateConvert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConvert.swift; sourceTree = "<group>"; };
+		E482CF492C1B5EE5005CFED2 /* ConfirmEmailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmEmailScreen.swift; sourceTree = "<group>"; };
 		E48CBEA52C162F7600C9B5E2 /* ChatScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatScreen.swift; sourceTree = "<group>"; };
 		E48CBEA72C162F9E00C9B5E2 /* ChatFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatFunctions.swift; sourceTree = "<group>"; };
 		E4E108132C17354900DBDA19 /* Announcement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Announcement.swift; sourceTree = "<group>"; };
@@ -124,7 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4E47B1A2C1A6BB0000D9A7E /* SwiftUIIntrospect in Frameworks */,
+				E4E47B1D2C1B27B6000D9A7E /* SwiftUIIntrospect in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,9 +185,7 @@
 				E48CBEA52C162F7600C9B5E2 /* ChatScreen.swift */,
 				3BBDC47A2C18ED050076D461 /* MapScreen.swift */,
 				3BBDC47C2C18F06F0076D461 /* ListView.swift */,
-				3BBDC47E2C18F0C60076D461 /* NavigationView.swift */,
 				E4E47B0E2C1A5761000D9A7E /* RegistrationView.swift */,
-
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -226,6 +226,7 @@
 				E4E108132C17354900DBDA19 /* Announcement.swift */,
 				E4E47B082C19BF81000D9A7E /* ChatList Tile.swift */,
 				3B5DC4C52C19F6A800146C46 /* Location.swift */,
+				E482CF492C1B5EE5005CFED2 /* ConfirmEmailScreen.swift */,
 			);
 			path = HelperViews;
 			sourceTree = "<group>";
@@ -274,7 +275,7 @@
 			);
 			name = "Work And Relax";
 			packageProductDependencies = (
-				E4E47B192C1A6BB0000D9A7E /* SwiftUIIntrospect */,
+				E4E47B1C2C1B27B6000D9A7E /* SwiftUIIntrospect */,
 			);
 			productName = "Work And Relax";
 			productReference = E41110E22C02815900809647 /* Work And Relax.app */;
@@ -305,7 +306,7 @@
 			);
 			mainGroup = E41110D92C02815900809647;
 			packageReferences = (
-				E4E47B182C1A6BB0000D9A7E /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
+				E4E47B1B2C1B27B6000D9A7E /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 			);
 			productRefGroup = E41110E32C02815900809647 /* Products */;
 			projectDirPath = "";
@@ -365,6 +366,7 @@
 				E4E108162C17366100DBDA19 /* FetchAnnouncements.swift in Sources */,
 				E41110FA2C0281D500809647 /* LoadingScreen.swift in Sources */,
 				E45D253F2C1360EB001C345F /* NavTitleBar.swift in Sources */,
+				E482CF4A2C1B5EE5005CFED2 /* ConfirmEmailScreen.swift in Sources */,
 				E45D256C2C1376FA001C345F /* DateConvert.swift in Sources */,
 				E4E47B0F2C1A5761000D9A7E /* RegistrationView.swift in Sources */,
 				3BBDC4832C18F18F0076D461 /* APIClient.swift in Sources */,
@@ -600,7 +602,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E4E47B182C1A6BB0000D9A7E /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+		E4E47B1B2C1B27B6000D9A7E /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect";
 			requirement = {
@@ -611,9 +613,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E4E47B192C1A6BB0000D9A7E /* SwiftUIIntrospect */ = {
+		E4E47B1C2C1B27B6000D9A7E /* SwiftUIIntrospect */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E4E47B182C1A6BB0000D9A7E /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			package = E4E47B1B2C1B27B6000D9A7E /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
 			productName = SwiftUIIntrospect;
 		};
 /* End XCSwiftPackageProductDependency section */

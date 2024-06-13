@@ -1,12 +1,31 @@
 import SwiftUI
 
+struct NewUserProfile: Codable {
+    let name: String
+    let surname: String
+    let email: String
+    let password: String
+    let verificationCode: Int
+    let userplan: Int
+    let friendlist: String?
+    let verified: Bool
+    let admin: Bool
+    let banned: Bool
+    let photo: String?
+}
+
+
 struct RegistrationView: View {
     @Binding var showingRegistrationView: Bool
     @State private var firstName: String = ""
     @State private var lastName: String = ""
     @State private var email: String = ""
     @State private var password: String = ""
-    @State private var showError: Bool = false
+    @State private var firstNameHasError: Bool = false
+    @State private var lastNameHasError: Bool = false
+    @State private var emailHasError: Bool = false
+    @State private var passwordHasError: Bool = false
+    @State private var registerSuccess: Bool = false
 
     var body: some View {
         VStack {
@@ -27,16 +46,16 @@ struct RegistrationView: View {
             HStack {
                 TextField("imię", text: $firstName)
                     .padding(.leading, 30)
-                    .foregroundColor(showError ? Color.red : Color.black)
+                    .foregroundColor(firstNameHasError ? Color.red : Color.black)
                     .onTapGesture {
-                        showError = false
+                        firstNameHasError = false
                     }
             }
             .frame(height: 50)
             .frame(width: UIScreen.main.bounds.width * 1 / 2 + 105)
             .background(Color.white)
             .cornerRadius(25)
-            .shadow(radius: 3, x: 2, y: 2)
+            .shadow(color: firstNameHasError ? Color.red : Color.gray, radius: 3, x: 2, y: 2)
             .padding(.horizontal, 30)
             
             Spacer(minLength: 20)
@@ -44,16 +63,16 @@ struct RegistrationView: View {
             HStack {
                 TextField("nazwisko", text: $lastName)
                     .padding(.leading, 30)
-                    .foregroundColor(showError ? Color.red : Color.black)
+                    .foregroundColor(lastNameHasError ? Color.red : Color.black)
                     .onTapGesture {
-                        showError = false
+                        lastNameHasError = false
                     }
             }
             .frame(height: 50)
             .frame(width: UIScreen.main.bounds.width * 1 / 2 + 105)
             .background(Color.white)
             .cornerRadius(25)
-            .shadow(radius: 3, x: 2, y: 2)
+            .shadow(color: lastNameHasError ? Color.red : Color.gray, radius: 3, x: 2, y: 2)
             .padding(.horizontal, 30)
             
             Spacer(minLength: 20)
@@ -61,33 +80,34 @@ struct RegistrationView: View {
             HStack {
                 TextField("email", text: $email)
                     .padding(.leading, 30)
-                    .foregroundColor(showError ? Color.red : Color.black)
+                    .foregroundColor(emailHasError ? Color.red : Color.black)
                     .onTapGesture {
-                        showError = false
+                        emailHasError = false
                     }
             }
             .frame(height: 50)
             .frame(width: UIScreen.main.bounds.width * 1 / 2 + 105)
             .background(Color.white)
             .cornerRadius(25)
-            .shadow(radius: 3, x: 2, y: 2)
+            .shadow(color: emailHasError ? Color.red : Color.gray, radius: 3, x: 2, y: 2)
             .padding(.horizontal, 30)
+            .autocapitalization(.none)
             
             Spacer(minLength: 20)
             
             HStack {
                 SecureField("hasło", text: $password)
                     .padding(.leading, 30)
-                    .foregroundColor(showError ? Color.red : Color.black)
+                    .foregroundColor(passwordHasError ? Color.red : Color.black)
                     .onTapGesture {
-                        showError = false
+                        passwordHasError = false
                     }
             }
             .frame(height: 50)
             .frame(width: UIScreen.main.bounds.width * 1 / 2 + 105)
             .background(Color.white)
             .cornerRadius(25)
-            .shadow(radius: 3, x: 2, y: 2)
+            .shadow(color: passwordHasError ? Color.red : Color.gray, radius: 3, x: 2, y: 2)
             .padding(.horizontal, 30)
             .padding(.bottom, 20)
             
@@ -95,7 +115,37 @@ struct RegistrationView: View {
             
             Button(action: {
                 // Akcja rejestracji
-                print("User registered with First Name: \(firstName), Last Name: \(lastName), Email: \(email)")
+                
+                if validateFields() {
+                    let newUser = NewUserProfile(
+                        name: firstName,
+                        surname: lastName,
+                        email: email,
+                        password: password,
+                        verificationCode: -1,
+                        userplan: 3,
+                        friendlist: nil,
+                        verified: false,
+                        admin: false,
+                        banned: false,
+                        photo: nil
+                    )
+                    
+                    register(user: newUser) {
+                        success, message in
+                        if success {
+                            self.registerSuccess = true
+                            self.showingRegistrationView = false
+                        } else {
+                            self.firstNameHasError = true
+                            self.lastNameHasError = true
+                            self.emailHasError = true
+                            self.passwordHasError = true
+                        }
+                    }
+                    
+                    print("User registered with First Name: \(firstName), Last Name: \(lastName), Email: \(email)")
+                }
             }) {
                 Text("Zarejestruj się")
                     .font(.headline)
@@ -145,6 +195,43 @@ struct RegistrationView: View {
         )
         .cornerRadius(20)
         .padding(.horizontal, 16)
+        .fullScreenCover(isPresented: $registerSuccess) {
+            ConfirmEmailScreen()
+        }
+    }
+    
+    func validateFields() -> Bool {
+        if firstName.isEmpty {
+            firstNameHasError = true
+            return false
+        }
+        
+        if lastName.isEmpty {
+            lastNameHasError = true
+            return false
+        }
+        
+        if !isValidEmail(email) {
+            emailHasError = true
+            return false
+        }
+        
+        if password.count < 8 {
+            passwordHasError = true
+            return false
+        }
+        
+        self.firstNameHasError = false
+        self.lastNameHasError = false
+        self.emailHasError = false
+        self.passwordHasError = false
+        return true
+    }
+
+    func isValidEmail(_ email: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPred = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: email)
     }
 }
 
