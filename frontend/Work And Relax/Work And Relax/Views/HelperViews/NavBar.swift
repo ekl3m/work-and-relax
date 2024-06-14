@@ -19,9 +19,7 @@ struct NavBar: View {
                 } else if selectedView == "Mapa" {
                     HomeView()
                 } else if selectedView == "Menu" {
-                    TestAnimation()
-                } else if selectedView == "Test" {
-                    TestAnimation()
+                    MenuScreen()
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -111,4 +109,5 @@ struct NavItem: View {
 
 #Preview {
     NavBar()
+        .environmentObject(UserManager())
 }

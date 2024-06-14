@@ -1,16 +1,17 @@
 import SwiftUI
 
 struct ChatList_Tile: View {
-    var user: UserProfile
+    var user: ChatUser
     
     var body: some View {
         HStack {
-            if let url = URL(string: user.photo) {
+            if let photoUrl = user.photo, let url = URL(string: photoUrl) {
                 AsyncImage(url: url) { phase in
                     switch phase {
                     case .empty:
-                        Color.gray
-                            .frame(height: 200)
+                        Color(.systemGray4)
+                            .frame(width: 70, height: 70)
+                            .clipShape(Circle())
                             .overlay(
                                 ProgressView()
                                     .progressViewStyle(CircularProgressViewStyle())
@@ -22,15 +23,16 @@ struct ChatList_Tile: View {
                             .frame(width: 70, height: 70)
                             .clipShape(Circle())
                     case .failure:
-                        Color.red
+                        Color.gray
                             .frame(width: 70, height: 70)
                             .clipShape(Circle())
                             .overlay(
                                 VStack {
-                                    Image(systemName: "exclamationmark.triangle")
+                                    Image(systemName: "person.fill")
                                         .frame(width: 70, height: 70)
                                         .foregroundColor(.white)
-                                        .font(.largeTitle)
+                                        .font(.system(size: 60))
+                                        .padding(.top, 18)
                                 }
                             )
                     @unknown default:
@@ -38,15 +40,17 @@ struct ChatList_Tile: View {
                     }
                 }
             } else {
-                Text("Nieprawidłowy URL: \(user.photo)")
-                    .font(.caption)
-                    .foregroundColor(.red)
-                Color.red
-                    .frame(height: 200)
+                Color.gray
+                    .frame(width: 70, height: 70)
+                    .clipShape(Circle())
                     .overlay(
-                        Image(systemName: "exclamationmark.triangle")
-                            .foregroundColor(.white)
-                            .font(.largeTitle)
+                        VStack {
+                            Image(systemName: "person.fill")
+                                .frame(width: 70, height: 70)
+                                .foregroundColor(.white)
+                                .font(.system(size: 60))
+                                .padding(.top, 18)
+                        }
                     )
             }
             
@@ -54,17 +58,20 @@ struct ChatList_Tile: View {
                 HStack {
                     Text(user.name)
                         .font(.headline)
-                    if (user.admin) {
+                    Text(user.surname)
+                        .font(.headline)
+                    if user.admin {
                         Text("(Admin)")
                             .font(.subheadline)
                             .foregroundColor(.gray)
                     }
                 }
                 
-                Text("Dziękuję za pomoc")
+            
+                Text("No co tam u ciebie?")
                     .font(.subheadline)
                     .foregroundColor(.gray)
-            
+                
                 Text("czw. 20:07")
                     .font(.caption)
                     .foregroundColor(.gray)
@@ -75,14 +82,14 @@ struct ChatList_Tile: View {
         .padding()
         .background(Color.white)
         .cornerRadius(10)
-        .shadow(radius: 5)
+        .shadow(radius: 3, x: 2, y: 2)
+        .frame(width: 400)
     }
 }
 
 struct ChatList_Tile_Previews: PreviewProvider {
     static var previews: some View {
-        ChatList_Tile(user: UserProfile(name: "Adam", surname: "Mickiewicz", email: "adam@example.com", password: "password", verificationCode: 100123, id: 20, userplan: 20, friendlist: nil, verified: true, admin: true, banned: false, photo: "https://i.imgur.com/1GEOCbp.png"))
+        ChatList_Tile(user: ChatUser(name: "Adam", surname: "Mickiewicz", email: "adam@example.com", password: "password", verificationCode: 100123, id: 20, userplan: 20, friendlist: nil, verified: true, admin: true, banned: false, photo: "https://i.imgur.com/1GEOCbp.pn"))
             .previewLayout(.sizeThatFits)
     }
 }
-

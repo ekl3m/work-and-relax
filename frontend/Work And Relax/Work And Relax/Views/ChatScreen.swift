@@ -48,9 +48,16 @@ struct ChatView: View {
                 .padding([.leading, .trailing, .bottom])
                 .padding(.top, 20)
                 
-                List(viewModel.users) { user in
-                    ChatList_Tile(user: user)
+                ScrollView {
+                    VStack(spacing: 16) { // Add spacing between chat tiles
+                        ForEach(viewModel.users) { user in
+                            ChatList_Tile(user: user)
+                                .padding(.horizontal) // Add padding to each chat tile
+                        }
+                    }
+                    .padding(.top, 15)
                 }
+                .padding(.horizontal) // Add horizontal padding to the scroll view
             }
             .navigationBarHidden(true)
             .background(

@@ -10,10 +10,11 @@ import SwiftUI
 @main
 struct Work_And_RelaxApp: App {
     let persistenceController = PersistenceController.shared
-
+ 
     var body: some Scene {
         WindowGroup {
             LoadingScreen()
+                .environmentObject(UserManager.shared)
         }
     }
 }

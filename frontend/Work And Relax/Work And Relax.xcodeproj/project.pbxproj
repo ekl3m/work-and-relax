@@ -53,6 +53,8 @@
 		E45D256A2C13693B001C345F /* ColorMatching.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45D25692C13693B001C345F /* ColorMatching.swift */; };
 		E45D256C2C1376FA001C345F /* DateConvert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45D256B2C1376FA001C345F /* DateConvert.swift */; };
 		E482CF4A2C1B5EE5005CFED2 /* ConfirmEmailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E482CF492C1B5EE5005CFED2 /* ConfirmEmailScreen.swift */; };
+		E482CF4C2C1C9460005CFED2 /* MenuScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E482CF4B2C1C9460005CFED2 /* MenuScreen.swift */; };
+		E482CF4E2C1C9990005CFED2 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E482CF4D2C1C9990005CFED2 /* UserManager.swift */; };
 		E48CBEA62C162F7600C9B5E2 /* ChatScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48CBEA52C162F7600C9B5E2 /* ChatScreen.swift */; };
 		E48CBEA82C162F9E00C9B5E2 /* ChatFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48CBEA72C162F9E00C9B5E2 /* ChatFunctions.swift */; };
 		E4E108142C17354900DBDA19 /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E108132C17354900DBDA19 /* Announcement.swift */; };
@@ -112,6 +114,8 @@
 		E45D25692C13693B001C345F /* ColorMatching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorMatching.swift; sourceTree = "<group>"; };
 		E45D256B2C1376FA001C345F /* DateConvert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConvert.swift; sourceTree = "<group>"; };
 		E482CF492C1B5EE5005CFED2 /* ConfirmEmailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmEmailScreen.swift; sourceTree = "<group>"; };
+		E482CF4B2C1C9460005CFED2 /* MenuScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScreen.swift; sourceTree = "<group>"; };
+		E482CF4D2C1C9990005CFED2 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		E48CBEA52C162F7600C9B5E2 /* ChatScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatScreen.swift; sourceTree = "<group>"; };
 		E48CBEA72C162F9E00C9B5E2 /* ChatFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatFunctions.swift; sourceTree = "<group>"; };
 		E4E108132C17354900DBDA19 /* Announcement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Announcement.swift; sourceTree = "<group>"; };
@@ -186,6 +190,7 @@
 				3BBDC47A2C18ED050076D461 /* MapScreen.swift */,
 				3BBDC47C2C18F06F0076D461 /* ListView.swift */,
 				E4E47B0E2C1A5761000D9A7E /* RegistrationView.swift */,
+				E482CF4B2C1C9460005CFED2 /* MenuScreen.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -212,6 +217,7 @@
 				3BBDC4842C1902840076D461 /* LocationManager.swift */,
 				E4E47B102C1A672C000D9A7E /* Register.swift */,
 				3B5DC4C72C1A233100146C46 /* FetchLocations.swift */,
+				E482CF4D2C1C9990005CFED2 /* UserManager.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -361,6 +367,7 @@
 				3BBDC4852C1902840076D461 /* LocationManager.swift in Sources */,
 				E48CBEA82C162F9E00C9B5E2 /* ChatFunctions.swift in Sources */,
 				E45D253B2C134EDE001C345F /* Event.swift in Sources */,
+				E482CF4E2C1C9990005CFED2 /* UserManager.swift in Sources */,
 				E45D25382C128CCF001C345F /* Login.swift in Sources */,
 				3BBDC47B2C18ED050076D461 /* MapScreen.swift in Sources */,
 				E4E108162C17366100DBDA19 /* FetchAnnouncements.swift in Sources */,
@@ -380,6 +387,7 @@
 				E45D253D2C13505F001C345F /* FetchEvents.swift in Sources */,
 				E4E108142C17354900DBDA19 /* Announcement.swift in Sources */,
 				E48CBEA62C162F7600C9B5E2 /* ChatScreen.swift in Sources */,
+				E482CF4C2C1C9460005CFED2 /* MenuScreen.swift in Sources */,
 				E45D25352C124320001C345F /* HomeScreen.swift in Sources */,
 				3BBDC47D2C18F06F0076D461 /* ListView.swift in Sources */,
 				E41110E82C02815900809647 /* ContentView.swift in Sources */,

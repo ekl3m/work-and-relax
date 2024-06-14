@@ -8,8 +8,10 @@ struct Login_Register_Screen: View {
     @State private var isAuthenticated: Bool = false
     @State private var showError: Bool = false
     @State private var showingRegistrationView = false
+    @EnvironmentObject var userManager: UserManager
     
     var body: some View {
+        
         ZStack {
             VStack {
                 VStack(spacing: 20) {
@@ -39,6 +41,7 @@ struct Login_Register_Screen: View {
                                 .onTapGesture {
                                     showError = false
                                 }
+                                .autocapitalization(.none)
                         }
                         .frame(height: 50)
                         .frame(width: UIScreen.main.bounds.width * 1 / 2 + 105)
@@ -71,7 +74,7 @@ struct Login_Register_Screen: View {
                     VStack(spacing: 30) {
                         Button(action: {
                             // Handle login action
-                            login(email: self.email, password: self.password) { success, message in
+                            login(email: self.email, password: self.password, userManager: userManager) { success, message in
                                 if success {
                                     self.isAuthenticated = true
                                 } else {
@@ -190,5 +193,6 @@ struct Login_Register_Screen: View {
 struct Login_Register_Screen_Previews: PreviewProvider {
     static var previews: some View {
         Login_Register_Screen()
+            .environmentObject(UserManager())
     }
 }
