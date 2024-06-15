@@ -55,6 +55,7 @@
 		E482CF4A2C1B5EE5005CFED2 /* ConfirmEmailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E482CF492C1B5EE5005CFED2 /* ConfirmEmailScreen.swift */; };
 		E482CF4C2C1C9460005CFED2 /* MenuScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E482CF4B2C1C9460005CFED2 /* MenuScreen.swift */; };
 		E482CF4E2C1C9990005CFED2 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E482CF4D2C1C9990005CFED2 /* UserManager.swift */; };
+		E482CF502C1D8A9F005CFED2 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = E482CF4F2C1D8A9F005CFED2 /* Config.swift */; };
 		E48CBEA62C162F7600C9B5E2 /* ChatScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48CBEA52C162F7600C9B5E2 /* ChatScreen.swift */; };
 		E48CBEA82C162F9E00C9B5E2 /* ChatFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48CBEA72C162F9E00C9B5E2 /* ChatFunctions.swift */; };
 		E4E108142C17354900DBDA19 /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E108132C17354900DBDA19 /* Announcement.swift */; };
@@ -116,6 +117,7 @@
 		E482CF492C1B5EE5005CFED2 /* ConfirmEmailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmEmailScreen.swift; sourceTree = "<group>"; };
 		E482CF4B2C1C9460005CFED2 /* MenuScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScreen.swift; sourceTree = "<group>"; };
 		E482CF4D2C1C9990005CFED2 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		E482CF4F2C1D8A9F005CFED2 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		E48CBEA52C162F7600C9B5E2 /* ChatScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatScreen.swift; sourceTree = "<group>"; };
 		E48CBEA72C162F9E00C9B5E2 /* ChatFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatFunctions.swift; sourceTree = "<group>"; };
 		E4E108132C17354900DBDA19 /* Announcement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Announcement.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				E41110F82C0281BD00809647 /* Views */,
 				E41110E52C02815900809647 /* Work_And_RelaxApp.swift */,
 				E41110E72C02815900809647 /* ContentView.swift */,
+				E482CF4F2C1D8A9F005CFED2 /* Config.swift */,
 				E41110E92C02815B00809647 /* Assets.xcassets */,
 				E41110EE2C02815B00809647 /* Persistence.swift */,
 				E41110F02C02815B00809647 /* Work_And_Relax.xcdatamodeld */,
@@ -387,6 +390,7 @@
 				E45D253D2C13505F001C345F /* FetchEvents.swift in Sources */,
 				E4E108142C17354900DBDA19 /* Announcement.swift in Sources */,
 				E48CBEA62C162F7600C9B5E2 /* ChatScreen.swift in Sources */,
+				E482CF502C1D8A9F005CFED2 /* Config.swift in Sources */,
 				E482CF4C2C1C9460005CFED2 /* MenuScreen.swift in Sources */,
 				E45D25352C124320001C345F /* HomeScreen.swift in Sources */,
 				3BBDC47D2C18F06F0076D461 /* ListView.swift in Sources */,

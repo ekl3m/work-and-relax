@@ -7,7 +7,7 @@ class AnnouncementViewModel: ObservableObject {
     func fetchAnnouncements() {
         print("Rozpoczynam fetchowanie ogłoszeń...")
         
-        let url = URL(string: "http://20.107.170.217:8080/api/v1/announcement/all?key=yK9v2TA1GZkq3dTbdfR_1v1NCxE_H9oK4i5H0QKslHg")!
+        let url = URL(string: "http://\(Config.baseURL)/api/v1/announcement/all?key=\(Config.apiKey)")!
         URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
                 print("Błąd podczas fetchowania: \(error)")

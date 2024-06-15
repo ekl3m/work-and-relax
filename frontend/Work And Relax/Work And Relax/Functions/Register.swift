@@ -1,7 +1,7 @@
 import Foundation
 
 func register(user: NewUserProfile, completion: @escaping (Bool, String?) -> Void) {
-    let baseURL = "http://20.107.170.217:8080/api/v1/userprofile/new?key=yK9v2TA1GZkq3dTbdfR_1v1NCxE_H9oK4i5H0QKslHg"
+    let baseURL = "http://\(Config.baseURL)/api/v1/userprofile/new?key=\(Config.apiKey)"
     guard let url = URL(string: baseURL) else {
         print("Invalid URL")
         completion(false, "Invalid URL")
