@@ -40,7 +40,7 @@ To install and set up this project, follow these steps:
     open WorkAndRelax.xcodeproj
     ```
 
-3. Configure the backend URL in the application settings.
+3. Configure the backend URL + API key in Config.swift file.
 
 4. Build and run the application on a simulator or a device.
 
@@ -73,7 +73,7 @@ Please adhere to the following commit pattern:
 - Commit pattern: `"VX.X.X : Change description"` where `X` is a natural number.
   
     ```sh
-    git commit -m "V1.0.0 : Initial commit"
+    git commit -m "V0.0.0 : Initial commit"
     ```
 
 To contribute:
