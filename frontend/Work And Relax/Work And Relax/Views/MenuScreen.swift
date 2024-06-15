@@ -104,6 +104,13 @@ struct MenuScreen: View {
                             Text("\(userManager.user?.name ?? "") \(userManager.user?.surname ?? "Gość ")")
                                 .font(.custom("WorkSans-SemiBold", size: 25))
                                 .padding(.top, 10)
+                            
+                            if userManager.user?.admin == true {
+                                Text("(Admin)")
+                                    .font(.subheadline)
+                                    .foregroundColor(.gray)
+                                    .padding(.bottom, -25)
+                            }
                         }
                         .padding()
                         .frame(width: 350, height: 230)
@@ -122,6 +129,16 @@ struct MenuScreen: View {
                                 .clipShape(Circle())
                                 .foregroundColor(.white)
                                 .shadow(radius: 5)
+                            
+                            if userManager.user?.verified != true {
+                                if userManager.isGuest != true {
+                                    Circle()
+                                        .frame(width: 15, height: 15)
+                                        .foregroundColor(.red)
+                                        .offset(x: -18, y: -14)
+                                        .shadow(radius: 3)
+                                }
+                            }
                         }
                         .offset(x: -15, y: 15)
                         .fullScreenCover(isPresented: $showingProfileEdit) {

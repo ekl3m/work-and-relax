@@ -15,12 +15,16 @@ class UserManager: ObservableObject {
         self.isLoggedIn = true
         
         if (user.id == -2) {
+            print("Guest logged in.")
             self.isGuest = true
+        } else {
+            self.isGuest = false
         }
     }
     
     func logOut() {
         self.user = nil
+        self.isGuest = false
         self.isLoggedIn = false
     }
 }

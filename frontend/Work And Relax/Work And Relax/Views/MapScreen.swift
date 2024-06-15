@@ -63,9 +63,11 @@ struct HomeView: View {
                                 }) {
                                     Image(systemName: "location.fill")
                                         .padding()
-                                        .background(Color.white)
+                                        .background(Color(red: 54/255, green: 85/255, blue: 143/255))
+                                        .foregroundColor(.white)
                                         .clipShape(Circle())
                                         .shadow(radius: 10)
+                                        .font(.system(size: 25))
                                 }
 
                                 // Show Nearby Restaurants Button
@@ -77,10 +79,11 @@ struct HomeView: View {
                                         .background(Color.white)
                                         .clipShape(Circle())
                                         .shadow(radius: 10)
+                                        .font(.system(size: 25))
                                 }
                             }
                             .padding(.trailing, 10)
-                            .padding(.bottom, 10)
+                            .padding(.bottom, 20)
                         }
                     }
                 }
