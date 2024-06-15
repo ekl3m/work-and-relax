@@ -94,7 +94,8 @@ struct Login_Register_Screen: View {
                         }
                         
                         Button(action: {
-                            // Handle guest login action
+                            userManager.logIn(UserProfile.guest)
+                            self.isAuthenticated = true
                         }) {
                             Text("Gość")
                                 .font(.headline)

@@ -13,6 +13,22 @@ struct UserProfile: Codable, Identifiable {
     let admin: Bool
     let banned: Bool
     let photo: String?
+    
+    // Domyślna wartość dla profilu gościa
+    static let guest = UserProfile(
+        name: "Gość",
+        surname: "",
+        email: "",
+        password: "",
+        verificationCode: 0,
+        id: -2,
+        userplan: 0,
+        friendlist: nil,
+        verified: false,
+        admin: false,
+        banned: false,
+        photo: nil
+    )
 }
 
 func login(email: String, password: String, userManager: UserManager, completion: @escaping (Bool, String?) -> Void) {

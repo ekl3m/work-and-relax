@@ -2,6 +2,13 @@ import SwiftUI
 
 struct MenuScreen: View {
     @EnvironmentObject var userManager: UserManager
+    @State private var showingFriendsView = false
+    @State private var showingSavedView = false
+    @State private var showingSettingsView = false
+    @State private var showingSupportView = false
+    @State private var showingLogoutConfirmation = false
+    @State private var showingProfileEdit = false
+    @State private var logoutDecided = false
     
     var body: some View {
         ZStack {
@@ -106,7 +113,7 @@ struct MenuScreen: View {
                         
                         // Ikona edycji profilu
                         Button(action: {
-                            // Akcja edycji profilu
+                            showingProfileEdit.toggle()
                         }) {
                             Image(systemName: "square.and.pencil")
                                 .padding(10)
@@ -117,49 +124,107 @@ struct MenuScreen: View {
                                 .shadow(radius: 5)
                         }
                         .offset(x: -15, y: 15)
+                        .fullScreenCover(isPresented: $showingProfileEdit) {
+                            TestAnimation()
+                        }
                     }
                 }
                 .padding(.horizontal)
                 .padding(.top, 120)
                 
                 // Menu nawigacyjne
-                VStack(spacing: 20) {
-                    NavigationButton(icon: "person.2.fill", title: "ZNAJOMI")
-                    NavigationButton(icon: "bookmark.fill", title: "ZAPISANE")
-                    NavigationButton(icon: "gearshape.fill", title: "USTAWIENIA")
-                    NavigationButton(icon: "questionmark.circle.fill", title: "WSPARCIE")
-                    NavigationButton(icon: "arrowshape.turn.up.left.fill", title: "WYLOGUJ SIĘ")
+                VStack(spacing: 30) {
+                    NavigationButton(icon: "person.2.fill", title: "ZNAJOMI") {
+                        showingFriendsView.toggle()
+                    }
+                    .fullScreenCover(isPresented: $showingFriendsView) {
+                        TestAnimation() // Replace with actual Friends view
+                    }
+                    
+                    NavigationButton(icon: "bookmark.fill", title: "ZAPISANE") {
+                        showingSavedView.toggle()
+                    }
+                    .fullScreenCover(isPresented: $showingSavedView) {
+                        TestAnimation() // Replace with actual Saved view
+                    }
+                    
+                    NavigationButton(icon: "gearshape.fill", title: "USTAWIENIA") {
+                        showingSettingsView.toggle()
+                    }
+                    .fullScreenCover(isPresented: $showingSettingsView) {
+                        TestAnimation() // Replace with actual Settings view
+                    }
+                    
+                    NavigationButton(icon: "questionmark.circle.fill", title: "WSPARCIE") {
+                        showingSupportView.toggle()
+                    }
+                    .fullScreenCover(isPresented: $showingSupportView) {
+                        TestAnimation() // Replace with actual Support view
+                    }
+                    
+                    NavigationButton(icon: "rectangle.portrait.and.arrow.right.fill", title: "WYLOGUJ SIĘ") {
+                        showingLogoutConfirmation.toggle()
+                    }
                 }
                 .padding(.top, 20)
+                .padding(.leading, 20)
                 
                 Spacer()
             }
         }
         .background(Color.white)
         .edgesIgnoringSafeArea(.all)
+        .overlay(
+            // Okno wylogowania na przyciemnionym tle
+            Group {
+                if showingLogoutConfirmation {
+                    LogoutPrompt(isPresented: $showingLogoutConfirmation, logoutDecided: $logoutDecided)
+                        .environmentObject(userManager)
+                        .transition(.opacity)
+                }
+            }
+        )
+        .fullScreenCover(isPresented: $logoutDecided) {
+            Login_Register_Screen()
+                .environmentObject(userManager)
+        }
     }
 }
 
 struct NavigationButton: View {
     let icon: String
     let title: String
+    let action: () -> Void
     
     var body: some View {
-        HStack {
-            Image(systemName: icon)
-                .font(.title)
-                .frame(width: 44, height: 44)
-                .background(Color(red: 54/255, green: 85/255, blue: 143/255))
-                .foregroundColor(.white)
-                .clipShape(Circle())
-            
-            Text(title)
-                .font(.headline)
-                .foregroundColor(.black)
-            
-            Spacer()
+        Button(action: action) {
+            ZStack {
+                HStack{
+                    Image(systemName: icon)
+                        .font(.headline)
+                        .frame(width: 55, height: 55)
+                        .background(Color(red: 54/255, green: 85/255, blue: 143/255))
+                        .foregroundColor(.white)
+                        .clipShape(Circle())
+                        .zIndex(1)
+                    
+                    Text(title)
+                        .font(.custom("WorkSans-SemiBold", size: 25))
+                        .foregroundColor(.black)
+                        .padding(.leading, 40)
+                        .background(
+                            Color(.systemGray6)
+                                .frame(width: 500, height: 70)
+                                .opacity(0.8)
+                                .blur(radius: 30)
+                                .shadow(radius: 1).opacity(0.2)
+                        )
+                    
+                    Spacer()
+                }
+            }
+            .padding(.horizontal)
         }
-        .padding(.horizontal)
     }
 }
 
