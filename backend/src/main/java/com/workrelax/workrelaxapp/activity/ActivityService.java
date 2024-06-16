@@ -24,6 +24,7 @@ public class ActivityService {
     }
 
     // get all activities method + api key validation
+    @Transactional
     public List<Activity> getActivities(String key) throws InvalidApiKey, ApiKeyNotProvided {
         if (key.isEmpty()) {
             throw new ApiKeyNotProvided("API key was not provided!");
@@ -34,6 +35,7 @@ public class ActivityService {
         return activityRepository.findAll();
     }
 
+    @Transactional
     public void addNewActivity(String key, Activity activity) throws InvalidApiKey, ApiKeyNotProvided, ActivityAlreadyExists, DateInThePast {
         if (key.isEmpty()) {
             throw new ApiKeyNotProvided("API key was not provided!");

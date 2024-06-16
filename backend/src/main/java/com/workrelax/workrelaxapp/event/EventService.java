@@ -24,6 +24,7 @@ public class EventService {
     }
 
     // get all events method + api key validation
+    @Transactional
     public List<Event> getEvents(String key) throws InvalidApiKey, ApiKeyNotProvided {
         if (key.isEmpty()) {
             throw new ApiKeyNotProvided("API key was not provided!");
@@ -34,6 +35,7 @@ public class EventService {
         return eventRepository.findAll();
     }
 
+    @Transactional
     public void addNewEvent(String key, Event event) throws InvalidApiKey, ApiKeyNotProvided, EventAlreadyExists, DateInThePast {
         if (key.isEmpty()) {
             throw new ApiKeyNotProvided("API key was not provided!");

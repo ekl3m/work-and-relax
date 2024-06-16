@@ -118,7 +118,7 @@ struct MenuScreen: View {
                         .cornerRadius(20)
                         .shadow(radius: 5)
                         
-                        // Ikona edycji profilu
+                        // Ikona edycji profilu - PATRZ KOMENTARZ NIŻEJ WZGLĘDEM USTAWIENIA JEJ
                         Button(action: {
                             showingProfileEdit.toggle()
                         }) {
@@ -140,10 +140,12 @@ struct MenuScreen: View {
                                 }
                             }
                         }
-                        .offset(x: 0, y: 15)
+                        .offset(x: -15, y: 15)
                         .fullScreenCover(isPresented: $showingProfileEdit) {
                             TestAnimation()
                         }
+                        
+                        // NIE ZMIENIAĆ OFFSETÓW, GUZIK MOŻE I WYGLĄDA NA PRZESUNIĘTY NA PODGLĄDZIE, ALE NIE JEST :D
                     }
                 }
                 .padding(.horizontal)

@@ -24,6 +24,7 @@ public class UserProfileService {
     }
 
     // get all users method + api key validation
+    @Transactional
     public List<UserProfile> getUsers(String key) throws InvalidApiKey, ApiKeyNotProvided {
         if (key.isEmpty()) {
             throw new ApiKeyNotProvided("API key was not provided!");
@@ -34,6 +35,7 @@ public class UserProfileService {
         return userProfileRepository.findAll();
     }
 
+    @Transactional
     public UserProfile getUserByEmail(String key, String email)
             throws InvalidApiKey, ApiKeyNotProvided, UserProfileNotFound {
         if (key == null || key.isEmpty()) {
@@ -51,6 +53,7 @@ public class UserProfileService {
         return userOptional.get();
     }
 
+    @Transactional
     public void addNewUser(String key, UserProfile user) throws InvalidApiKey, ApiKeyNotProvided, UserProfileAlreadyExists {
         if (key.isEmpty()) {
             throw new ApiKeyNotProvided("API key was not provided!");

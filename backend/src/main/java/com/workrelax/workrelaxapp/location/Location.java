@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
@@ -15,6 +16,7 @@ public class Location {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "location_sequence")
     private Long ID;
     private String Name;
+    @Lob
     private String Photo;
     private Double Location_X;
     private Double Location_Y;

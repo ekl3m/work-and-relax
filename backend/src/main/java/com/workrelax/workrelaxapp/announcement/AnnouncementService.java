@@ -23,6 +23,7 @@ public class AnnouncementService {
     }
 
     // get all announcements method + api key validation
+    @Transactional
     public List<Announcement> getAnnouncements(String key) throws InvalidApiKey, ApiKeyNotProvided {
         if (key.isEmpty()) {
             throw new ApiKeyNotProvided("API key was not provided!");
@@ -33,6 +34,7 @@ public class AnnouncementService {
         return announcementRepository.findAll();
     }
 
+    @Transactional
     public void addNewAnnouncement(String key, Announcement announcement) throws InvalidApiKey, ApiKeyNotProvided, AnnouncementAlreadyExists {
         if (key.isEmpty()) {
             throw new ApiKeyNotProvided("API key was not provided!");

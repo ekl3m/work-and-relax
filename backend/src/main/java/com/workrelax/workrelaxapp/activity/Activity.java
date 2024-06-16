@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
@@ -24,7 +25,9 @@ public class Activity {
     )
     private Long ID;
     private String Title;
+    @Lob
     private String Description;
+    @Lob
     private String Photo;
     private LocalDateTime ActivityDate;
 

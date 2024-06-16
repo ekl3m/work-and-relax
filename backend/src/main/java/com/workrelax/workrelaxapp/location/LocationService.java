@@ -23,6 +23,7 @@ public class LocationService {
     }
 
     // get all events method + api key validation
+    @Transactional
     public List<Location> getLocations(String key) throws InvalidApiKey, ApiKeyNotProvided {
         if (key.isEmpty()) {
             throw new ApiKeyNotProvided("API key was not provided!");
@@ -33,6 +34,7 @@ public class LocationService {
         return locationRepository.findAll();
     }
 
+    @Transactional
     public void addNewLocation(String key, Location location) throws InvalidApiKey, ApiKeyNotProvided, LocationAlreadyExists {
         if (key.isEmpty()) {
             throw new ApiKeyNotProvided("API key was not provided!");
