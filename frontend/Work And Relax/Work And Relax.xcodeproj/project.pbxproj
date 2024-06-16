@@ -57,6 +57,7 @@
 		E482CF4E2C1C9990005CFED2 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E482CF4D2C1C9990005CFED2 /* UserManager.swift */; };
 		E482CF502C1D8A9F005CFED2 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = E482CF4F2C1D8A9F005CFED2 /* Config.swift */; };
 		E482CF522C1DAC0C005CFED2 /* LogoutPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E482CF512C1DAC0C005CFED2 /* LogoutPrompt.swift */; };
+		E482CF542C1E0BDC005CFED2 /* FriendlistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E482CF532C1E0BDC005CFED2 /* FriendlistView.swift */; };
 		E48CBEA62C162F7600C9B5E2 /* ChatScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48CBEA52C162F7600C9B5E2 /* ChatScreen.swift */; };
 		E48CBEA82C162F9E00C9B5E2 /* ChatFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48CBEA72C162F9E00C9B5E2 /* ChatFunctions.swift */; };
 		E4E108142C17354900DBDA19 /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E108132C17354900DBDA19 /* Announcement.swift */; };
@@ -120,6 +121,7 @@
 		E482CF4D2C1C9990005CFED2 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		E482CF4F2C1D8A9F005CFED2 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		E482CF512C1DAC0C005CFED2 /* LogoutPrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutPrompt.swift; sourceTree = "<group>"; };
+		E482CF532C1E0BDC005CFED2 /* FriendlistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendlistView.swift; sourceTree = "<group>"; };
 		E48CBEA52C162F7600C9B5E2 /* ChatScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatScreen.swift; sourceTree = "<group>"; };
 		E48CBEA72C162F9E00C9B5E2 /* ChatFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatFunctions.swift; sourceTree = "<group>"; };
 		E4E108132C17354900DBDA19 /* Announcement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Announcement.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 				3B5DC4C52C19F6A800146C46 /* Location.swift */,
 				E482CF492C1B5EE5005CFED2 /* ConfirmEmailScreen.swift */,
 				E482CF512C1DAC0C005CFED2 /* LogoutPrompt.swift */,
+				E482CF532C1E0BDC005CFED2 /* FriendlistView.swift */,
 			);
 			path = HelperViews;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				E45D253F2C1360EB001C345F /* NavTitleBar.swift in Sources */,
 				E482CF4A2C1B5EE5005CFED2 /* ConfirmEmailScreen.swift in Sources */,
 				E45D256C2C1376FA001C345F /* DateConvert.swift in Sources */,
+				E482CF542C1E0BDC005CFED2 /* FriendlistView.swift in Sources */,
 				E4E47B0F2C1A5761000D9A7E /* RegistrationView.swift in Sources */,
 				3BBDC4832C18F18F0076D461 /* APIClient.swift in Sources */,
 				3B5DC4C62C19F6A800146C46 /* Location.swift in Sources */,
@@ -534,13 +538,17 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Work And Relax/Preview Content\"";
-				DEVELOPMENT_TEAM = KC89LM2DJX;
+				DEVELOPMENT_TEAM = YKKPN7KT9T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Work-And-Relax-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Work & Relax";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need your location to show nearby places.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to show nearby places.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -568,13 +576,17 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Work And Relax/Preview Content\"";
-				DEVELOPMENT_TEAM = KC89LM2DJX;
+				DEVELOPMENT_TEAM = YKKPN7KT9T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Work-And-Relax-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Work & Relax";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need your location to show nearby places.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to show nearby places.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (

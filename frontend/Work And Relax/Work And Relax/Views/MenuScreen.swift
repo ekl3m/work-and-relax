@@ -140,7 +140,7 @@ struct MenuScreen: View {
                                 }
                             }
                         }
-                        .offset(x: -15, y: 15)
+                        .offset(x: 0, y: 15)
                         .fullScreenCover(isPresented: $showingProfileEdit) {
                             TestAnimation()
                         }
@@ -155,7 +155,8 @@ struct MenuScreen: View {
                         showingFriendsView.toggle()
                     }
                     .fullScreenCover(isPresented: $showingFriendsView) {
-                        TestAnimation() // Replace with actual Friends view
+                        FriendlistView(isPresented: $showingFriendsView)
+                            .environmentObject(userManager)
                     }
                     
                     NavigationButton(icon: "bookmark.fill", title: "ZAPISANE") {

@@ -8,7 +8,7 @@ struct UserProfile: Codable, Identifiable {
     let verificationCode: Int
     let id: Int
     let userplan: Int
-    let friendlist: String?
+    let friendlist: [Int]
     let verified: Bool
     let admin: Bool
     let banned: Bool
@@ -23,7 +23,7 @@ struct UserProfile: Codable, Identifiable {
         verificationCode: 0,
         id: -2,
         userplan: 0,
-        friendlist: nil,
+        friendlist: [-2],
         verified: false,
         admin: false,
         banned: false,

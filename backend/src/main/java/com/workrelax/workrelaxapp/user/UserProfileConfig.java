@@ -1,5 +1,6 @@
 package com.workrelax.workrelaxapp.user;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.boot.CommandLineRunner;
@@ -11,13 +12,16 @@ public class UserProfileConfig {
 
     @Bean
     CommandLineRunner userCommandLineRunner(UserProfileRepository repository) {
+        List<Long> friendList1 = Arrays.asList(2L);
+        List<Long> friendList2 = Arrays.asList(1L);
+        
         return args -> {
             UserProfile MariuszWyrwidab = new UserProfile(
                 "Mariusz",
                 "Wyrwidab",
                 "Admin",
                 "admin",
-                null,
+                friendList1,
                 1L,
                 true,
                 false,
@@ -30,7 +34,7 @@ public class UserProfileConfig {
                 "Mickiewicz",
                 "a.mic@wp.pl",
                 "PanTadeuszDziady@2",
-                null,
+                friendList2,
                 2L,
                 false,
                 false,

@@ -67,7 +67,7 @@ struct HomeView: View {
                                         .foregroundColor(.white)
                                         .clipShape(Circle())
                                         .shadow(radius: 10)
-                                        .font(.system(size: 25))
+                                        .font(.system(size: 21))
                                 }
 
                                 // Show Nearby Restaurants Button

@@ -91,7 +91,6 @@ struct LocationListView: View {
                 .onAppear {
                     print("Fetching locations...")
                     viewModel.fetchLocations()
-                    addKeyboardObservers()
                 }
                 .refreshable {
                     print("Fetching locations...")
@@ -104,27 +103,8 @@ struct LocationListView: View {
             }
             .padding(.top, 40)
             .padding(.bottom, keyboardHeight)
-            .onDisappear {
-                removeKeyboardObservers()
-            }
         }
-    }
-    
-    private func addKeyboardObservers() {
-        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { notification in
-            if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
-                keyboardHeight = keyboardFrame.height
-            }
-        }
-        
-        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { _ in
-            keyboardHeight = 0
-        }
-    }
-    
-    private func removeKeyboardObservers() {
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        .ignoresSafeArea(.keyboard, edges: .all)
     }
 }
 
