@@ -6,8 +6,11 @@ struct NavTitleBar: View {
                 Text("Work & Relax")
                     .font(.custom("WorkSans-ExtraBold", size: 34))
                     .foregroundColor(.white)
+                    .padding(.leading)
+                
                 Spacer()
             }
+            .frame(width: UIScreen.main.bounds.width)
             .padding()
             .padding(.top, 30)
             .background(Color.clear)

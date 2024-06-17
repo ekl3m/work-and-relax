@@ -65,7 +65,7 @@ struct FriendlistView: View {
                 ForEach(userManager.friends) { friend in
                     HStack {
                         AsyncImage(url: friend.avatarURL) { image in
-                            image.resizable()
+                            image.resizable().aspectRatio(contentMode: .fill)
                         } placeholder: {
                             ProgressView()
                         }

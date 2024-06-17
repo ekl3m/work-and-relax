@@ -71,6 +71,7 @@ struct HomeScreen: View {
                                     .contentShape(Rectangle())  // Ensure the entire button area is tappable
                                 }
                             }
+                            .padding(.horizontal)
                         } else {
                             ForEach(viewModel2.announcements, id: \.id) { announcement in
                                 Button(action: {
@@ -88,6 +89,7 @@ struct HomeScreen: View {
                                     .contentShape(Rectangle())  // Ensure the entire button area is tappable
                                 }
                             }
+                            .padding(.horizontal)
                         }
                         
                         Spacer().frame(height: 20)
@@ -114,7 +116,7 @@ struct HomeScreen: View {
                         viewModel.selectedEvent = nil
                     }
                 })
-                
+                .padding(.horizontal)
                 .transition(.opacity)
                 .zIndex(1)  // Ensure it appears above the HomeScreen content
             }
@@ -124,6 +126,7 @@ struct HomeScreen: View {
                         viewModel2.selectedAnnouncement = nil
                     }
                 })
+                .padding(.horizontal)
                 .transition(.opacity)
                 .zIndex(1)  // Ensure it appears above the HomeScreen content
             }
@@ -133,4 +136,5 @@ struct HomeScreen: View {
 
 #Preview {
     HomeScreen()
+        .environmentObject(UserManager())
 }
