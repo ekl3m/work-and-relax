@@ -2,6 +2,7 @@ import SwiftUI
 import SwiftUIIntrospect
 
 struct HomeScreen: View {
+    @EnvironmentObject var userManager: UserManager
     @StateObject private var viewModel = EventViewModel()
     @StateObject private var viewModel2 = AnnouncementViewModel()
     @State private var dominantColor: Color = .gray
@@ -113,6 +114,7 @@ struct HomeScreen: View {
                         viewModel.selectedEvent = nil
                     }
                 })
+                
                 .transition(.opacity)
                 .zIndex(1)  // Ensure it appears above the HomeScreen content
             }

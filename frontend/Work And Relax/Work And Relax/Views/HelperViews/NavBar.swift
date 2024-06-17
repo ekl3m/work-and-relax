@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct NavBar: View {
+    @EnvironmentObject var userManager: UserManager
     @State private var selectedView: String = "Start"
     @Namespace private var animation
     
@@ -12,6 +13,7 @@ struct NavBar: View {
             Group {
                 if selectedView == "Start" {
                     HomeScreen()
+                        .environmentObject(userManager)
                 } else if selectedView == "Czat" {
                     ChatView()
                 } else if selectedView == "Plan" {
@@ -20,6 +22,7 @@ struct NavBar: View {
                     HomeView()
                 } else if selectedView == "Menu" {
                     MenuScreen()
+                        .environmentObject(userManager)
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)

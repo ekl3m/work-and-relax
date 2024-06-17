@@ -186,7 +186,8 @@ struct Login_Register_Screen: View {
         }
         .fullScreenCover(isPresented: $isAuthenticated) {
             // Navigate to your main screen on successful login
-            NavBar() // Replace with your main screen
+            NavBar()
+                .environmentObject(userManager)
         }
     }
 }

@@ -12,8 +12,12 @@ class UserManager: ObservableObject {
     @Published var isLoggedIn: Bool = false
     @Published var isGuest: Bool = false
     @Published var friends: [Friend] = []
+    @Published var savedEvents: [Int] = []
+    @Published var savedEventObjects: [Event] = []
     
     static let shared = UserManager()
+    
+    private let eventViewModel = EventViewModel()
     
     // Metody do logowania, wylogowania, etc.
     
@@ -29,6 +33,7 @@ class UserManager: ObservableObject {
         }
         
         fetchFriends()
+        fetchSavedEvents()
     }
     
     func logOut() {
@@ -36,6 +41,7 @@ class UserManager: ObservableObject {
         self.isGuest = false
         self.isLoggedIn = false
         self.friends = []
+        self.savedEvents = []
     }
     
     func fetchFriends() {
@@ -76,5 +82,15 @@ class UserManager: ObservableObject {
                 print("JSON error: \(error.localizedDescription)")
             }
         }.resume()
+    }
+    
+    func fetchSavedEvents() {
+        eventViewModel.fetchEvents()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.savedEventObjects = self.eventViewModel.events.filter {
+                self.savedEvents.contains(Int($0.id))
+            }
+        }
     }
 }
