@@ -61,9 +61,17 @@ struct SavedEvents: View {
                 .padding(.bottom, 620)
             
             ScrollView {
+//                EventRow(event: Event(
+//                    id: Int64(1),
+//                    title: "Przykładowe",
+//                    eventDate: "2024-07-15T15:00:00",
+//                    description: "Opis przykładowego wydarzenia, które jest bardzo interesujące.",
+//                    photo: "https://i.imgur.com/fk3bVFl.jpg"
+//                ))
                 ForEach(filteredEvents) { event in
                     EventRow(event: event)
                 }
+                .padding(.top, 20)
             }
             .refreshable {
                 userManager.fetchSavedEvents()
@@ -92,7 +100,7 @@ struct EventRow: View {
         HStack {
             if let url = URL(string: event.photo) {
                 AsyncImage(url: url) { image in
-                    image.resizable()
+                    image.resizable().aspectRatio(contentMode: .fill)
                 } placeholder: {
                     ProgressView()
                 }
@@ -105,8 +113,10 @@ struct EventRow: View {
                 Text(event.title)
                     .font(.system(size: 25))
                     .fontWeight(.bold)
+                    .lineLimit(1)
+                    .padding(.bottom, 1)
                 
-                Text(event.eventDate)
+                Text(convertDateFormat(inputDate: event.eventDate))
                     .font(.system(size: 18))
             }
             .padding(.leading, 30)
