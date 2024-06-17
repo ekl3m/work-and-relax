@@ -62,7 +62,7 @@ struct FriendlistView: View {
             
             ScrollView {
                 Spacer().frame(height: 20)
-                ForEach(userManager.friends) { friend in
+                ForEach(filteredFriends) { friend in
                     HStack {
                         AsyncImage(url: friend.avatarURL) { image in
                             image.resizable().aspectRatio(contentMode: .fill)
@@ -97,6 +97,14 @@ struct FriendlistView: View {
         }
         .onAppear {
             userManager.fetchFriends()
+        }
+    }
+    
+    private var filteredFriends: [Friend] {
+        if searchText.isEmpty {
+            return userManager.friends
+        } else {
+            return userManager.friends.filter { $0.name.lowercased().contains(searchText.lowercased()) }
         }
     }
 }

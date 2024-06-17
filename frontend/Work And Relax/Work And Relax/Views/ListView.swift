@@ -128,6 +128,9 @@ struct SearchBar: View {
                             .padding(.leading, 16)
                     }
                 )
+                .onTapGesture {
+                    searchText = ""
+                }
         }
         .padding(.top, 10)
     }
