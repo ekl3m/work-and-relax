@@ -107,7 +107,8 @@ struct ProfileView: View {
                 }
                 .offset(x: -15, y: 15)
                 .fullScreenCover(isPresented: $showingProfileEdit) {
-                    TestAnimation()
+                    ProfileSettingsView(isPresented: $showingProfileEdit)
+                        .environmentObject(userManager)
                 }
             }
         }

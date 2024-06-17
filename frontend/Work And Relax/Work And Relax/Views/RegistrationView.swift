@@ -16,6 +16,7 @@ struct NewUserProfile: Codable {
 
 
 struct RegistrationView: View {
+    @EnvironmentObject var userManager: UserManager
     @Binding var showingRegistrationView: Bool
     @State private var firstName: String = ""
     @State private var lastName: String = ""
@@ -123,7 +124,7 @@ struct RegistrationView: View {
                         email: email,
                         password: password,
                         verificationCode: -1,
-                        userplan: 3,
+                        userplan: -1,
                         friendlist: nil,
                         verified: false,
                         admin: false,
@@ -131,7 +132,7 @@ struct RegistrationView: View {
                         photo: nil
                     )
                     
-                    register(user: newUser) {
+                    register(user: newUser, userManager: userManager) {
                         success, message in
                         if success {
                             self.registerSuccess = true
@@ -197,6 +198,7 @@ struct RegistrationView: View {
         .padding(.horizontal, 16)
         .fullScreenCover(isPresented: $registerSuccess) {
             ConfirmEmailScreen()
+                .environmentObject(userManager)
         }
     }
     
@@ -238,6 +240,7 @@ struct RegistrationView: View {
 struct RegistrationView_Previews: PreviewProvider {
     static var previews: some View {
         RegistrationView(showingRegistrationView: .constant(true))
+            .environmentObject(UserManager())
     }
 }
 

@@ -40,6 +40,7 @@ struct MenuScreen: View {
             
             VStack {
                 ProfileView(showingProfileEdit: $showingProfileEdit)
+                    .environmentObject(userManager)
                 
                 NavigationButtonsView(
                     showingFriendsView: $showingFriendsView,
@@ -48,6 +49,7 @@ struct MenuScreen: View {
                     showingSupportView: $showingSupportView,
                     showingLogoutConfirmation: $showingLogoutConfirmation
                 )
+                    .environmentObject(userManager)
                 
                 Spacer()
             }

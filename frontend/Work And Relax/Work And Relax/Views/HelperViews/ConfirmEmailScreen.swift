@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct ConfirmEmailScreen: View {
+    @EnvironmentObject var userManager: UserManager
     @State var stopShowingConfirmView: Bool = false
 
     var body: some View {
@@ -64,7 +65,8 @@ struct ConfirmEmailScreen: View {
         .padding(.horizontal, 16)
         .fullScreenCover(isPresented: $stopShowingConfirmView) {
             // Navigate to your main screen on successful login
-            NavBar() // Replace with your main screen
+            NavBar()
+                .environmentObject(userManager)
         }
     }
 }
@@ -72,6 +74,7 @@ struct ConfirmEmailScreen: View {
 struct ConfirmEmailScreenView_Previews: PreviewProvider {
     static var previews: some View {
         ConfirmEmailScreen()
+            .environmentObject(UserManager())
     }
 }
 

@@ -1,6 +1,6 @@
 import Foundation
 
-func register(user: NewUserProfile, completion: @escaping (Bool, String?) -> Void) {
+func register(user: NewUserProfile, userManager: UserManager, completion: @escaping (Bool, String?) -> Void) {
     let baseURL = "http://\(Config.baseURL)/api/v1/userprofile/new?key=\(Config.apiKey)"
     guard let url = URL(string: baseURL) else {
         print("Invalid URL")
@@ -45,6 +45,8 @@ func register(user: NewUserProfile, completion: @escaping (Bool, String?) -> Voi
         }
         
         print("Response: \(responseString)")
+        
+        userManager.logIn(convertToUserProfile(id: -1, newUserProfile: user))
         completion(true, responseString)
     }
     

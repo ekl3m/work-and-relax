@@ -161,6 +161,7 @@ struct Login_Register_Screen: View {
             if showingRegistrationView {
                 RegistrationView(showingRegistrationView: $showingRegistrationView)
                     .transition(.opacity)
+                    .environmentObject(userManager)
 
             }
             
