@@ -23,56 +23,62 @@ struct AnnouncementView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            if let url = URL(string: announcement.photo) {
-                AsyncImage(url: url) { phase in
-                    switch phase {
-                    case .empty:
-                        Color.gray
-                            .frame(height: 200)
-                            .overlay(
-                                ProgressView()
-                                    .progressViewStyle(CircularProgressViewStyle())
-                            )
-                    case .success(let image):
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(height: 200)
-                            .clipped()
-                            .shadow(radius: 5)
-                            .onAppear {
-                                image.getDominantColor { color in
-                                    dominantColor = color
-                                    textColor = color.contrastingColor()
+            HStack {
+                Spacer()
+                
+                if let url = URL(string: announcement.photo) {
+                    AsyncImage(url: url) { phase in
+                        switch phase {
+                        case .empty:
+                            Color.gray
+                                .frame(height: 200)
+                                .overlay(
+                                    ProgressView()
+                                        .progressViewStyle(CircularProgressViewStyle())
+                                )
+                        case .success(let image):
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 350, height: 200)
+                                .clipped()
+                                .shadow(radius: 5)
+                                .onAppear {
+                                    image.getDominantColor { color in
+                                        dominantColor = color
+                                        textColor = color.contrastingColor()
+                                    }
                                 }
-                            }
-                    case .failure:
-                        Color.red
-                            .frame(height: 200)
-                            .overlay(
-                                VStack {
-                                    Image(systemName: "exclamationmark.triangle")
-                                        .foregroundColor(.white)
-                                        .font(.largeTitle)
-                                    Text("Nie udało się załadować obrazu")
-                                        .foregroundColor(.white)
-                                }
-                            )
-                    @unknown default:
-                        EmptyView()
+                        case .failure:
+                            Color.red
+                                .frame(height: 200)
+                                .overlay(
+                                    VStack {
+                                        Image(systemName: "exclamationmark.triangle")
+                                            .foregroundColor(.white)
+                                            .font(.largeTitle)
+                                        Text("Nie udało się załadować obrazu")
+                                            .foregroundColor(.white)
+                                    }
+                                )
+                        @unknown default:
+                            EmptyView()
+                        }
                     }
+                } else {
+                    Text("Nieprawidłowy URL: \(announcement.photo)")
+                        .font(.caption)
+                        .foregroundColor(.red)
+                    Color.red
+                        .frame(height: 200)
+                        .overlay(
+                            Image(systemName: "exclamationmark.triangle")
+                                .foregroundColor(.white)
+                                .font(.largeTitle)
+                        )
                 }
-            } else {
-                Text("Nieprawidłowy URL: \(announcement.photo)")
-                    .font(.caption)
-                    .foregroundColor(.red)
-                Color.red
-                    .frame(height: 200)
-                    .overlay(
-                        Image(systemName: "exclamationmark.triangle")
-                            .foregroundColor(.white)
-                            .font(.largeTitle)
-                    )
+                
+                Spacer()
             }
 
             Text(announcement.title)

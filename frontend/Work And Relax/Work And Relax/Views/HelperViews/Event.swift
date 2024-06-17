@@ -25,56 +25,62 @@ struct EventView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            if let url = URL(string: event.photo) {
-                AsyncImage(url: url) { phase in
-                    switch phase {
-                    case .empty:
-                        Color.gray
-                            .frame(height: 200)
-                            .overlay(
-                                ProgressView()
-                                    .progressViewStyle(CircularProgressViewStyle())
-                            )
-                    case .success(let image):
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(height: 200)
-                            .clipped()
-                            .shadow(radius: 5)
-                            .onAppear {
-                                image.getDominantColor { color in
-                                    dominantColor = color
-                                    textColor = color.contrastingColor()
+            HStack {
+                Spacer()
+                
+                if let url = URL(string: event.photo) {
+                    AsyncImage(url: url) { phase in
+                        switch phase {
+                        case .empty:
+                            Color.gray
+                                .frame(height: 200)
+                                .overlay(
+                                    ProgressView()
+                                        .progressViewStyle(CircularProgressViewStyle())
+                                )
+                        case .success(let image):
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 350, height: 200)
+                                .clipped()
+                                .shadow(radius: 5)
+                                .onAppear {
+                                    image.getDominantColor { color in
+                                        dominantColor = color
+                                        textColor = color.contrastingColor()
+                                    }
                                 }
-                            }
-                    case .failure:
-                        Color.red
-                            .frame(height: 200)
-                            .overlay(
-                                VStack {
-                                    Image(systemName: "exclamationmark.triangle")
-                                        .foregroundColor(.white)
-                                        .font(.largeTitle)
-                                    Text("Nie udało się załadować obrazu")
-                                        .foregroundColor(.white)
-                                }
-                            )
-                    @unknown default:
-                        EmptyView()
+                        case .failure:
+                            Color.red
+                                .frame(height: 200)
+                                .overlay(
+                                    VStack {
+                                        Image(systemName: "exclamationmark.triangle")
+                                            .foregroundColor(.white)
+                                            .font(.largeTitle)
+                                        Text("Nie udało się załadować obrazu")
+                                            .foregroundColor(.white)
+                                    }
+                                )
+                        @unknown default:
+                            EmptyView()
+                        }
                     }
+                } else {
+                    Text("Nieprawidłowy URL: \(event.photo)")
+                        .font(.caption)
+                        .foregroundColor(.red)
+                    Color.red
+                        .frame(height: 200)
+                        .overlay(
+                            Image(systemName: "exclamationmark.triangle")
+                                .foregroundColor(.white)
+                                .font(.largeTitle)
+                        )
                 }
-            } else {
-                Text("Nieprawidłowy URL: \(event.photo)")
-                    .font(.caption)
-                    .foregroundColor(.red)
-                Color.red
-                    .frame(height: 200)
-                    .overlay(
-                        Image(systemName: "exclamationmark.triangle")
-                            .foregroundColor(.white)
-                            .font(.largeTitle)
-                    )
+                
+                Spacer()
             }
 
             Text(event.title)
@@ -121,13 +127,40 @@ struct EventDetailView: View {
         ZStack {
             VStack(alignment: .leading) {
                 HStack {
-                    Spacer()
+                    Spacer(minLength: 100)
+                    
                     Text("Wydarzenie")
                         .font(.system(size: 20, weight: .bold, design: .default))
                         .foregroundColor(textColor.darker(by: 50))
                         .padding(.top, 10)
                         .padding(.leading, 25)
+                    
                     Spacer()
+                    
+                    Button(action: {
+                        if userManager.savedEvents.contains(Int(event.id)) {
+                            if let index = userManager.savedEvents.firstIndex(of: Int(event.id)) {
+                                userManager.savedEvents.remove(at: index)
+                            }
+                        } else {
+                            userManager.savedEvents.append(Int(event.id))
+                        }
+                    }) {
+                        if userManager.savedEvents.contains(Int(event.id)) {
+                            Image(systemName: "bookmark.fill")
+                                .font(.system(size: 24, weight: .bold))
+                                .clipShape(Circle())
+                                .foregroundColor(textColor.darker(by: 50))
+                                .padding(.bottom, -7)
+                        } else {
+                            Image(systemName: "bookmark")
+                                .font(.system(size: 24, weight: .bold))
+                                .clipShape(Circle())
+                                .foregroundColor(textColor.darker(by: 50))
+                                .padding(.bottom, -7)
+                        }
+                    }
+                    
                     Button(action: goBack) {
                         Image(systemName: "xmark")
                             .font(.system(size: 24, weight: .bold))
@@ -191,47 +224,15 @@ struct EventDetailView: View {
                             .font(.system(size: 35, weight: .bold, design: .default))
                             .padding(.top, 5)
                             .foregroundColor(textColor)
-                            .lineLimit(1)
-                        
-                        Button(action: {
-                            if userManager.savedEvents.contains(Int(event.id)) {
-                                if let index = userManager.savedEvents.firstIndex(of: Int(event.id)) {
-                                    userManager.savedEvents.remove(at: index)
-                                }
-                            } else {
-                                userManager.savedEvents.append(Int(event.id))
-                            }
-                        }) {
-                            if userManager.savedEvents.contains(Int(event.id)) {
-                                Image(systemName: "bookmark.fill")
-                                    .padding(10)
-                                    .fontWeight(.bold)
-                                    .background(dominantColor.darker(by: 20))
-                                    .clipShape(Circle())
-                                    .foregroundColor(.white)
-                                    .shadow(radius: 5)
-                            } else {
-                                Image(systemName: "bookmark")
-                                    .padding(10)
-                                    .fontWeight(.bold)
-                                    .background(dominantColor.darker(by: 20))
-                                    .clipShape(Circle())
-                                    .foregroundColor(.white)
-                                    .shadow(radius: 5)
-                            }
-                        }
-                        .offset(x: 315, y: -62)
                             
                         Text(convertDateFormat(inputDate: event.eventDate))
                             .font(.subheadline)
                             .foregroundColor(textColor)
-                            .padding(.top, -65)
 
                         Text(event.description)
                             .font(.body)
                             .padding(.top, 10)
                             .foregroundColor(textColor)
-                            .padding(.top, -30)
                     }
                     .padding()
                 }
