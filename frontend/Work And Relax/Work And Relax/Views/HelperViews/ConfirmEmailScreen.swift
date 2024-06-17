@@ -29,6 +29,7 @@ struct ConfirmEmailScreen: View {
                 .multilineTextAlignment(.center)
                 .foregroundColor(Color(red: 54/255, green: 85/255, blue: 143/255))
                 .padding(.horizontal)
+                .frame(width: 380)
             
             Spacer()
             

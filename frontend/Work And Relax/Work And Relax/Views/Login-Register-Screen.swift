@@ -8,6 +8,7 @@ struct Login_Register_Screen: View {
     @State private var isAuthenticated: Bool = false
     @State private var showError: Bool = false
     @State private var showingRegistrationView = false
+    @State private var showingConfirmView = false
     @EnvironmentObject var userManager: UserManager
     
     var body: some View {
@@ -159,10 +160,16 @@ struct Login_Register_Screen: View {
             .navigationBarBackButtonHidden(true)
             
             if showingRegistrationView {
-                RegistrationView(showingRegistrationView: $showingRegistrationView)
+                RegistrationView(showingRegistrationView: $showingRegistrationView, showingConfirmView: $showingConfirmView)
                     .transition(.opacity)
                     .environmentObject(userManager)
 
+            }
+            
+            if showingConfirmView {
+                ConfirmEmailScreen()
+                    .transition(.opacity)
+                    .environmentObject(userManager)
             }
             
             Ellipse()

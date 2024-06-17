@@ -18,6 +18,7 @@ struct NewUserProfile: Codable {
 struct RegistrationView: View {
     @EnvironmentObject var userManager: UserManager
     @Binding var showingRegistrationView: Bool
+    @Binding var showingConfirmView: Bool
     @State private var firstName: String = ""
     @State private var lastName: String = ""
     @State private var email: String = ""
@@ -136,6 +137,7 @@ struct RegistrationView: View {
                         success, message in
                         if success {
                             self.registerSuccess = true
+                            self.showingConfirmView = true
                             self.showingRegistrationView = false
                         } else {
                             self.firstNameHasError = true
@@ -196,10 +198,6 @@ struct RegistrationView: View {
         )
         .cornerRadius(20)
         .padding(.horizontal, 16)
-        .fullScreenCover(isPresented: $registerSuccess) {
-            ConfirmEmailScreen()
-                .environmentObject(userManager)
-        }
     }
     
     func validateFields() -> Bool {
@@ -239,7 +237,7 @@ struct RegistrationView: View {
 
 struct RegistrationView_Previews: PreviewProvider {
     static var previews: some View {
-        RegistrationView(showingRegistrationView: .constant(true))
+        RegistrationView(showingRegistrationView: .constant(true), showingConfirmView: .constant(false))
             .environmentObject(UserManager())
     }
 }
